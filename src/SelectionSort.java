@@ -43,6 +43,7 @@ class CSVUtil {
     } // end of readDataFromFile method
 } // end of CSVUtil
 
+
 public class SelectionSort {
     // TODO: Implement the methods on the main method
     public static void main(String[] args) {
