@@ -19,14 +19,14 @@ public class DatasetGenerator {
         String[] stringArray = uniqueStrings.toArray(new String[0]);
 
         //writing average case data
-        writeData(stringArray,fileNameAverage);
+//        writeData(stringArray,fileNameAverage);
 
         //Sort ascending
         sortAscending(stringArray);
-        writeData(stringArray,fileNameBest);
+//        writeData(stringArray,fileNameBest);
 
         sortDescending(stringArray);
-        writeData(stringArray, fileNameWorst);
+//        writeData(stringArray, fileNameWorst);
     }
 
 
