@@ -21,6 +21,28 @@
  */
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+// Utility class to handle CSV operations
+class CSVUtil {
+    public static int[] readDataFromFile(String fileName) {
+        List<Integer> dataList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                dataList.add(Integer.parseInt(line));
+            } // end of try
+        } catch (IOException e) {
+            e.printStackTrace();
+        } // end of catch
+        return dataList.stream().mapToInt(i -> i).toArray();
+    } // end of readDataFromFile method
+} // end of CSVUtil
+
 public class SelectionSort {
     // TODO: Implement the methods on the main method
     public static void main(String[] args) {
