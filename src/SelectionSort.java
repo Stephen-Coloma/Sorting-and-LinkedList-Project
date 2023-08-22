@@ -14,27 +14,7 @@
  */
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-// Utility class to handle CSV operations
-class CSVUtil {
-    public static int[] readDataFromFile(String fileName) {
-        List<Integer> dataList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                dataList.add(Integer.parseInt(line));
-            } // end of try
-        } catch (IOException e) {
-            e.printStackTrace();
-        } // end of catch
-        return dataList.stream().mapToInt(i -> i).toArray();
-    } // end of readDataFromFile method
-} // end of CSVUtil
+import util.CSVReader;
 
 /**
  * <p>
@@ -47,28 +27,9 @@ class CSVUtil {
 
 public class SelectionSort {
     public static void main(String[] args) {
-        String[] fileNames = {"10K-AverageCase.csv", "50K-AverageCase.csv",
-                "200K-AverageCase.csv", "500K-AverageCase.csv", "1M-AverageCase.csv"}; // add more here
 
-        for (String fileName : fileNames) {
-            int[] data = CSVUtil.readDataFromFile(fileName);
-            System.out.println("File: " + fileName);
 
-            // Reset the statement counter for each dataset
-            int statementCount = countStatements();
-
-            selectionSort(data);
-
-            // Display the sorted data and count of statements executed
-            System.out.print("Sorted Data: ");
-            showElements(data);
-            System.out.println("Number of statements executed: " + statementCount);
-            System.out.println();
-
-            // TODO: Write the statement count to a results file
-            writeResultsToFile(statementCount);
-        } // end of for
-    } // end of main method
+    }
 
     /**
      * Sorts the given array using the Selection Sort algorithm.
