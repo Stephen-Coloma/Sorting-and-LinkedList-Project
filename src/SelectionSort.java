@@ -20,5 +20,46 @@
  * </p>
  */
 
+
 public class SelectionSort {
-}
+    // TODO: Implement the methods on the main method
+    public static void main(String[] args) {
+    } // end of main method
+
+    /**
+     * Sorts the given array using the Selection Sort algorithm.
+     * @param arr Array of integers to be sorted.
+     */
+    public static void selectionSort(int[] arr) {
+        // TODO: Implement the Selection Sort algorithm
+        // TODO: For every statement in the algorithm, increment the statementCount
+        // TODO: Make sure to sort in ascending order
+    } // end of selectionSort method
+
+    /**
+     * Shows the elements of the given array.
+     * @param arr Array of integers.
+     */
+    public static void showElements(int[] arr) {
+        // TODO: Implement printing array elements
+    } // end of showElements method
+
+    /**
+     * Counts the number of statements executed during sorting.
+     * @return Number of statements executed.
+     */
+    public static int countStatements() {
+        // TODO: Return the total number of statements executed during sorting
+        return 0;  // Placeholder return value
+    } // end of countStatements method
+
+    /**
+     * Writes the given statement count to a results file.
+     * @param statementCount Number of statements executed.
+     */
+    public static void writeResultsToFile(int statementCount) {
+        // TODO: Implement writing the results (statement count) to a file
+    } // end of writeResultsToFile method
+
+} // end of SelectionSort class
+
