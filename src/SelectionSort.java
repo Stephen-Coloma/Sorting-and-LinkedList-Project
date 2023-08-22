@@ -11,13 +11,6 @@
  *     REY DANIEL L. ROQUE- 2233357@slu.edu.ph
  *     LOURDENE EIRA C. SANTOS- 2233120@slu.edu.ph
  * </p>
- *
- * <p>
- *     This class demonstrates the comparison of the Selection Sort algorithm
- *     with other sorting algorithms in terms of the number of statements executed.
- *     It reads data from input files, sorts the data using Selection Sort,
- *     and analyzes the number of statements executed for various input scenarios.
- * </p>
  */
 
 
@@ -43,10 +36,38 @@ class CSVUtil {
     } // end of readDataFromFile method
 } // end of CSVUtil
 
+/**
+ * <p>
+ *     This class demonstrates the comparison of the Selection Sort algorithm
+ *     with other sorting algorithms in terms of the number of statements executed.
+ *     It reads data from input files, sorts the data using Selection Sort,
+ *     and analyzes the number of statements executed for various input scenarios.
+ * </p>
+ */
 
 public class SelectionSort {
-    // TODO: Implement the methods on the main method
     public static void main(String[] args) {
+        String[] fileNames = {"10K-AverageCase.csv", "50K-AverageCase.csv",
+                "200K-AverageCase.csv", "500K-AverageCase.csv", "1M-AverageCase.csv"}; // add more here
+
+        for (String fileName : fileNames) {
+            int[] data = CSVUtil.readDataFromFile(fileName);
+            System.out.println("File: " + fileName);
+
+            // Reset the statement counter for each dataset
+            int statementCount = countStatements();
+
+            selectionSort(data);
+
+            // Display the sorted data and count of statements executed
+            System.out.print("Sorted Data: ");
+            showElements(data);
+            System.out.println("Number of statements executed: " + statementCount);
+            System.out.println();
+
+            // TODO: Write the statement count to a results file
+            writeResultsToFile(statementCount);
+        } // end of for
     } // end of main method
 
     /**
@@ -66,6 +87,7 @@ public class SelectionSort {
     public static void showElements(int[] arr) {
         // TODO: Implement printing array elements
     } // end of showElements method
+
 
     /**
      * Counts the number of statements executed during sorting.
