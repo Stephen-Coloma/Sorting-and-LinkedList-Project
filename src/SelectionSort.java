@@ -14,58 +14,28 @@
  */
 
 
-import util.CSVReader;
-
-/**
- * <p>
- *     This class demonstrates the comparison of the Selection Sort algorithm
- *     with other sorting algorithms in terms of the number of statements executed.
- *     It reads data from input files, sorts the data using Selection Sort,
- *     and analyzes the number of statements executed for various input scenarios.
- * </p>
- */
-
 public class SelectionSort {
     public static void main(String[] args) {
-
 
     }
 
     /**
      * Sorts the given array using the Selection Sort algorithm.
-     * @param arr Array of integers to be sorted.
+     * @param arr Array of Strings to be sorted.
+     * @return int count of statements executed in the method.
      */
-    public static void selectionSort(int[] arr) {
-        // TODO: Implement the Selection Sort algorithm
-        // TODO: For every statement in the algorithm, increment the statementCount
-        // TODO: Make sure to sort in ascending order
+    public static int sort(String arr) {
+        /*ALGORITHM:
+          1. Implement the Selection Sort algorithm
+          2. Initialize statementCount to 0;
+          2. For every statement in the algorithm, increment the statementCount
+          4. return statementCount variable
+          */
+        return 1;
     } // end of selectionSort method
 
-    /**
-     * Shows the elements of the given array.
-     * @param arr Array of integers.
-     */
-    public static void showElements(int[] arr) {
-        // TODO: Implement printing array elements
-    } // end of showElements method
+    public static void displayCounts(){
 
-
-    /**
-     * Counts the number of statements executed during sorting.
-     * @return Number of statements executed.
-     */
-    public static int countStatements() {
-        // TODO: Return the total number of statements executed during sorting
-        return 0;  // Placeholder return value
-    } // end of countStatements method
-
-    /**
-     * Writes the given statement count to a results file.
-     * @param statementCount Number of statements executed.
-     */
-    public static void writeResultsToFile(int statementCount) {
-        // TODO: Implement writing the results (statement count) to a file
-    } // end of writeResultsToFile method
-
+    }
 } // end of SelectionSort class
 
