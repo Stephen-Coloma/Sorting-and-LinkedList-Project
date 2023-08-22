@@ -22,14 +22,33 @@ public class InsertionSort {
      * @param arr Array of Strings to be sorted.
      * @return int count of statements executed in the method.
      */
-    public static int sort(String arr) {
+    public static int sort(String[] arr) {
         /*ALGORITHM:
           1. Implement the Insertion Sort algorithm
           2. Initialize statementCount to 0;
           2. For every statement in the algorithm, increment the statementCount
           4. return statementCount variable
           */
-        return 1;
+        int statementCount = 0;
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minIndex = i;
+
+            for (int j = i + 1; j < arr.length; j++) {
+                statementCount++; // Counting the comparison statement
+                if (arr[j].compareTo(arr[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex != i) {
+                statementCount += 3; // Counting the swap statements (3 for temp variable swap)
+                String temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
+        }
+        return statementCount;
     } // end of sort method
 
     public static void displayCounts(){
