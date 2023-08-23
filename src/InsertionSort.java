@@ -1,6 +1,7 @@
 import util.CSVReader;
 
 import javax.management.StringValueExp;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -21,104 +22,76 @@ import java.util.Scanner;
 
 
 public class InsertionSort {
-    static String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
-    static String Avg10K = "src/dataset/TenThousand/10K-AverageCase.csv";
-    static String Worst10K = "src/dataset/TenThousand/10K-WorstCase.csv";
-    static String Best50K = "src/dataset/FiftyThousand/50K-BestCase.csv";
-    static String Avg50K = "src/dataset/FiftyThousand/50K-AverageCase.csv";
-    static String Worst50K = "src/dataset/FiftyThousand/50K-WorstCase.csv";
-    static String Best200K = "src/dataset/TwoHundredThousand/200K-BestCase.csv";
-    static String Avg200K = "src/dataset/TwoHundredThousand/200K-AverageCase.csv";
-    static String Worst200K = "src/dataset/TwoHundredThousand/200K-WorstCase.csv";
-    static String Best500K = "src/dataset/FiveHundredThousand/500K-BestCase.csv";
-    static String Avg500K = "src/dataset/FiveHundredThousand/500K-AverageCase.csv";
-    static String Worst500K = "src/dataset/FiveHundredThousand/500K-WorstCase.csv";
-    static String Best1M = "src/dataset/OneMillion/1M-BestCase.csv";
-    static String Avg1M = "src/dataset/OneMillion/1M-AverageCase.csv";
-    static String Worst1M = "src/dataset/OneMillion/1M-WorstCase.csv";
     public static void main(String[] args) {
+        /*ALGORITHM:
+        * 1. Initiate the 2D array of length 5 by 3.
+        * 2. The row will be the size variant (10k,50k,200k,500k,1M)
+        * 3. The column will be the type arrangement variant (Best, Worst, Average)
+        * 4. Create a list of strings that stores the file path above. Follow format BEST-WORST-AVERAGE
+        * 5. Initiate variable int fileNumber = 0, it is the position of Best10k in the list
+        * 6. Create a double for loop that populates the 2D array.
+        * 7. Call the displayCount method and pass in the 2D array.
+        * */
 
-        Scanner kbd = new Scanner(System.in);
-        char repeat;
-        do {
-            int unitChoice = getUnitsChoice(kbd);
-            int caseAnswer = getCaseChoice(kbd);
-            long insertionSortCount;
-            switch (unitChoice) {
-                case 1 -> {
-                    if (caseAnswer == 1) {
-                        insertionSortCount = sort(Best10K);
-                        displayCounts(insertionSortCount);
-                    } else if (caseAnswer == 2) {
-                        insertionSortCount = sort(Avg10K);
-                        displayCounts(insertionSortCount);
-                    } else {
-                        insertionSortCount = sort(Worst10K);
-                        displayCounts(insertionSortCount);
-                    }
-                }
-                case 2 -> {
-                    if (caseAnswer == 1) {
-                        insertionSortCount = sort(Best50K);
-                        displayCounts(insertionSortCount);
-                    } else if (caseAnswer == 2) {
-                        insertionSortCount = sort(Avg50K);
-                        displayCounts(insertionSortCount);
-                    } else {
-                        insertionSortCount = sort(Worst50K);
-                        displayCounts(insertionSortCount);
-                    }
-                }
-                case 3 -> {
-                    if (caseAnswer == 1) {
-                        insertionSortCount = sort(Best200K);
-                        displayCounts(insertionSortCount);
-                    } else if (caseAnswer == 2) {
-                        insertionSortCount = sort(Avg200K);
-                        displayCounts(insertionSortCount);
-                    } else {
-                        insertionSortCount = sort(Worst200K);
-                        displayCounts(insertionSortCount);
-                    }
-                }
-                case 4 -> {
-                    if (caseAnswer == 1) {
-                        insertionSortCount = sort(Best500K);
-                        displayCounts(insertionSortCount);
-                    } else if (caseAnswer == 2) {
-                        insertionSortCount = sort(Avg500K);
-                        displayCounts(insertionSortCount);
-                    } else {
-                        insertionSortCount = sort(Worst500K);
-                        displayCounts(insertionSortCount);
-                    }
-                }
-                case 5 -> {
-                    if (caseAnswer == 1) {
-                        insertionSortCount = sort(Best1M);
-                        displayCounts(insertionSortCount);
-                    } else if (caseAnswer == 2) {
-                        insertionSortCount = sort(Avg1M);
-                        displayCounts(insertionSortCount);
-                    } else {
-                        insertionSortCount = sort(Worst1M);
-                        displayCounts(insertionSortCount);
-                    }
-                }
-            }
-            System.out.print("Try Again? (Y/N): ");
-            repeat = kbd.nextLine().charAt(0);
-            repeat = Character.toUpperCase(repeat);
 
-        } while (repeat == 'Y');
+
+
+
     }//end of main
+
+    private static ArrayList<String> createFilePathInList() {
+        String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
+        String Worst10K = "src/dataset/TenThousand/10K-WorstCase.csv";
+        String Avg10K = "src/dataset/TenThousand/10K-AverageCase.csv";
+
+        String Best50K = "src/dataset/FiftyThousand/50K-BestCase.csv";
+        String Worst50K = "src/dataset/FiftyThousand/50K-WorstCase.csv";
+        String Avg50K = "src/dataset/FiftyThousand/50K-AverageCase.csv";
+
+        String Best200K = "src/dataset/TwoHundredThousand/200K-BestCase.csv";
+        String Worst200K = "src/dataset/TwoHundredThousand/200K-WorstCase.csv";
+        String Avg200K = "src/dataset/TwoHundredThousand/200K-AverageCase.csv";
+
+        String Best500K = "src/dataset/FiveHundredThousand/500K-BestCase.csv";
+        String Worst500K = "src/dataset/FiveHundredThousand/500K-WorstCase.csv";
+        String Avg500K = "src/dataset/FiveHundredThousand/500K-AverageCase.csv";
+
+        String Best1M = "src/dataset/OneMillion/1M-BestCase.csv";
+        String Worst1M = "src/dataset/OneMillion/1M-WorstCase.csv";
+        String Avg1M = "src/dataset/OneMillion/1M-AverageCase.csv";
+
+
+        ArrayList<String> filePathsInList = new ArrayList<String>();
+
+        filePathsInList.add(Best10K);
+        filePathsInList.add(Worst10K);
+        filePathsInList.add(Avg10K);
+
+        filePathsInList.add(Best50K);
+        filePathsInList.add(Worst50K);
+        filePathsInList.add(Avg50K);
+
+        filePathsInList.add(Best200K);
+        filePathsInList.add(Worst200K);
+        filePathsInList.add(Avg200K);
+
+        filePathsInList.add(Best500K);
+        filePathsInList.add(Worst500K);
+        filePathsInList.add(Avg500K);
+
+        filePathsInList.add(Best1M);
+        filePathsInList.add(Worst1M);
+        filePathsInList.add(Avg1M);
+
+        return filePathsInList;
+    }
 
     /**
      * Sorts the given array using the Insertion Sort algorithm.
      * @param filename name of file to be read.
      * @return int count of statements executed in the method.
      */
-    public static long sort(String filename) {
+    public static long selectionSort(String filename) {
         /*ALGORITHM:
           1. Implement the Insertion Sort algorithm
           2. Initialize statementCount to 0;
@@ -146,38 +119,9 @@ public class InsertionSort {
         }
         return statementCount;
     }// end of sort method
-    public static void displayCounts(long insertionSortCount){
-        System.out.println("Statement Counts:");
-        int length = String.valueOf(insertionSortCount).length();
-        String unit="";
-        if(length>= 16)
-            unit="Quadrillion";
-            else if(length >=13)
-                unit="Trillion";
-                else if(length>=10)
-                    unit="Billion";
-                    else if(length>=7)
-                        unit="Million";
-                        else if(length<4)
-                            unit="Thousand";
-        System.out.println("Insertion Sort: " + insertionSortCount +" "+ unit+" statements" );
+    public static void displayCounts(long[][] insertionSortCount) {
 
-    }
-    public static int getUnitsChoice(Scanner kbd) {
-        System.out.println("Which one do you want to sort?");
-        System.out.println("1. Ten Thousand");
-        System.out.println("2. Fifty Thousand");
-        System.out.println("3. Two Hundred Thousand");
-        System.out.println("4. Five Hundred Thousand");
-        System.out.println("5. One Million");
-        return (Integer.parseInt(kbd.nextLine()));
-    }
-    public static int getCaseChoice(Scanner kbd){
-        System.out.println(" Which Case? ");
-        System.out.println("1. Best Case");
-        System.out.println("2. Average Case");
-        System.out.println("3. Worst Case");
-        return(Integer.parseInt(kbd.nextLine()));
+
     }
 } // end of InsertionSort class
 

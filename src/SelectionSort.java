@@ -24,7 +24,7 @@ public class SelectionSort {
      * @param arr Array of Strings to be sorted.
      * @return int count of statements executed in the method.
      */
-    public static int sort(String arr) {
+    public static int selectionSort(String arr) {
         /*ALGORITHM:
           1. Implement the Selection Sort algorithm
           2. Initialize statementCount to 0;

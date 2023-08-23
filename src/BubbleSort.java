@@ -21,11 +21,11 @@
     public static void main(String[] args) {
         /*
         TODO: Add code statements for the main method here.
-        
-        Initialize the variables and  get 
+
+        Initialize the variables and  get
         user's choices for sorting unit and case
-        
-        */ 
+
+        */
     } // end of main method
 
     /**
@@ -33,7 +33,7 @@
      * @param arr array of Strings to be sorted.
      * @return int count of statements executed in the method.
      */
-    public static int sort(String arr){
+    public static int bubbleSort(String arr){
         /*
             ALGORITHM:
             1. Read data from the CSV file into an array.
@@ -41,8 +41,9 @@
             3. Iterate through the array using Bubble Sort algorithm
             4. Return the statementCount variable.
         */
-         
+
         //TODO: Add code statements for the bubble sort algorithm here.
+        return 1;
     } // end of sort method
 
     public static void displayCounts(){
