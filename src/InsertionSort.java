@@ -44,7 +44,7 @@ public class InsertionSort {
 
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
-                results[i][j] = selectionSort(filePathInList.get(fileNumber));
+                results[i][j] = insertionSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
             }
@@ -105,7 +105,7 @@ public class InsertionSort {
      * @param filename name of file to be read.
      * @return int count of statements executed in the method.
      */
-    public static long selectionSort(String filename) {
+    public static long insertionSort(String filename) {
         /*ALGORITHM:
           1. Implement the Insertion Sort algorithm
           2. Initialize statementCount to 0;
