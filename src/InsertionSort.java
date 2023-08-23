@@ -46,6 +46,7 @@ public class InsertionSort {
             for (int j = 0; j < arrangementVariants; j++) {
                 results[i][j] = selectionSort(filePathInList.get(fileNumber));
                 fileNumber++;
+                System.out.println("File: " + fileNumber);
             }
         }
 
