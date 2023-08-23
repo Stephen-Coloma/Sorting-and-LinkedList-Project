@@ -33,10 +33,23 @@ public class InsertionSort {
         * 7. Call the displayCount method and pass in the 2D array.
         * */
 
+        int sizeVariants = 5;
+        int arrangementVariants = 3;
 
+        long[][] results = new long[sizeVariants][arrangementVariants];
 
+        ArrayList<String> filePathInList= createFilePathInList();
 
+        int fileNumber = 0;
 
+        for (int i = 0; i < sizeVariants; i++) {
+            for (int j = 0; j < arrangementVariants; j++) {
+                results[i][j] = selectionSort(filePathInList.get(fileNumber));
+                fileNumber++;
+            }
+        }
+
+        displayCounts(results);
     }//end of main
 
     private static ArrayList<String> createFilePathInList() {
@@ -119,9 +132,17 @@ public class InsertionSort {
         }
         return statementCount;
     }// end of sort method
-    public static void displayCounts(long[][] insertionSortCount) {
+    public static void displayCounts(long[][] results) {
+        String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
-
+        System.out.printf("%-40S%-30S%-30S%-30S","INSERTION SORT RESULTS","BEST CASE","WORST CASE","AVERAGE CASE");
+        System.out.println();
+        for (int i = 0; i < results.length; i++) {
+            for (int j = 0; j<1; j++) {
+                System.out.printf("%-40s%,-30d%,-30d%,-30d",sizes[i],results[i][j],results[i][j+1],results[i][j+2]);
+                System.out.println();
+            }
+        }
     }
 } // end of InsertionSort class
 
