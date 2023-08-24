@@ -13,6 +13,8 @@
  * </p>
  */
 
+import util.CSVReader;
+
 import java.util.ArrayList;
 
 /**
@@ -42,7 +44,7 @@ import java.util.ArrayList;
 
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
-                results[i][j] = insertionSort(filePathInList.get(fileNumber));
+                results[i][j] = bubbleSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
             }
@@ -111,6 +113,19 @@ import java.util.ArrayList;
             3. Iterate through the array using Bubble Sort algorithm
             4. Return the statementCount variable.
         */
+
+        String[] array = CSVReader.readDataFromFile(arr);
+        long statementCount = 1;
+
+        for (int i = 0; i<array.length; i++){
+            for (int j = i+1; j< array.length; j++){
+                if (array[i].compareToIgnoreCase(array[j])>0){
+                    String temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
 
         //TODO: Add code statements for the bubble sort algorithm here.
         return 1;
