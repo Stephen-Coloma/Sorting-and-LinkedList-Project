@@ -1,3 +1,5 @@
+import util.CSVReader;
+
 import java.util.ArrayList;
 
 /**
@@ -109,7 +111,23 @@ public class SelectionSort {
           4. return statementCount variable
           */
 
+        String[] array = CSVReader.readDataFromFile(arr);
+        long statementCount = 1;
+
+        for(int i=1; i < arr.length()-1; i++){
+            int minIndex = i;
+            for (int j=i+1; j < arr.length(); j++){
+                if (array[j].compareTo(array[minIndex]) < 0) {
+                    minIndex = j;
+                }
+                String temp = array[minIndex];
+                array[minIndex] = array[i];
+                array[i] = temp;
+            }
+        }
+        return 1;
     } // end of selectionSort method
+
 
     public static void displayCounts(){
 
