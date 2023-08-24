@@ -95,10 +95,10 @@ public class SelectionSort {
 
     /**
      * Sorts the given array using the Selection Sort algorithm.
-     * @param arr Array of Strings to be sorted.
+     * @param fileName Array of Strings to be sorted.
      * @return int count of statements executed in the method.
      */
-    public static long selectionSort(String arr) {
+    public static long selectionSort(String fileName) {
        /*
             ALGORITHM:
             1. Read data from the CSV file into an array.
@@ -107,7 +107,7 @@ public class SelectionSort {
             4. Return the statementCount variable.
         */
 
-        String[] array = CSVReader.readDataFromFile(arr);
+        String[] array = CSVReader.readDataFromFile(fileName);
         long statementCount = 0;
 
         for(int i=0; i < array.length-1; i++){
