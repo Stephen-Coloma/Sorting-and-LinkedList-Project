@@ -129,7 +129,7 @@ public class SelectionSort {
     } // end of selectionSort method
 
 
-    public static void displayCounts(){
+    public static void displayCounts(long[][] results){
 
     }
 } // end of SelectionSort class
