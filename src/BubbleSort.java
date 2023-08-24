@@ -163,7 +163,7 @@ import java.util.ArrayList;
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
         // Display header
-        System.out.printf("%-40S%-30S%-30S%-30S","INSERTION SORT RESULTS","BEST CASE","WORST CASE","AVERAGE CASE");
+        System.out.printf("%-40S%-30S%-30S%-30S","BUBBLE SORT RESULTS","BEST CASE","WORST CASE","AVERAGE CASE");
         System.out.println();
 
         // Display results for each dataset size
