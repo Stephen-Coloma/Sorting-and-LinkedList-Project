@@ -21,36 +21,82 @@ import java.util.ArrayList;
   */
  public class BubbleSort {
     public static void main(String[] args) {
-        public static void main(String[] args) {
-            /*ALGORITHM:
-             * 1. Initiate the 2D array of length 5 by 3.
-             * 2. The row will be the size variant (10k,50k,200k,500k,1M)
-             * 3. The column will be the type arrangement variant (Best, Worst, Average)
-             * 4. Create a list of strings that stores the file path above. Follow format BEST-WORST-AVERAGE
-             * 5. Initiate variable int fileNumber = 0, it is the position of Best10k in the list
-             * 6. Create a double for loop that populates the 2D array.
-             * 7. Call the displayCount method and pass in the 2D array.
-             * */
+        /*ALGORITHM:
+         * 1. Initiate the 2D array of length 5 by 3.
+         * 2. The row will be the size variant (10k,50k,200k,500k,1M)
+         * 3. The column will be the type arrangement variant (Best, Worst, Average)
+         * 4. Create a list of strings that stores the file path above. Follow format BEST-WORST-AVERAGE
+         * 5. Initiate variable int fileNumber = 0, it is the position of Best10k in the list
+         * 6. Create a double for loop that populates the 2D array.
+         * 7. Call the displayCount method and pass in the 2D array.
+         * */
 
-            int sizeVariants = 5;
-            int arrangementVariants = 3;
+        int sizeVariants = 5;
+        int arrangementVariants = 3;
 
-            long[][] results = new long[sizeVariants][arrangementVariants];
+        long[][] results = new long[sizeVariants][arrangementVariants];
 
-            ArrayList<String> filePathInList= createFilePathInList();
+        ArrayList<String> filePathInList= createFilePathInList();
 
-            int fileNumber = 0;
+        int fileNumber = 0;
 
-            for (int i = 0; i < sizeVariants; i++) {
-                for (int j = 0; j < arrangementVariants; j++) {
-                    results[i][j] = insertionSort(filePathInList.get(fileNumber));
-                    fileNumber++;
-                    System.out.println("File: " + fileNumber);
-                }
+        for (int i = 0; i < sizeVariants; i++) {
+            for (int j = 0; j < arrangementVariants; j++) {
+                results[i][j] = insertionSort(filePathInList.get(fileNumber));
+                fileNumber++;
+                System.out.println("File: " + fileNumber);
             }
+        }
 
-            displayCounts(results);
+        displayCounts(results);
     } // end of main method
+
+    private static ArrayList<String> createFilePathInList() {
+        String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
+        String Worst10K = "src/dataset/TenThousand/10K-WorstCase.csv";
+        String Avg10K = "src/dataset/TenThousand/10K-AverageCase.csv";
+
+        String Best50K = "src/dataset/FiftyThousand/50K-BestCase.csv";
+        String Worst50K = "src/dataset/FiftyThousand/50K-WorstCase.csv";
+        String Avg50K = "src/dataset/FiftyThousand/50K-AverageCase.csv";
+
+        String Best200K = "src/dataset/TwoHundredThousand/200K-BestCase.csv";
+        String Worst200K = "src/dataset/TwoHundredThousand/200K-WorstCase.csv";
+        String Avg200K = "src/dataset/TwoHundredThousand/200K-AverageCase.csv";
+
+        String Best500K = "src/dataset/FiveHundredThousand/500K-BestCase.csv";
+        String Worst500K = "src/dataset/FiveHundredThousand/500K-WorstCase.csv";
+        String Avg500K = "src/dataset/FiveHundredThousand/500K-AverageCase.csv";
+
+        String Best1M = "src/dataset/OneMillion/1M-BestCase.csv";
+        String Worst1M = "src/dataset/OneMillion/1M-WorstCase.csv";
+        String Avg1M = "src/dataset/OneMillion/1M-AverageCase.csv";
+
+
+        ArrayList<String> filePathsInList = new ArrayList<String>();
+
+        filePathsInList.add(Best10K);
+        filePathsInList.add(Worst10K);
+        filePathsInList.add(Avg10K);
+
+        filePathsInList.add(Best50K);
+        filePathsInList.add(Worst50K);
+        filePathsInList.add(Avg50K);
+
+        filePathsInList.add(Best200K);
+        filePathsInList.add(Worst200K);
+        filePathsInList.add(Avg200K);
+
+        filePathsInList.add(Best500K);
+        filePathsInList.add(Worst500K);
+        filePathsInList.add(Avg500K);
+
+        filePathsInList.add(Best1M);
+        filePathsInList.add(Worst1M);
+        filePathsInList.add(Avg1M);
+
+        return filePathsInList;
+    }
 
     /**
      * Sorts the given array using the Bubble Sort algorithm.
