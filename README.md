@@ -89,29 +89,36 @@ If you have any questions or need further assistance related to the project, ple
 Feel free to explore and learn from our comparative analysis of sorting algorithms
 
 ## General Instructions
+To work with the source code, please follow these steps:
 
-In editing the source code, follow this following steps:
+1. Open your terminal and clone the project using this command:
+   ```
+   git clone <paste-the-project-link>
+   ```
 
-1. Clone the project uusing terminal.
-```
-git clone <paste-the-project-link>
-```
-2. Create a feature branch in the terminal.
-```
-git checkout -b <Branch-Name>
+2. In the terminal, create a feature branch for your work using:
+   ```
+   git checkout -b <Branch-Name>
+   ```
 
-```
-3. Start editing the source code.
-4. When finished editing the source code, commit your changes. I assume you all know how to commit.
-5. Then push your FEATURE BRANCH to the remote repository.
-```
-git push origin <Branch-Name>
+3. Now, you can start making edits to the source code.
 
-```
-6. Go to gitlab website and create a merge request (i.e Click the button "Create Merge Request").
-7. Choose the "assignee" to "Stephen Coloma".
-8. Create merge request.
-9. I will be the one to merge your changes in the main branch in the source code. -Stephen
+4. Once you're done editing, it's time to commit your changes. 
 
-### NOTE! DO NOT DIRECTLY MERGE TO MAIN BRANCH.
+5. Push your feature branch to the remote repository with this command:
+   ```
+   git push origin <Branch-Name>
+   ```
+
+6. Next, navigate to the GitLab website and create a merge request by clicking the "Create Merge Request" button.
+
+7. In the merge request, select "Stephen Coloma" as the assignee.
+
+8. Complete the merge request creation process.
+
+9. I'll be responsible for merging your changes into the main branch of the source code.
+
+**Important Note:** Please remember not to directly merge your changes into the main branch.
+Use the feature branch and the merge request process for maintaining the codebase.
+Feel free to ask if you have any questions or need further assistance.
 
