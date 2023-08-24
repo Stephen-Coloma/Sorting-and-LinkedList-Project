@@ -52,6 +52,7 @@ public class InsertionSort {
         // Nested loop to iterate through size and arrangement variants
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
+                // Apply insertion sort and record statement counts
                 results[i][j] = insertionSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
@@ -125,7 +126,7 @@ public class InsertionSort {
 
         // Return the ArrayList containing the file paths
         return filePathsInList;
-    }
+    } //  end of createFilePathInLIst method
 
     /**
      * Sorts the given array using the Insertion Sort algorithm.
@@ -158,11 +159,12 @@ public class InsertionSort {
             // Move elements that are greater than the key to one position ahead of their current position
             while (j >= 0 && arr[j].compareTo(key) > 0) {
                 statementCount += 3;
-                arr[j + 1] = arr[j]; // shift the element
+                arr[j + 1] = arr[j]; // Shift the element
                 statementCount+=2;
-                j--; // move to the previous element
+                j--; // Move to the previous element
                 statementCount++;
             } // end of while
+
             // Place the key in its correct sorted position
             arr[j + 1] = key;
             statementCount+=2;
@@ -190,8 +192,8 @@ public class InsertionSort {
             for (int j = 0; j<1; j++) {
                 System.out.printf("%-40s%,-30d%,-30d%,-30d",sizes[i],results[i][j],results[i][j+1],results[i][j+2]);
                 System.out.println();
-            } // end of for
-        } // end of for
+            } // end of  inner loop
+        } // end of outer loop
     }// end of displayCounts method
 
 } // end of InsertionSort class

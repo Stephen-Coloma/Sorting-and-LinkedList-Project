@@ -47,6 +47,7 @@ import java.util.ArrayList;
         // Nested loop to iterate through dataset sizes and arrangement variants
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
+                // Apply bubble sort and record statement counts
                 results[i][j] = bubbleSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
@@ -178,7 +179,7 @@ import java.util.ArrayList;
 
         // Display results for each dataset size
         for (int i = 0; i < results.length; i++) {
-            for (int j = 0; j < 1; j++) { // Loop through columns (best, worst, average)
+            for (int j = 0; j < 1; j++) {
                 System.out.printf("%-40s%,-30d%,-30d%,-30d", sizes[i], results[i][j], results[i][j+1], results[i][j+2]);
                 System.out.println();
             } // end of for
