@@ -41,7 +41,7 @@ public class SelectionSort {
 
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
-                results[i][j] = insertionSort(filePathInList.get(fileNumber));
+                results[i][j] = bubble(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
             }

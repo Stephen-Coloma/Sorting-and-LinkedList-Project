@@ -105,7 +105,7 @@ import java.util.ArrayList;
      * @param arr array of Strings to be sorted.
      * @return int count of statements executed in the method.
      */
-    public static int bubbleSort(String arr){
+    public static long bubbleSort(String arr){
         /*
             ALGORITHM:
             1. Read data from the CSV file into an array.
@@ -118,17 +118,21 @@ import java.util.ArrayList;
         long statementCount = 1;
 
         for (int i = 0; i<array.length; i++){
+            statementCount += 3;
             for (int j = i+1; j< array.length; j++){
+                statementCount +=4;
                 if (array[i].compareToIgnoreCase(array[j])>0){
+                    statementCount++;
                     String temp = array[i];
+                    statementCount++;
                     array[i] = array[j];
+                    statementCount++;
                     array[j] = temp;
+                    statementCount++;
                 }
             }
         }
-
-        //TODO: Add code statements for the bubble sort algorithm here.
-        return 1;
+        return statementCount;
     } // end of sort method
 
     public static void displayCounts(long[][] results){
