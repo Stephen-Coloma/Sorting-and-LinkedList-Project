@@ -96,7 +96,7 @@ import java.util.ArrayList;
         String Avg1M = "src/dataset/OneMillion/1M-AverageCase.csv";
 
         // Create an ArrayList to store the file paths
-        ArrayList<String> filePathsInList = new ArrayList<String>();
+        ArrayList<String> filePathsInList = new ArrayList<>();
 
         // Add all the file paths to the ArrayList
         filePathsInList.add(Best10K);
