@@ -49,6 +49,53 @@ public class SelectionSort {
 
     }
 
+    private static ArrayList<String> createFilePathInList() {
+        String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
+        String Worst10K = "src/dataset/TenThousand/10K-WorstCase.csv";
+        String Avg10K = "src/dataset/TenThousand/10K-AverageCase.csv";
+
+        String Best50K = "src/dataset/FiftyThousand/50K-BestCase.csv";
+        String Worst50K = "src/dataset/FiftyThousand/50K-WorstCase.csv";
+        String Avg50K = "src/dataset/FiftyThousand/50K-AverageCase.csv";
+
+        String Best200K = "src/dataset/TwoHundredThousand/200K-BestCase.csv";
+        String Worst200K = "src/dataset/TwoHundredThousand/200K-WorstCase.csv";
+        String Avg200K = "src/dataset/TwoHundredThousand/200K-AverageCase.csv";
+
+        String Best500K = "src/dataset/FiveHundredThousand/500K-BestCase.csv";
+        String Worst500K = "src/dataset/FiveHundredThousand/500K-WorstCase.csv";
+        String Avg500K = "src/dataset/FiveHundredThousand/500K-AverageCase.csv";
+
+        String Best1M = "src/dataset/OneMillion/1M-BestCase.csv";
+        String Worst1M = "src/dataset/OneMillion/1M-WorstCase.csv";
+        String Avg1M = "src/dataset/OneMillion/1M-AverageCase.csv";
+
+
+        ArrayList<String> filePathsInList = new ArrayList<String>();
+
+        filePathsInList.add(Best10K);
+        filePathsInList.add(Worst10K);
+        filePathsInList.add(Avg10K);
+
+        filePathsInList.add(Best50K);
+        filePathsInList.add(Worst50K);
+        filePathsInList.add(Avg50K);
+
+        filePathsInList.add(Best200K);
+        filePathsInList.add(Worst200K);
+        filePathsInList.add(Avg200K);
+
+        filePathsInList.add(Best500K);
+        filePathsInList.add(Worst500K);
+        filePathsInList.add(Avg500K);
+
+        filePathsInList.add(Best1M);
+        filePathsInList.add(Worst1M);
+        filePathsInList.add(Avg1M);
+
+        return filePathsInList;
+    }
+
     /**
      * Sorts the given array using the Selection Sort algorithm.
      * @param arr Array of Strings to be sorted.
@@ -61,7 +108,7 @@ public class SelectionSort {
           2. For every statement in the algorithm, increment the statementCount
           4. return statementCount variable
           */
-        return 1;
+
     } // end of selectionSort method
 
     public static void displayCounts(){
