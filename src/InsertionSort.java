@@ -51,7 +51,7 @@ public class InsertionSort {
         }
 
         displayCounts(results);
-    }//end of main
+    }//end of main method
 
     private static ArrayList<String> createFilePathInList() {
         String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
@@ -132,7 +132,13 @@ public class InsertionSort {
             statementCount+=2;
         }
         return statementCount;
-    }// end of sort method
+    }// end of insertionSort method
+
+    /**
+     * Displays execution times for insertion sort in different cases and input sizes.
+     * @param results a 2D array of execution times for insertion sort. The rows represent
+     *                input sizes, while columns represent best, worst, and average cases.
+     */
     public static void displayCounts(long[][] results) {
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
@@ -144,6 +150,6 @@ public class InsertionSort {
                 System.out.println();
             }
         }
-    }
+    }// end of displayCounts method
 } // end of InsertionSort class
 
