@@ -14,7 +14,6 @@
  */
 
 import util.CSVReader;
-
 import java.util.ArrayList;
 
 /**
@@ -33,23 +32,28 @@ import java.util.ArrayList;
          * 7. Call the displayCount method and pass in the 2D array.
          * */
 
-        int sizeVariants = 5;
-        int arrangementVariants = 3;
+        int sizeVariants = 5; // Number of different dataset sizes (10k, 50k, 200k, 500k, 1M)
+        int arrangementVariants = 3;// Number of arrangement variants (Best, Worst, Average)
 
+        // 2D array to store the results of statement counts
         long[][] results = new long[sizeVariants][arrangementVariants];
 
+        // Call method to create a list of file paths for the datasets
         ArrayList<String> filePathInList= createFilePathInList();
 
+        // Variable to track the current file number being processed
         int fileNumber = 0;
 
+        // Nested loop to iterate through dataset sizes and arrangement variants
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
                 results[i][j] = bubbleSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
-            }
-        }
+            } // end of for
+        } // end of for
 
+        // Call the method to display the counts for all variants
         displayCounts(results);
     } // end of main method
 
@@ -116,7 +120,7 @@ import java.util.ArrayList;
 
         // Return the ArrayList containing the file paths
         return filePathsInList;
-    }
+    } // end of createFilePathInList method
 
 
     /**
@@ -133,26 +137,31 @@ import java.util.ArrayList;
             4. Return the statementCount variable.
         */
 
+        // Read data from the CSV file into an array
         String[] array = CSVReader.readDataFromFile(fileName);
+
+        // Initialize statement count to track the number of executed statements
         long statementCount = 0;
 
+        // Iterate through the array using Bubble Sort
         for (int i = 0; i<array.length-1; i++){
-            statementCount += 4;
+            statementCount += 4; // Increment for loop initialization and condition check
             for (int j = 0; j< array.length-i-1; j++){
-                statementCount +=5;
+                statementCount +=5; // Increment for loop initialization and condition check
                 if (array[j].compareToIgnoreCase(array[j+1])>0){
-                    statementCount+=2;
+                    statementCount+=2; // Increment for if condition
                     String temp = array[j];
-                    statementCount++;
+                    statementCount++; // Increment for variable assignment
                     array[j] = array[j+1];
-                    statementCount+=2;
+                    statementCount+=2; // Increment for variable assignment
                     array[j+1] = temp;
-                    statementCount+=2;
-                }
-            }
-        }
+                    statementCount+=2; // Increment for variable assignment
+                } // end of if
+            } // end of for
+        } // end of for
+        // Return statement count
         return statementCount;
-    } // end of sort method
+    } // end of bubbleSort method
 
     /**
      * Displays the sorting results for different cases.
@@ -160,6 +169,7 @@ import java.util.ArrayList;
      * Each row corresponds to a dataset size, and columns correspond to best, worst, and average cases.
      */
     public static void displayCounts(long[][] results){
+        // Define the labels for different data set sizes
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
         // Display header
@@ -171,8 +181,8 @@ import java.util.ArrayList;
             for (int j = 0; j < 1; j++) { // Loop through columns (best, worst, average)
                 System.out.printf("%-40s%,-30d%,-30d%,-30d", sizes[i], results[i][j], results[i][j+1], results[i][j+2]);
                 System.out.println();
-            }
-        }
-    }
+            } // end of for
+        } // end of for
+    } // end of displayCounts method
 
 } // end of BubbleSort class

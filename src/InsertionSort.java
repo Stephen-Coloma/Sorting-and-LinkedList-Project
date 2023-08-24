@@ -37,8 +37,8 @@ public class InsertionSort {
         * 7. Call the displayCount method and pass in the 2D array.
         * */
 
-        int sizeVariants = 5; // number of different sizes of datasets (e.g., 10k, 50k, 200k, 500k, 1M)
-        int arrangementVariants = 3; // number of arrangement variants (e.g., Best, Worst, Average)
+        int sizeVariants = 5; // Number of different sizes of datasets (e.g., 10k, 50k, 200k, 500k, 1M)
+        int arrangementVariants = 3; // Number of arrangement variants (e.g., Best, Worst, Average)
 
         // 2D array to store the results of statement counts
         long[][] results = new long[sizeVariants][arrangementVariants];
@@ -133,7 +133,8 @@ public class InsertionSort {
      * @return int count of statements executed in the method.
      */
     public static long insertionSort(String filename) {
-        /*ALGORITHM:
+        /*
+          ALGORITHM:
           1. Implement the Insertion Sort algorithm
           2. Initialize statementCount to 0;
           2. For every statement in the algorithm, increment the statementCount
