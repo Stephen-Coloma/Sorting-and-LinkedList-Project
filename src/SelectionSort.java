@@ -1,7 +1,3 @@
-import util.CSVReader;
-
-import java.util.ArrayList;
-
 /**
  * Group MixAndMatch
  * Class Code and Course Number: 9342 - CS 211
@@ -17,6 +13,8 @@ import java.util.ArrayList;
  * </p>
  */
 
+import util.CSVReader;
+import java.util.ArrayList;
 
 public class SelectionSort {
     public static void main(String[] args) {
@@ -41,14 +39,12 @@ public class SelectionSort {
 
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
-                results[i][j] = bubble(filePathInList.get(fileNumber));
+                results[i][j] = selectionSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
             }
         }
-
         displayCounts(results);
-
     }
 
     private static ArrayList<String> createFilePathInList() {
@@ -103,36 +99,48 @@ public class SelectionSort {
      * @param arr Array of Strings to be sorted.
      * @return int count of statements executed in the method.
      */
-    public static int selectionSort(String arr) {
-        /*ALGORITHM:
-          1. Implement the Selection Sort algorithm
-          2. Initialize statementCount to 0;
-          2. For every statement in the algorithm, increment the statementCount
-          4. return statementCount variable
-          */
+    public static long selectionSort(String arr) {
+       /*
+            ALGORITHM:
+            1. Read data from the CSV file into an array.
+            2. Initialize statementCount to 0.
+            3. Iterate through the array using Bubble Sort algorithm
+            4. Return the statementCount variable.
+        */
 
         String[] array = CSVReader.readDataFromFile(arr);
-        long statementCount = 1;
+        long statementCount = 0;
 
-        for(int i=1; i < arr.length()-1; i++){
+        for(int i=0; i < array.length-1; i++){
+            statementCount += 4;
             int minIndex = i;
-            for (int j=i+1; j < arr.length(); j++){
-                if (array[j].compareTo(array[minIndex]) < 0) {
+            statementCount++;
+
+            for (int j=i+1; j < array.length; j++){
+                statementCount += 4;
+                if (array[j].compareToIgnoreCase(array[minIndex]) < 0) {
+                    statementCount ++;
                     minIndex = j;
+                    statementCount++;
                 }
-                String temp = array[minIndex];
-                array[minIndex] = array[i];
-                array[i] = temp;
             }
+            String temp = array[minIndex];
+            statementCount++;
+            array [minIndex] = array[i];
+            statementCount ++;
+            array[i] = temp;
+            statementCount++;
         }
-        return 1;
+        return statementCount;
     } // end of selectionSort method
+
+
 
 
     public static void displayCounts(long[][] results){
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
-        System.out.printf("%-40S%-30S%-30S%-30S","INSERTION SORT RESULTS","BEST CASE","WORST CASE","AVERAGE CASE");
+        System.out.printf("%-40S%-30S%-30S%-30S","SELECTION SORT RESULTS","BEST CASE","WORST CASE","AVERAGE CASE");
         System.out.println();
         for (int i = 0; i < results.length; i++) {
             for (int j = 0; j<1; j++) {
