@@ -53,13 +53,23 @@ public class DatasetGenerator {
 
         sortDescending(stringArray);
 //        writeData(stringArray, fileNameWorst);
-    }
+    }// end of main method
 
     /**
      * Generates a random list of strings.
      * @param random a variable that randomizes strings.
      * @return String list of randomized strings.
      */
+    /*
+        ALGORITHM:
+        1. Specify the desired length of the random string.
+        2. Define the characters that can be used in the random string.
+        3. Create a StringBuilder to build the random string.
+        4. Loop 'length' times to generate each character of the random string.
+           - Generate a random index within the range of characters.
+           - Get the character at the generated index and append it to the StringBuilder.
+        5. Return the generated random string.
+    */    
     private static String generateRandomString(Random random) {
         int length = 5; // Adjust the length as needed
         String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -100,6 +110,16 @@ public class DatasetGenerator {
      * @param array list of strings to be written into a file.
      * @param fileName file directory of the data.
      */
+    /*
+        ALGORITHM:
+        1. Open a try-with-resources block to ensure the file writer is properly closed.
+        2. Within the try block:
+           - Create a FileWriter object using the provided file name.
+           - Display a message indicating that the writing process has started.
+           - Call the 'write' method to write the data into the file using the writer.
+        3. Catch any FileNotFoundException and display an error message.
+        4. Catch any IOException and display an error message.
+    */    
     private static void writeData(String[] array, String fileName){
         try (FileWriter writer = new FileWriter(new File(fileName))){
 
@@ -117,6 +137,15 @@ public class DatasetGenerator {
     * @param records - the array of unique Strings to be written in a file
     * @param writer - writer object that handles the writing process.
     */
+    /*
+        ALGORITHM:
+        1. Get the current system time to measure the start time of writing.
+        2. Iterate through each 'record' in the 'records' array:
+           - Write the 'record' followed by a newline character ('\n') to the writer.
+        3. Close the writer to ensure data is flushed and resources are released.
+        4. Calculate the time taken for writing by subtracting the start time from the current time.
+        5. Print the time taken in seconds.
+    */    
     private static void write(String[] records, Writer writer) throws IOException {
         long start = System.currentTimeMillis();
         for (String record: records) {
