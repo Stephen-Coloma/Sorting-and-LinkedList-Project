@@ -52,6 +52,12 @@ public class DatasetGenerator {
     *  2. Generate a method that sorts the array in ascending order
     *  3. Generate a method that sorts the array in descending order
     *  4. Generate a method that writes all the elements in csv file*/
+
+    /**
+     * Generates a random list of strings.
+     * @param random a variable that randomizes strings.
+     * @return String list of randomized strings.
+     */
     private static String generateRandomString(Random random) {
         int length = 5; // Adjust the length as needed
         String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -66,10 +72,18 @@ public class DatasetGenerator {
         return stringBuilder.toString();
     }
 
+    /**
+     * Sorts the array in ascending order.
+     * @param array list of strings to be sorted.
+     */
     private static void sortAscending(String[] array){
         Arrays.sort(array);
     }
 
+    /**
+     * Sorts the array in descending order.
+     * @param array list of strings to be sorted.
+     */
     private static void sortDescending(String[] array){
         Arrays.sort(array);
         // Converting the array to a list
@@ -77,8 +91,13 @@ public class DatasetGenerator {
 
         // Reversing the list
         Collections.reverse(arrayAsList);
-    }
+    }// end of sortDescending method
 
+    /**
+     * Writes array of data in a file.
+     * @param array list of strings to be written into a file.
+     * @param fileName file directory of the data.
+     */
     private static void writeData(String[] array, String fileName){
         try (FileWriter writer = new FileWriter(new File(fileName))){
 
@@ -89,8 +108,13 @@ public class DatasetGenerator {
         }catch (IOException ioe){
             System.out.println("Error Occured");
         }
-    }
+    }// end of writeData method
 
+    /** 
+    * Supporting method for the writeData method in writing data in a file.
+    * @param records - the array of unique Strings to be written in a file
+    * @param writer - writer object that handles the writing process.
+    */
     private static void write(String[] records, Writer writer) throws IOException {
         long start = System.currentTimeMillis();
         for (String record: records) {
@@ -100,5 +124,6 @@ public class DatasetGenerator {
         writer.close();
         long end = System.currentTimeMillis();
         System.out.println((end - start) / 1000f + " seconds");
-    }
-}
+    }// end of write method
+
+}// end of DatasetGenerator class
