@@ -12,10 +12,10 @@
  *     SANTOS, Lourdene Eira C.- 2233120@slu.edu.ph
  * </p>
  */
-import util.CSVReader;
-import util.FilePathReader;
 
-import java.util.ArrayList;
+import util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
+import util.FilePathReader;  // Importing FilePathReader utility for managing file paths
+import java.util.ArrayList;  // Importing ArrayList class for creating dynamic lists
 
 /**
  * The SelectionSort class implements the Selection Sort algorithm to sort arrays of strings
@@ -28,17 +28,17 @@ public class SelectionSort {
      * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
      * @param args Command-line arguments
      */
+    /*
+        ALGORITHM:
+        1. Initiate the 2D array of length 5 by 3.
+        2. The row will be the size variant (10k,50k,200k,500k,1M)
+        3. The column will be the type arrangement variant (Best, Worst, Average)
+        4. Create a list of strings that stores the file path above. Follow format BEST-WORST-AVERAGE
+        5. Initiate variable int fileNumber = 0, it is the position of Best10k in the list
+        6. Create a double for loop that populates the 2D array.
+        7. Call the displayCount method and pass in the 2D array.
+    */
     public static void main(String[] args) {
-        /*ALGORITHM:
-         * 1. Initiate the 2D array of length 5 by 3.
-         * 2. The row will be the size variant (10k,50k,200k,500k,1M)
-         * 3. The column will be the type arrangement variant (Best, Worst, Average)
-         * 4. Create a list of strings that stores the file path above. Follow format BEST-WORST-AVERAGE
-         * 5. Initiate variable int fileNumber = 0, it is the position of Best10k in the list
-         * 6. Create a double for loop that populates the 2D array.
-         * 7. Call the displayCount method and pass in the 2D array.
-         * */
-
         int sizeVariants = 5; // Number of different dataset sizes (10k, 50k, 200k, 500k, 1M)
         int arrangementVariants = 3; // Number of arrangement variants (Best, Worst, Average)
 
@@ -70,15 +70,14 @@ public class SelectionSort {
      * @param fileName Array of Strings to be sorted.
      * @return int count of statements executed in the method.
      */
+    /*
+        ALGORITHM:
+        1. Read data from the CSV file into an array.
+        2. Initialize statementCount to 0.
+        3. Iterate through the array using Selection Sort algorithm
+        4. Return the statementCount variable.
+    */
     public static long selectionSort(String fileName) {
-       /*
-            ALGORITHM:
-            1. Read data from the CSV file into an array.
-            2. Initialize statementCount to 0.
-            3. Iterate through the array using Selection Sort algorithm
-            4. Return the statementCount variable.
-        */
-
         // Read the data from the CSV file into an array
         String[] array = CSVReader.readDataFromFile(fileName);
 
@@ -118,8 +117,15 @@ public class SelectionSort {
     /**
      * Displays execution times for insertion sort in different cases and input sizes.
      * @param results a 2D array of execution times for insertion sort. The rows represent
-     *      input sizes, while columns represent best, worst, and average cases.
+     *                input sizes, while columns represent best, worst, and average cases.
      */
+    /*
+        ALGORITHM:
+        1. Define labels for different data set sizes.
+        2. Display a header with appropriate formatting.
+        3. Loop through the results array to display execution times for each dataset size.
+            - For each dataset size, display the execution times for best, worst, and average cases.
+    */
     public static void displayCounts(long[][] results){
         // Define the labels for different data set sizes
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
