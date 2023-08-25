@@ -12,13 +12,22 @@
  *     SANTOS, Lourdene Eira C.- 2233120@slu.edu.ph
  * </p>
  */
-
 import util.CSVReader;
 import util.FilePathReader;
 
 import java.util.ArrayList;
 
+/**
+ * The SelectionSort class implements the Selection Sort algorithm to sort arrays of strings
+ * representing data from CSV files. It measures and displays the number of executed statements
+ * for different input sizes and arrangement variants (best, worst, and average cases).
+ * The class includes methods for sorting, counting statements, and displaying results.
+ */
 public class SelectionSort {
+    /**
+     * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         /*ALGORITHM:
          * 1. Initiate the 2D array of length 5 by 3.
@@ -129,4 +138,3 @@ public class SelectionSort {
     } // end of displayCounts method
 
 } // end of SelectionSort class
-

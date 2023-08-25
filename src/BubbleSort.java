@@ -19,10 +19,15 @@ import util.FilePathReader;
 import java.util.ArrayList;
 
 /**
-  * The BubbleSort class provides an implementation of the Bubble Sort algorithm for sorting arrays of strings
-  * read from a CSV file. It includes methods for sorting, displaying statement counts, and user interaction.
-  */
+ * The BubbleSort class demonstrates the Bubble Sort algorithm for sorting arrays of strings
+ * retrieved from CSV files. It measures and displays the number of executed statements for different
+ * input sizes and arrangement variants, including best, worst, and average cases.
+ */
  public class BubbleSort {
+    /**
+     * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         /*ALGORITHM:
          * 1. Initiate the 2D array of length 5 by 3.

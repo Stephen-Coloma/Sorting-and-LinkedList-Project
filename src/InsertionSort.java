@@ -19,15 +19,16 @@ import util.FilePathReader;
 import java.util.ArrayList;
 
 /**
- *  <p>
- *      The InsertionSort class provides an implementation of the Insertion Sort algorithm for sorting arrays
- *      of strings read from various CSV files. It includes functionality to sort data according to different
- *      size variants and arrangement types (Best, Worst, Average). The class also includes methods to create
- *      file paths, sort the data, and display the statement counts for different data sets.
- *  </p>
+ * The InsertionSort class provides an implementation of the Insertion Sort algorithm for sorting arrays
+ * of strings read from various CSV files. It includes functionality to sort data according to different
+ * size variants and arrangement types (Best, Worst, Average). The class also includes methods to create
+ * file paths, sort the data, and display the statement counts for different data sets.
  */
-
 public class InsertionSort {
+    /**
+     * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         /*ALGORITHM:
         * 1. Initiate the 2D array of length 5 by 3.
