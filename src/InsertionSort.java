@@ -157,7 +157,7 @@ public class InsertionSort {
             statementCount+=2;
 
             // Move elements that are greater than the key to one position ahead of their current position
-            while (j >= 0 && arr[j].compareTo(key) > 0) {
+            while (j >= 0 && arr[j].compareToIgnoreCase(key) > 0) {
                 statementCount += 3;
                 arr[j + 1] = arr[j]; // Shift the element
                 statementCount+=2;
