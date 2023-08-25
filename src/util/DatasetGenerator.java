@@ -18,7 +18,16 @@ package util;
 import java.io.*;
 import java.util.*;
 
+/**
+ * The DatasetGenerator class generates, sorts, and writes datasets of unique strings.
+ * It demonstrates the generation of unique strings, sorting them in ascending and descending order,
+ * and writing the datasets to CSV files for various arrangement variants (Best, Worst, Average).
+ */
 public class DatasetGenerator {
+    /**
+     * Main method generates, sorts, and writes datasets of unique strings.
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         Set<String> uniqueStrings = new HashSet<>();
         Random random = new Random();
@@ -46,13 +55,6 @@ public class DatasetGenerator {
 //        writeData(stringArray, fileNameWorst);
     }
 
-
-    /*Todo
-    *  1. Generate a method that generates n number of unique strings
-    *  2. Generate a method that sorts the array in ascending order
-    *  3. Generate a method that sorts the array in descending order
-    *  4. Generate a method that writes all the elements in csv file*/
-
     /**
      * Generates a random list of strings.
      * @param random a variable that randomizes strings.
@@ -70,7 +72,7 @@ public class DatasetGenerator {
         }
 
         return stringBuilder.toString();
-    }
+    }// end of generateRandomString method
 
     /**
      * Sorts the array in ascending order.
@@ -78,7 +80,7 @@ public class DatasetGenerator {
      */
     private static void sortAscending(String[] array){
         Arrays.sort(array);
-    }
+    }// end of sortAscending method
 
     /**
      * Sorts the array in descending order.
