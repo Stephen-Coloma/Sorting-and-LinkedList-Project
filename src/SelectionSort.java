@@ -54,6 +54,12 @@ public class SelectionSort {
         displayCounts(results);
     } // end of main method
 
+
+    /**
+     * Creates file paths for the datasets.
+     * Adds these files to the ArrayList.
+     * @return the ArrayList containing the file paths.
+     */
     private static ArrayList<String> createFilePathInList() {
         // File paths for 10K dataset cases
         String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
@@ -161,7 +167,7 @@ public class SelectionSort {
     /**
      * Displays execution times for insertion sort in different cases and input sizes.
      * @param results a 2D array of execution times for insertion sort. The rows represent
-     *                input sizes, while columns represent best, worst, and average cases.
+     *      input sizes, while columns represent best, worst, and average cases.
      */
     public static void displayCounts(long[][] results){
         // Define the labels for different data set sizes

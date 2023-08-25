@@ -63,11 +63,10 @@ import java.util.ArrayList;
      * @return ArrayList of file paths corresponding to different dataset cases.
      */
 
-    /*
-     * Algorithm:
-     * 1. Define file paths for different dataset cases.
-     * 2. Add these file paths to an ArrayList.
-     * 3. Return the ArrayList containing the file paths.
+    /**
+     * Creates file paths for the datasets.
+     * Adds these files to the ArrayList.
+     * @return the ArrayList containing the file paths.
      */
     private static ArrayList<String> createFilePathInList() {
         // File paths for 10K dataset cases
