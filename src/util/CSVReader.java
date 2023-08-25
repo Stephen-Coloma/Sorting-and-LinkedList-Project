@@ -15,14 +15,18 @@
 
 package util;
 
+//TODO: Add single-line comments for the import statement codes below.
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: Change the single-line comment below to a javadoc comment that describes the CSVReader class
 // Utility class to handle CSV operations
 public class CSVReader {
+    //TODO: Add javadoc comment for the readDataFromFile method below
+    //TODO: Add multi-line comment for the algorithm of the method below
     public static String[] readDataFromFile(String fileName) {
         List<String> dataList = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
