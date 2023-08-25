@@ -14,19 +14,26 @@
  */
 package util;
 
-import java.util.ArrayList;
-//Utility class to handle file path reading
+import java.util.ArrayList; // Importing ArrayList class for creating dynamic lists
+
+/**
+ * The FilePathReader class is a utility classprovides methods to create and manage file paths for different dataset cases.
+ * It allows the creation of an ArrayList containing file paths for various dataset sizes and arrangement variants.
+ */
 public class FilePathReader {
     /**
-     * Creates a list of file paths corresponding to different dataset cases.
-     * @return ArrayList of file paths corresponding to different dataset cases.
-     */
-
-    /**
-     * Creates file paths for the datasets.
+     * Creates a list of file paths for the datasets.
      * Adds these files to the ArrayList.
-     * @return the ArrayList containing the file paths.
+     * @return the ArrayList of file paths corresponding to different dataset cases
      */
+    /*
+        ALGORITHM:
+        1. Define file paths for various dataset cases (10K, 50K, 200K, 500K, 1M) 
+           and arrangement variants (Best, Worst, Average).
+        2. Create an ArrayList to store the file paths.
+        3. Add all the defined file paths to the ArrayList.
+        4. Return the ArrayList containing the file paths for different dataset cases.
+    */    
     public static ArrayList<String> createFilePathInList() {
         // File paths for 10K dataset cases
         String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
