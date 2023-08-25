@@ -14,6 +14,8 @@
  */
 
 import util.CSVReader;
+import util.FilePathReader;
+
 import java.util.ArrayList;
 
 /**
@@ -39,7 +41,7 @@ import java.util.ArrayList;
         long[][] results = new long[sizeVariants][arrangementVariants];
 
         // Call method to create a list of file paths for the datasets
-        ArrayList<String> filePathInList= createFilePathInList();
+        ArrayList<String> filePathInList= FilePathReader.createFilePathInList();;
 
         // Variable to track the current file number being processed
         int fileNumber = 0;
@@ -57,72 +59,6 @@ import java.util.ArrayList;
         // Call the method to display the counts for all variants
         displayCounts(results);
     } // end of main method
-
-    /**
-     * Creates a list of file paths corresponding to different dataset cases.
-     * @return ArrayList of file paths corresponding to different dataset cases.
-     */
-
-    /**
-     * Creates file paths for the datasets.
-     * Adds these files to the ArrayList.
-     * @return the ArrayList containing the file paths.
-     */
-    private static ArrayList<String> createFilePathInList() {
-        // File paths for 10K dataset cases
-        String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
-        String Worst10K = "src/dataset/TenThousand/10K-WorstCase.csv";
-        String Avg10K = "src/dataset/TenThousand/10K-AverageCase.csv";
-
-        // File paths for 50K dataset cases
-        String Best50K = "src/dataset/FiftyThousand/50K-BestCase.csv";
-        String Worst50K = "src/dataset/FiftyThousand/50K-WorstCase.csv";
-        String Avg50K = "src/dataset/FiftyThousand/50K-AverageCase.csv";
-
-        // File paths for 200K dataset cases
-        String Best200K = "src/dataset/TwoHundredThousand/200K-BestCase.csv";
-        String Worst200K = "src/dataset/TwoHundredThousand/200K-WorstCase.csv";
-        String Avg200K = "src/dataset/TwoHundredThousand/200K-AverageCase.csv";
-
-        // File paths for 500K dataset cases
-        String Best500K = "src/dataset/FiveHundredThousand/500K-BestCase.csv";
-        String Worst500K = "src/dataset/FiveHundredThousand/500K-WorstCase.csv";
-        String Avg500K = "src/dataset/FiveHundredThousand/500K-AverageCase.csv";
-
-        // File paths for 1M dataset cases
-        String Best1M = "src/dataset/OneMillion/1M-BestCase.csv";
-        String Worst1M = "src/dataset/OneMillion/1M-WorstCase.csv";
-        String Avg1M = "src/dataset/OneMillion/1M-AverageCase.csv";
-
-        // Create an ArrayList to store the file paths
-        ArrayList<String> filePathsInList = new ArrayList<>();
-
-        // Add all the file paths to the ArrayList
-        filePathsInList.add(Best10K);
-        filePathsInList.add(Worst10K);
-        filePathsInList.add(Avg10K);
-
-        filePathsInList.add(Best50K);
-        filePathsInList.add(Worst50K);
-        filePathsInList.add(Avg50K);
-
-        filePathsInList.add(Best200K);
-        filePathsInList.add(Worst200K);
-        filePathsInList.add(Avg200K);
-
-        filePathsInList.add(Best500K);
-        filePathsInList.add(Worst500K);
-        filePathsInList.add(Avg500K);
-
-        filePathsInList.add(Best1M);
-        filePathsInList.add(Worst1M);
-        filePathsInList.add(Avg1M);
-
-        // Return the ArrayList containing the file paths
-        return filePathsInList;
-    } // end of createFilePathInList method
-
-
     /**
      * Sorts the given array using the Bubble Sort algorithm.
      * @param fileName array of Strings to be sorted.
