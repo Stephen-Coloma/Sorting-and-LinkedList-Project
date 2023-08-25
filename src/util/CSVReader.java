@@ -25,8 +25,20 @@ import java.util.List;
 //TODO: Change the single-line comment below to a javadoc comment that describes the CSVReader class
 // Utility class to handle CSV operations
 public class CSVReader {
-    //TODO: Add javadoc comment for the readDataFromFile method below
-    //TODO: Add multi-line comment for the algorithm of the method below
+    /**
+     * Reads data from a CSV file and returns it as an array of strings.
+     * @param fileName The path to the CSV file to be read.
+     * @return An array of strings containing the data read from the CSV file.
+     */
+    /*
+     * Algorithm:
+     * 1. Create an empty ArrayList to store the data.
+     * 2. Open the CSV file for reading using BufferedReader and FileReader.
+     * 3. Read each line from the file using a loop.
+     * 4. Add each line to the ArrayList.
+     * 5. Close the file after reading.
+     * 6. Convert the ArrayList to an array and return it.
+     */
     public static String[] readDataFromFile(String fileName) {
         List<String> dataList = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
