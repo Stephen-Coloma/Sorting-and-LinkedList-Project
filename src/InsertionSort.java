@@ -13,38 +13,40 @@
  * </p>
  */
 
-import util.CSVReader;
-import java.util.ArrayList;
+import util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
+import util.FilePathReader;  // Importing FilePathReader utility for managing file paths
+import java.util.ArrayList;  // Importing ArrayList class for creating dynamic lists
 
 /**
- *  <p>
- *      The InsertionSort class provides an implementation of the Insertion Sort algorithm for sorting arrays
- *      of strings read from various CSV files. It includes functionality to sort data according to different
- *      size variants and arrangement types (Best, Worst, Average). The class also includes methods to create
- *      file paths, sort the data, and display the statement counts for different data sets.
- *  </p>
+ * The InsertionSort class provides an implementation of the Insertion Sort algorithm for sorting arrays
+ * of strings read from various CSV files. It includes functionality to sort data according to different
+ * size variants and arrangement types (Best, Worst, Average). The class also includes methods to create
+ * file paths, sort the data, and display the statement counts for different data sets.
  */
-
 public class InsertionSort {
+    /**
+     * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
+     * @param args Command-line arguments
+     */
+    /*
+        ALGORITHM:
+        1. Initiate the 2D array of length 5 by 3.
+        2. The row will be the size variant (10k,50k,200k,500k,1M)
+        3. The column will be the type arrangement variant (Best, Worst, Average)
+        4. Create a list of strings that stores the file path above. Follow format BEST-WORST-AVERAGE
+        5. Initiate variable int fileNumber = 0, it is the position of Best10k in the list
+        6. Create a double for loop that populates the 2D array.
+        7. Call the displayCount method and pass in the 2D array.
+    */
     public static void main(String[] args) {
-        /*ALGORITHM:
-        * 1. Initiate the 2D array of length 5 by 3.
-        * 2. The row will be the size variant (10k,50k,200k,500k,1M)
-        * 3. The column will be the type arrangement variant (Best, Worst, Average)
-        * 4. Create a list of strings that stores the file path above. Follow format BEST-WORST-AVERAGE
-        * 5. Initiate variable int fileNumber = 0, it is the position of Best10k in the list
-        * 6. Create a double for loop that populates the 2D array.
-        * 7. Call the displayCount method and pass in the 2D array.
-        * */
-
-        int sizeVariants = 5; // number of different sizes of datasets (e.g., 10k, 50k, 200k, 500k, 1M)
-        int arrangementVariants = 3; // number of arrangement variants (e.g., Best, Worst, Average)
+        int sizeVariants = 5; // Number of different sizes of datasets (e.g., 10k, 50k, 200k, 500k, 1M)
+        int arrangementVariants = 3; // Number of arrangement variants (e.g., Best, Worst, Average)
 
         // 2D array to store the results of statement counts
         long[][] results = new long[sizeVariants][arrangementVariants];
 
         // Call method to create a list of file paths for the datasets
-        ArrayList<String> filePathInList= createFilePathInList();
+        ArrayList<String> filePathInList= FilePathReader.createFilePathInList();
 
         // Variable to track the current file number being processed
         int fileNumber = 0;
@@ -52,6 +54,7 @@ public class InsertionSort {
         // Nested loop to iterate through size and arrangement variants
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
+                // Apply insertion sort and record statement counts
                 results[i][j] = insertionSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
@@ -62,84 +65,20 @@ public class InsertionSort {
         displayCounts(results);
     }//end of main method
 
-    /**
-     * Creates a list of file paths corresponding to different dataset cases.
-     * @return ArrayList of file paths corresponding to different dataset cases.
-     */
-
-    /*
-     * Algorithm:
-     * 1. Define file paths for different dataset cases.
-     * 2. Add these file paths to an ArrayList.
-     * 3. Return the ArrayList containing the file paths.
-     */
-    private static ArrayList<String> createFilePathInList() {
-        // File paths for 10K dataset cases
-        String Best10K = "src/dataset/TenThousand/10K-BestCase.csv";
-        String Worst10K = "src/dataset/TenThousand/10K-WorstCase.csv";
-        String Avg10K = "src/dataset/TenThousand/10K-AverageCase.csv";
-
-        // File paths for 50K dataset cases
-        String Best50K = "src/dataset/FiftyThousand/50K-BestCase.csv";
-        String Worst50K = "src/dataset/FiftyThousand/50K-WorstCase.csv";
-        String Avg50K = "src/dataset/FiftyThousand/50K-AverageCase.csv";
-
-        // File paths for 200K dataset cases
-        String Best200K = "src/dataset/TwoHundredThousand/200K-BestCase.csv";
-        String Worst200K = "src/dataset/TwoHundredThousand/200K-WorstCase.csv";
-        String Avg200K = "src/dataset/TwoHundredThousand/200K-AverageCase.csv";
-
-        // File paths for 500K dataset cases
-        String Best500K = "src/dataset/FiveHundredThousand/500K-BestCase.csv";
-        String Worst500K = "src/dataset/FiveHundredThousand/500K-WorstCase.csv";
-        String Avg500K = "src/dataset/FiveHundredThousand/500K-AverageCase.csv";
-
-        // File paths for 1M dataset cases
-        String Best1M = "src/dataset/OneMillion/1M-BestCase.csv";
-        String Worst1M = "src/dataset/OneMillion/1M-WorstCase.csv";
-        String Avg1M = "src/dataset/OneMillion/1M-AverageCase.csv";
-
-        // Create an ArrayList to store the file paths
-        ArrayList<String> filePathsInList = new ArrayList<>();
-
-        // Add all the file paths to the ArrayList
-        filePathsInList.add(Best10K);
-        filePathsInList.add(Worst10K);
-        filePathsInList.add(Avg10K);
-
-        filePathsInList.add(Best50K);
-        filePathsInList.add(Worst50K);
-        filePathsInList.add(Avg50K);
-
-        filePathsInList.add(Best200K);
-        filePathsInList.add(Worst200K);
-        filePathsInList.add(Avg200K);
-
-        filePathsInList.add(Best500K);
-        filePathsInList.add(Worst500K);
-        filePathsInList.add(Avg500K);
-
-        filePathsInList.add(Best1M);
-        filePathsInList.add(Worst1M);
-        filePathsInList.add(Avg1M);
-
-        // Return the ArrayList containing the file paths
-        return filePathsInList;
-    }
 
     /**
      * Sorts the given array using the Insertion Sort algorithm.
      * @param filename name of file to be read.
      * @return int count of statements executed in the method.
      */
+    /*
+        ALGORITHM:
+        1. Implement the Insertion Sort algorithm
+        2. Initialize statementCount to 0;
+        3. For every statement in the algorithm, increment the statementCount
+        4. return statementCount variable
+    */
     public static long insertionSort(String filename) {
-        /*ALGORITHM:
-          1. Implement the Insertion Sort algorithm
-          2. Initialize statementCount to 0;
-          2. For every statement in the algorithm, increment the statementCount
-          4. return statementCount variable
-          */
-
         // Read the data from the CSV file into an array
         String[] arr = CSVReader.readDataFromFile(filename);
 
@@ -155,20 +94,21 @@ public class InsertionSort {
             statementCount+=2;
 
             // Move elements that are greater than the key to one position ahead of their current position
-            while (j >= 0 && arr[j].compareTo(key) > 0) {
+            while (j >= 0 && arr[j].compareToIgnoreCase(key) > 0) {
                 statementCount += 3;
-                arr[j + 1] = arr[j]; // shift the element
+                arr[j + 1] = arr[j]; // Shift the element
                 statementCount+=2;
-                j--; // move to the previous element
+                j--; // Move to the previous element
                 statementCount++;
             } // end of while
+
             // Place the key in its correct sorted position
             arr[j + 1] = key;
             statementCount+=2;
         } // end of for
 
         // Return the count of statements executed
-        return statementCount;
+        return statementCount++;
     }// end of insertionSort method
 
     /**
@@ -176,6 +116,13 @@ public class InsertionSort {
      * @param results a 2D array of execution times for insertion sort. The rows represent
      *                input sizes, while columns represent best, worst, and average cases.
      */
+    /*
+        ALGORITHM:
+        1. Define labels for different data set sizes.
+        2. Display a header with appropriate formatting.
+        3. Loop through the results array to display execution times for each dataset size.
+            - For each dataset size, display the execution times for best, worst, and average cases.
+    */
     public static void displayCounts(long[][] results) {
         // Define the labels for different data set sizes
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
@@ -189,9 +136,8 @@ public class InsertionSort {
             for (int j = 0; j<1; j++) {
                 System.out.printf("%-40s%,-30d%,-30d%,-30d",sizes[i],results[i][j],results[i][j+1],results[i][j+2]);
                 System.out.println();
-            } // end of for
-        } // end of for
+            } // end of  inner loop
+        } // end of outer loop
     }// end of displayCounts method
 
 } // end of InsertionSort class
-
