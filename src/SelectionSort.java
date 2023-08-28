@@ -110,7 +110,7 @@ public class SelectionSort {
             array[i] = temp;
             statementCount++;
         } // end of outer for loop
-
+        statementCount++;
         return statementCount;
     } // end of selectionSort method
 

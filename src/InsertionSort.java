@@ -108,6 +108,7 @@ public class InsertionSort {
         } // end of for
 
         // Return the count of statements executed
+        statementCount++;
         return statementCount;
     }// end of insertionSort method
 
