@@ -100,8 +100,7 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
             } // end of for
         } // end of for
         // Return statement count
-        statementCount++;
-        return statementCount;
+        return statementCount++;
     } // end of bubbleSort method
 
     /**
