@@ -28,7 +28,9 @@ public class SelectionSort {
      * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
      * @param args Command-line arguments
      */
-    /*
+
+    public static void main(String[] args) {
+/*
         ALGORITHM:
         1. Initiate the 2D array of length 5 by 3.
         2. The row will be the size variant (10k,50k,200k,500k,1M)
@@ -38,32 +40,28 @@ public class SelectionSort {
         6. Create a double for loop that populates the 2D array.
         7. Call the displayCount method and pass in the 2D array.
     */
-    public static void main(String[] args) {
-        int sizeVariants = 5; // Number of different dataset sizes (10k, 50k, 200k, 500k, 1M)
-        int arrangementVariants = 3; // Number of arrangement variants (Best, Worst, Average)
+        int sizeVariants = 5;
+        int arrangementVariants = 3;
 
         // 2D array to store statement counts
         long[][] results = new long[sizeVariants][arrangementVariants];
 
-        // Call method to create a list of file paths for the datasets
+
         ArrayList<String> filePathInList= FilePathReader.createFilePathInList();
 
         // Variable to track the current file number being processed
         int fileNumber = 0;
 
-        // Nested loop to iterate through size and arrangement variants
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
-                // Apply selection sort and record statement counts
                 results[i][j] = selectionSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
-            } // end of inner for loop
-        } // end of outer for loop
+            }
+        }
 
-        // Call the method to display the counts for all variants
         displayCounts(results);
-    } // end of main method
+    }
 
     /**
      * Sorts the given array using the Selection Sort algorithm.
@@ -86,21 +84,19 @@ public class SelectionSort {
 
         // Iterate through the array to sort it using Selection Sort algorithm
         for(int i=0; i < array.length-1; i++){
-            statementCount += 4;  // Add 4 to statement count for initialization and loop control statements
-            int minIndex = i; // Track the index of the smallest element in the unsorted part
+            statementCount += 4;
+            int minIndex = i;
             statementCount++;
 
             // Iterate through the unsorted part of the array to find the minimum element
             for (int j=i+1; j < array.length; j++){
-                // Add 4 to statement count for initialization and loop control statements
                 statementCount += 4;
-                // Update minIndex if a smaller element is found
                 if (array[j].compareToIgnoreCase(array[minIndex]) < 0) {
                     statementCount ++;
                     minIndex = j;
                     statementCount++;
-                } // end of inner for loop
-            } // end of if condition
+                }
+            }
 
             // Swap the found minimum element with the first element in the unsorted part
             String temp = array[minIndex];
@@ -109,23 +105,24 @@ public class SelectionSort {
             statementCount ++;
             array[i] = temp;
             statementCount++;
-        } // end of outer for loop
-        return statementCount++;
-    } // end of selectionSort method
+        }
+        return ++statementCount;
+    }
 
     /**
      * Displays execution times for insertion sort in different cases and input sizes.
      * @param results a 2D array of execution times for insertion sort. The rows represent
      *                input sizes, while columns represent best, worst, and average cases.
      */
-    /*
+    public static void displayCounts(long[][] results){
+        /*
         ALGORITHM:
         1. Define labels for different data set sizes.
         2. Display a header with appropriate formatting.
         3. Loop through the results array to display execution times for each dataset size.
             - For each dataset size, display the execution times for best, worst, and average cases.
     */
-    public static void displayCounts(long[][] results){
+
         // Define the labels for different data set sizes
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
@@ -138,8 +135,7 @@ public class SelectionSort {
             for (int j = 0; j<1; j++) {
                 System.out.printf("%-40s%,-30d%,-30d%,-30d",sizes[i],results[i][j],results[i][j+1],results[i][j+2]);
                 System.out.println();
-            } // end of inner loop
-        } // end of outer loop
-    } // end of displayCounts method
-
-} // end of SelectionSort class
+            }
+        }
+    }
+}

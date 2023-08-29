@@ -14,7 +14,7 @@
  */
 package util;
 
-import java.util.ArrayList; // Importing ArrayList class for creating dynamic lists
+import java.util.ArrayList;
 
 /**
  * The FilePathReader class is a utility class that provides methods to create and manage file paths for different dataset cases.
@@ -86,5 +86,5 @@ public class FilePathReader {
 
         // Return the ArrayList containing the file paths
         return filePathsInList;
-    } //  end of createFilePathInLIst method
-}//end of FilePathReader class
+    }
+}

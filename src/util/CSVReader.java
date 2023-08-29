@@ -15,15 +15,12 @@
 
 package util;
 
-//TODO: Add single-line comments for the import statement codes below.
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO: Change the single-line comment below to a javadoc comment that describes the CSVReader class
-// Utility class to handle CSV operations
 public class CSVReader {
     /**
      * Reads data from a CSV file and returns it as an array of strings.
@@ -50,5 +47,5 @@ public class CSVReader {
             e.printStackTrace();
         } // end of catch
         return dataList.toArray(new String[0]);
-    } // end of readDataFromFile method
-} // end of CSVUtil
+    }
+}

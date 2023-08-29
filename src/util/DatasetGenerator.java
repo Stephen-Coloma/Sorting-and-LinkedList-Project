@@ -53,7 +53,7 @@ public class DatasetGenerator {
 
         sortDescending(stringArray);
 //        writeData(stringArray, fileNameWorst);
-    }// end of main method
+    }
 
     /**
      * Generates a random list of strings.
@@ -82,7 +82,7 @@ public class DatasetGenerator {
         }
 
         return stringBuilder.toString();
-    }// end of generateRandomString method
+    }
 
     /**
      * Sorts the array in ascending order.
@@ -103,7 +103,7 @@ public class DatasetGenerator {
 
         // Reversing the list
         Collections.reverse(arrayAsList);
-    }// end of sortDescending method
+    }
 
     /**
      * Writes array of data in a file.
@@ -130,7 +130,7 @@ public class DatasetGenerator {
         }catch (IOException ioe){
             System.out.println("Error Occured");
         }
-    }// end of writeData method
+    }
 
     /** 
     * Supporting method for the writeData method in writing data in a file.
@@ -155,6 +155,5 @@ public class DatasetGenerator {
         writer.close();
         long end = System.currentTimeMillis();
         System.out.println((end - start) / 1000f + " seconds");
-    }// end of write method
-
-}// end of DatasetGenerator class
+    }
+}

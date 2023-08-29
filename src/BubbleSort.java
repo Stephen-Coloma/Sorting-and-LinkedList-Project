@@ -27,7 +27,8 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
      * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
      * @param args Command-line arguments
      */
-    /*
+    public static void main(String[] args) {
+        /*
         ALGORITHM:
         1. Initiate the 2D array of length 5 by 3.
         2. The row will be the size variant (10k,50k,200k,500k,1M)
@@ -37,32 +38,27 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
         6. Create a double for loop that populates the 2D array.
         7. Call the displayCount method and pass in the 2D array.
     */
-    public static void main(String[] args) {
-        int sizeVariants = 5; // Number of different dataset sizes (10k, 50k, 200k, 500k, 1M)
-        int arrangementVariants = 3;// Number of arrangement variants (Best, Worst, Average)
+        int sizeVariants = 5;
+        int arrangementVariants = 3;
 
         // 2D array to store the results of statement counts
         long[][] results = new long[sizeVariants][arrangementVariants];
 
-        // Call method to create a list of file paths for the datasets
         ArrayList<String> filePathInList= FilePathReader.createFilePathInList();;
 
         // Variable to track the current file number being processed
         int fileNumber = 0;
 
-        // Nested loop to iterate through dataset sizes and arrangement variants
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
-                // Apply bubble sort and record statement counts
                 results[i][j] = bubbleSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
-            } // end of for
-        } // end of for
+            }
+        }
 
-        // Call the method to display the counts for all variants
         displayCounts(results);
-    } // end of main method
+    }
 
     /**
      * Sorts the given array using the Bubble Sort algorithm.
@@ -85,37 +81,37 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
 
         // Iterate through the array using Bubble Sort
         for (int i = 0; i<array.length-1; i++){
-            statementCount += 4; // Increment for loop initialization and condition check
+            statementCount += 4;
             for (int j = 0; j< array.length-i-1; j++){
-                statementCount +=5; // Increment for loop initialization and condition check
+                statementCount +=5;
                 if (array[j].compareToIgnoreCase(array[j+1])>0){
-                    statementCount+=2; // Increment for if condition
+                    statementCount+=2;
                     String temp = array[j];
-                    statementCount++; // Increment for variable assignment
+                    statementCount++;
                     array[j] = array[j+1];
-                    statementCount+=2; // Increment for variable assignment
+                    statementCount+=2;
                     array[j+1] = temp;
-                    statementCount+=2; // Increment for variable assignment
-                } // end of if
-            } // end of for
-        } // end of for
-        // Return statement count
-        return statementCount++;
-    } // end of bubbleSort method
+                    statementCount+=2;
+                }
+            }
+        }
+        return ++statementCount;
+    }
 
     /**
      * Displays the sorting results for different cases.
      * @param results A 2D array containing sorting results for different dataset sizes and cases.
      *                Each row corresponds to a dataset size, and columns correspond to best, worst, and average cases.
      */
-    /*
+    public static void displayCounts(long[][] results){
+        /*
         ALGORITHM:
         1. Define labels for different data set sizes.
         2. Display a header with appropriate formatting.
         3. Loop through the results array to display execution times for each dataset size.
-            - For each dataset size, display the execution times for best, worst, and average cases.
-    */
-    public static void displayCounts(long[][] results){
+             - For each dataset size, display the execution times for best, worst, and average cases.
+        */
+
         // Define the labels for different data set sizes
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
@@ -128,8 +124,7 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
             for (int j = 0; j < 1; j++) {
                 System.out.printf("%-40s%,-30d%,-30d%,-30d", sizes[i], results[i][j], results[i][j+1], results[i][j+2]);
                 System.out.println();
-            } // end of for
-        } // end of for
-    } // end of displayCounts method
-
-} // end of BubbleSort class
+            }
+        }
+    }
+}

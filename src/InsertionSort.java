@@ -28,7 +28,9 @@ public class InsertionSort {
      * Main method initiates sorting and statement counting for various input sizes and arrangement variants.
      * @param args Command-line arguments
      */
-    /*
+
+    public static void main(String[] args) {
+        /*
         ALGORITHM:
         1. Initiate the 2D array of length 5 by 3.
         2. The row will be the size variant (10k,50k,200k,500k,1M)
@@ -38,32 +40,28 @@ public class InsertionSort {
         6. Create a double for loop that populates the 2D array.
         7. Call the displayCount method and pass in the 2D array.
     */
-    public static void main(String[] args) {
-        int sizeVariants = 5; // Number of different sizes of datasets (e.g., 10k, 50k, 200k, 500k, 1M)
-        int arrangementVariants = 3; // Number of arrangement variants (e.g., Best, Worst, Average)
+        int sizeVariants = 5;
+        int arrangementVariants = 3;
 
         // 2D array to store the results of statement counts
         long[][] results = new long[sizeVariants][arrangementVariants];
 
-        // Call method to create a list of file paths for the datasets
+
         ArrayList<String> filePathInList= FilePathReader.createFilePathInList();
 
         // Variable to track the current file number being processed
         int fileNumber = 0;
 
-        // Nested loop to iterate through size and arrangement variants
         for (int i = 0; i < sizeVariants; i++) {
             for (int j = 0; j < arrangementVariants; j++) {
-                // Apply insertion sort and record statement counts
                 results[i][j] = insertionSort(filePathInList.get(fileNumber));
                 fileNumber++;
                 System.out.println("File: " + fileNumber);
-            } // end of for
-        } // end of for
+            }
+        }
 
-        // Call the method to display the counts for all variants
         displayCounts(results);
-    }//end of main method
+    }
 
 
     /**
@@ -88,42 +86,40 @@ public class InsertionSort {
         // Iterate through the array starting from the second element
         for (int i = 1; i < arr.length; i++) {
             statementCount+=3;
-            String key = arr[i]; // store the current value as the key
+            String key = arr[i];
             statementCount++;
-            int j = i - 1; // initialize the pointer for comparing with the key
+            int j = i - 1;
             statementCount+=2;
 
-            // Move elements that are greater than the key to one position ahead of their current position
             while (j >= 0 && arr[j].compareToIgnoreCase(key) > 0) {
                 statementCount += 3;
                 arr[j + 1] = arr[j]; // Shift the element
                 statementCount+=2;
                 j--; // Move to the previous element
                 statementCount++;
-            } // end of while
+            }
 
             // Place the key in its correct sorted position
             arr[j + 1] = key;
             statementCount+=2;
-        } // end of for
-
-        // Return the count of statements executed
-        return statementCount++;
-    }// end of insertionSort method
+        }
+        return ++statementCount;
+    }
 
     /**
      * Displays execution times for insertion sort in different cases and input sizes.
      * @param results a 2D array of execution times for insertion sort. The rows represent
      *                input sizes, while columns represent best, worst, and average cases.
      */
-    /*
+    public static void displayCounts(long[][] results) {
+        /*
         ALGORITHM:
         1. Define labels for different data set sizes.
         2. Display a header with appropriate formatting.
         3. Loop through the results array to display execution times for each dataset size.
             - For each dataset size, display the execution times for best, worst, and average cases.
-    */
-    public static void displayCounts(long[][] results) {
+        */
+
         // Define the labels for different data set sizes
         String[] sizes = {"10 thousand", "50 thousand", "200 thousand", "500 thousand", "1 million"};
 
@@ -136,8 +132,7 @@ public class InsertionSort {
             for (int j = 0; j<1; j++) {
                 System.out.printf("%-40s%,-30d%,-30d%,-30d",sizes[i],results[i][j],results[i][j+1],results[i][j+2]);
                 System.out.println();
-            } // end of  inner loop
-        } // end of outer loop
-    }// end of displayCounts method
-
-} // end of InsertionSort class
+            }
+        }
+    }
+}
