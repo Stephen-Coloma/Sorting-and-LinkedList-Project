@@ -10,8 +10,9 @@ Prelims.
 2. **GUZMAN**, Sanchie Earl M.
 3. **NONATO**, Marius Glenn M.
 4. **RAGUDOS**, Hannah T.
-5. **RAMOS**, Rey Daniel L.
-6. **SANTOS**, Lourdene Eira C.
+5. **RAMOS**, Jerwin Kyle R.
+6. **ROQUE**, Rey Daniel L.
+7. **SANTOS**, Lourdene Eira C.
 
 # Group Project: Comparative Analysis of Sorting Algorithms
 This project aims to perform a comparative analysis of three sorting algorithms: Bubble Sort, Insertion Sort,
@@ -83,7 +84,8 @@ If you have any questions or need further assistance related to the project, ple
 - **Sanchie Earl M. GUZMAN**
 - **Marius Glenn M. NONATO**
 - **Hannah T. RAGUDOS**
-- **Rey Daniel L. RAMOS**
+- **Jerwin Kyle R. RAMOS**
+- **Rey Daniel L. ROQUE**
 - **Lourdene Eira C. SANTOS**
 
 Feel free to explore and learn from our comparative analysis of sorting algorithms
