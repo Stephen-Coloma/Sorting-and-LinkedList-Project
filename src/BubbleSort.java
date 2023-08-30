@@ -44,7 +44,7 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
         // 2D array to store the results of statement counts
         long[][] results = new long[sizeVariants][arrangementVariants];
 
-        ArrayList<String> filePathInList= FilePathReader.createFilePathInList();;
+        ArrayList<String> filePathInList= FilePathReader.createFilePathInList();
 
         // Variable to track the current file number being processed
         int fileNumber = 0;
@@ -78,24 +78,26 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
 
         // Initialize statement count to track the number of executed statements
         long statementCount = 0;
-
         // Iterate through the array using Bubble Sort
-        for (int i = 0; i<array.length-1; i++){
+        statementCount += 3;
+        for (int i = 0; i < array.length - 1; i++) {
             statementCount += 4;
-            for (int j = 0; j< array.length-i-1; j++){
-                statementCount +=5;
-                if (array[j].compareToIgnoreCase(array[j+1])>0){
-                    statementCount+=2;
+            for (int j = 0; j < array.length - i - 1; j++) {
+                statementCount += 3;
+                if (array[j].compareToIgnoreCase(array[j + 1]) > 0) {
                     String temp = array[j];
                     statementCount++;
-                    array[j] = array[j+1];
-                    statementCount+=2;
-                    array[j+1] = temp;
-                    statementCount+=2;
+                    array[j] = array[j + 1];
+                    statementCount += 2;
+                    array[j + 1] = temp;
+                    statementCount += 2;
                 }
-            }
-        }
-        return ++statementCount;
+                statementCount += 4;
+            } // end of inner for
+            statementCount += 3; //true ng outer loop
+        }//end of outer for
+        statementCount++;
+        return statementCount;
     }
 
     /**
