@@ -84,19 +84,20 @@ public class InsertionSort {
         long statementCount=0;
 
         // Iterate through the array starting from the second element
+        statementCount+=2; //initial counter for for loop
         for (int i = 1; i < arr.length; i++) {
-            statementCount+=3;
             String key = arr[i];
             statementCount++;
             int j = i - 1;
             statementCount+=2;
 
+            statementCount+=4; //initial counter for while loop
             while (j >= 0 && arr[j].compareToIgnoreCase(key) > 0) {
-                statementCount += 3;
                 arr[j + 1] = arr[j]; // Shift the element
                 statementCount+=2;
                 j--; // Move to the previous element
                 statementCount++;
+                statementCount+=4; //iterative counter for while loop
             }
 
             // Place the key in its correct sorted position
