@@ -91,7 +91,7 @@ public class InsertionSort {
             int j = i - 1;
             statementCount+=2;
 
-            statementCount+=4; //initial counter for while loop
+            statementCount+=3; //initial counter for while loop
             while (j >= 0 && arr[j].compareToIgnoreCase(key) > 0) {
                 arr[j + 1] = arr[j]; // Shift the element
                 statementCount+=2;

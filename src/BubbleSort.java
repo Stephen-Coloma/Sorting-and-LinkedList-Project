@@ -83,7 +83,7 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
         for (int i = 0; i < array.length - 1; i++) {
             statementCount += 4; //inital counter for inner for loop
             for (int j = 0; j < array.length - i - 1; j++) {
-                statementCount += 5; //counter for if
+                statementCount += 3; //counter for if
                 if (array[j].compareToIgnoreCase(array[j + 1]) > 0) {
                     String temp = array[j];
                     statementCount++;
