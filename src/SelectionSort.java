@@ -40,7 +40,7 @@ public class SelectionSort {
         6. Create a double for loop that populates the 2D array.
         7. Call the displayCount method and pass in the 2D array.
     */
-        int sizeVariants = 1;
+        int sizeVariants = 5;
         int arrangementVariants = 3;
 
         // 2D array to store statement counts

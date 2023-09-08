@@ -40,7 +40,7 @@ public class InsertionSort {
         6. Create a double for loop that populates the 2D array.
         7. Call the displayCount method and pass in the 2D array.
     */
-        int sizeVariants = 3;
+        int sizeVariants = 5;
         int arrangementVariants = 3;
 
         // 2D array to store the results of statement counts
