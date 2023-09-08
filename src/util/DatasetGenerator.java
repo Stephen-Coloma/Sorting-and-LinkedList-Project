@@ -147,13 +147,10 @@ public class DatasetGenerator {
         5. Print the time taken in seconds.
     */    
     private static void write(String[] records, Writer writer) throws IOException {
-        long start = System.currentTimeMillis();
         for (String record: records) {
             writer.write(record+"\n");
         }
         // writer.flush(); // close() should take care of this
         writer.close();
-        long end = System.currentTimeMillis();
-        System.out.println((end - start) / 1000f + " seconds");
     }
 }
