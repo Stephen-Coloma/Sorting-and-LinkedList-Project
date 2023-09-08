@@ -40,7 +40,7 @@ public class InsertionSort {
         6. Create a double for loop that populates the 2D array.
         7. Call the displayCount method and pass in the 2D array.
     */
-        int sizeVariants = 5;
+        int sizeVariants = 3;
         int arrangementVariants = 3;
 
         // 2D array to store the results of statement counts
@@ -83,27 +83,28 @@ public class InsertionSort {
         // Initialize statement count to track the number of executed statements
         long statementCount=0;
 
-        // Iterate through the array starting from the second element
-        statementCount+=2; //initial counter for for loop
         for (int i = 1; i < arr.length; i++) {
             String key = arr[i];
             statementCount++;
             int j = i - 1;
             statementCount+=2;
 
-            statementCount+=3; //initial counter for while loop
             while (j >= 0 && arr[j].compareToIgnoreCase(key) > 0) {
                 arr[j + 1] = arr[j]; // Shift the element
                 statementCount+=2;
                 j--; // Move to the previous element
                 statementCount++;
-                statementCount+=4; //iterative counter for while loop
+                statementCount+=3; //iterative counter for while loop
             }
+            statementCount+=3; //counter for falsy while
 
             // Place the key in its correct sorted position
             arr[j + 1] = key;
             statementCount+=2;
+
+            statementCount+=2; //iterative counter for loop
         }
+        statementCount+=2; //counter for falsy for
         return ++statementCount;
     }
 

@@ -40,7 +40,7 @@ public class SelectionSort {
         6. Create a double for loop that populates the 2D array.
         7. Call the displayCount method and pass in the 2D array.
     */
-        int sizeVariants = 5;
+        int sizeVariants = 1;
         int arrangementVariants = 3;
 
         // 2D array to store statement counts
@@ -84,19 +84,20 @@ public class SelectionSort {
 
         // Iterate through the array to sort it using Selection Sort algorithm
         for(int i=0; i < array.length-1; i++){
-            statementCount += 4;
             int minIndex = i;
             statementCount++;
 
             // Iterate through the unsorted part of the array to find the minimum element
             for (int j=i+1; j < array.length; j++){
-                statementCount += 4;
                 if (array[j].compareToIgnoreCase(array[minIndex]) < 0) {
                     statementCount ++;
                     minIndex = j;
                     statementCount++;
                 }
+                statementCount += 2; //iterative count to for
             }
+            statementCount += 3; //count to falsy for
+
 
             // Swap the found minimum element with the first element in the unsorted part
             String temp = array[minIndex];
@@ -105,7 +106,11 @@ public class SelectionSort {
             statementCount ++;
             array[i] = temp;
             statementCount++;
-        }
+
+            statementCount+=3; //iterative count to for
+        }//end of for
+        statementCount+=3; //count for falsy for
+
         return ++statementCount;
     }
 
