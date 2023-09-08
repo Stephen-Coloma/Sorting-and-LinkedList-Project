@@ -76,12 +76,9 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
         // Read data from the CSV file into an array
         String[] array = CSVReader.readDataFromFile(fileName);
 
-        // Initialize statement count to track the number of executed statements
         long statementCount = 0;
-        // Iterate through the array using Bubble Sort
-        statementCount += 3; //initial counter for outer for loop
+
         for (int i = 0; i < array.length - 1; i++) {
-            statementCount += 4; //inital counter for inner for loop
             for (int j = 0; j < array.length - i - 1; j++) {
                 statementCount += 3; //counter for if
                 if (array[j].compareToIgnoreCase(array[j + 1]) > 0) {
@@ -94,10 +91,12 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
                 }
                 statementCount += 4; //iterative counter for inner loop
             } // end of inner for
+            statementCount += 4; //counter for false inner for
             statementCount += 3;// iterative counter for outer loop
         }//end of outer for
-        statementCount++;
-        return statementCount;
+        statementCount += 3; //counter for false outer for
+
+        return ++statementCount;
     }
 
     /**
