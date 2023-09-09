@@ -89,8 +89,8 @@ public class SelectionSort {
 
             // Iterate through the unsorted part of the array to find the minimum element
             for (int j=i+1; j < array.length; j++){
+                statementCount ++;
                 if (array[j].compareToIgnoreCase(array[minIndex]) < 0) {
-                    statementCount ++;
                     minIndex = j;
                     statementCount++;
                 }
@@ -99,11 +99,9 @@ public class SelectionSort {
             statementCount += 3; //count to falsy for
             // Swap the found minimum element with the first element in the unsorted part
             String temp = array[minIndex];
-            statementCount++;
             array [minIndex] = array[i];
-            statementCount ++;
             array[i] = temp;
-            statementCount++;
+            statementCount+=3;
 
             statementCount+=3; //iterative count to for
         }//end of for
