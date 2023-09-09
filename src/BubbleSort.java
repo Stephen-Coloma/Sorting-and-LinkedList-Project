@@ -94,8 +94,8 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
             statementCount += 4; //counter for false inner for
             statementCount += 3;// iterative counter for outer loop
         }//end of outer for
-        statementCount += 3; //counter for false outer for
 
+        statementCount += 3; //counter for false outer for
         return ++statementCount;
     }
 

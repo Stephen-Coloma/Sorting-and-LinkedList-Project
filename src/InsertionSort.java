@@ -97,7 +97,6 @@ public class InsertionSort {
                 statementCount+=3; //iterative counter for while loop
             }
             statementCount+=3; //counter for falsy while
-
             // Place the key in its correct sorted position
             arr[j + 1] = key;
             statementCount+=2;

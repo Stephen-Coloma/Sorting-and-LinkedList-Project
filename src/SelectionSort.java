@@ -97,8 +97,6 @@ public class SelectionSort {
                 statementCount += 2; //iterative count to for
             }
             statementCount += 3; //count to falsy for
-
-
             // Swap the found minimum element with the first element in the unsorted part
             String temp = array[minIndex];
             statementCount++;
@@ -110,7 +108,6 @@ public class SelectionSort {
             statementCount+=3; //iterative count to for
         }//end of for
         statementCount+=3; //count for falsy for
-
         return ++statementCount;
     }
 
