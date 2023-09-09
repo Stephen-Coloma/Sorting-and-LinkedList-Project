@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"BubbleSort"},{"p":"util","l":"CSVReader"},{"p":"util","l":"DatasetGenerator"},{"p":"util","l":"FilePathReader"},{"p":"<Unnamed>","l":"InsertionSort"},{"p":"<Unnamed>","l":"SelectionSort"}];updateSearchResults();
