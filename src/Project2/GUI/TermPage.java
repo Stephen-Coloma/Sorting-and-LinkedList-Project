@@ -26,6 +26,10 @@ public class TermPage extends JPanel {
         midtermButton = new JButton ("Midterm");
         finalButton = new JButton ("Finals");
 
+        //disabling add and delete button
+        addButton.setEnabled(false);
+        deleteButton.setEnabled(false);
+
         //adjust size and set layout
         setPreferredSize (new Dimension (452, 457));
         setLayout (null);
