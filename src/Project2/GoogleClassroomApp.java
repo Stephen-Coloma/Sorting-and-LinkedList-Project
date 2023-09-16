@@ -22,6 +22,8 @@ public class GoogleClassroomApp extends JFrame {
         this.setTitle("Course List Page");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
