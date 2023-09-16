@@ -96,28 +96,72 @@ public class GoogleClassroomApp extends JFrame {
         Term midtermsC2 = new Term<>("Midterms");
         Term finalsC2 =  new Term<>("Midterms");
 
-        prelimsC2.insert(topic1PrelimsC1);
-        prelimsC2.insert(topic2PrelimsC1);
-        prelimsC2.insert(topic3PrelimsC1);
-        prelimsC2.insert(topic4PrelimsC1);
-        prelimsC2.insert(topic5PrelimsC1);
+        prelimsC2.insert(topic1PrelimsC2);
+        prelimsC2.insert(topic2PrelimsC2);
+        prelimsC2.insert(topic3PrelimsC2);
+        prelimsC2.insert(topic4PrelimsC2);
+        prelimsC2.insert(topic5PrelimsC2);
 
-        midtermsC2.insert(topic1MidtermsC1);
-        midtermsC2.insert(topic2MidtermsC1);
-        midtermsC2.insert(topic3MidtermsC1);
-        midtermsC2.insert(topic3MidtermsC1);
-        midtermsC2.insert(topic3MidtermsC1);
+        midtermsC2.insert(topic1MidtermsC2);
+        midtermsC2.insert(topic2MidtermsC2);
+        midtermsC2.insert(topic3MidtermsC2);
+        midtermsC2.insert(topic3MidtermsC2);
+        midtermsC2.insert(topic3MidtermsC2);
 
-        finalsC2.insert(topic1FinalsC1);
-        finalsC2.insert(topic1FinalsC1);
-        finalsC2.insert(topic1FinalsC1);
-        finalsC2.insert(topic1FinalsC1);
-        finalsC2.insert(topic1FinalsC1);
+        finalsC2.insert(topic1FinalsC2);
+        finalsC2.insert(topic1FinalsC2);
+        finalsC2.insert(topic1FinalsC2);
+        finalsC2.insert(topic1FinalsC2);
+        finalsC2.insert(topic1FinalsC2);
 
+
+        //FOR THE THIRD COURSE:
+        Course c3 = new Course<>("HUMAN COMPUTER INTERACTION" , "9344 - CS 213");
+
+        Topic topic1PrelimsC3 = new Topic("Introduction to Operating Systems", "Task Name Here");
+        Topic topic2PrelimsC3 = new Topic("Process Management", "Task Name Here");
+        Topic topic3PrelimsC3 = new Topic("Memory Management", "Task Name Here");
+        Topic topic4PrelimsC3= new Topic("File Systems and Storage Management", "Task Name Here");
+        Topic topic5PrelimsC3 = new Topic("I/O Systems and Device Management", "Task Name Here");
+
+        Topic topic1MidtermsC3 = new Topic("Process Synchronization", "Task Name Here");
+        Topic topic2MidtermsC3 = new Topic("CPU Scheduling and Multiprogramming", "Task Name Here");
+        Topic topic3MidtermsC3 = new Topic("Virtual Memory Management", "Task Name Here");
+        Topic topic4MidtermsC3 = new Topic("File System Implementation", "Task Name Here");
+        Topic topic5MidtermsC3 = new Topic("I/O Systems Optimization", "Task Name Here");
+
+        Topic topic1FinalsC3 = new Topic("Process and Thread Management", "Task Name Here");
+        Topic topic2FinalsC3 = new Topic("Memory Protection and Security", "Task Name Here");
+        Topic topic3FinalsC3 = new Topic("Graph Search/Traversal", "Task Name Here");
+        Topic topic4FinalsC3 = new Topic("Security and Authentication", "Task Name Here");
+        Topic topic5FinalsC3 = new Topic("Virtualization and Cloud Computing", "Task Name Here");
+
+        Term prelimsC3 = new Term<>("Prelims");
+        Term midtermsC3 = new Term<>("Midterms");
+        Term finalsC3 =  new Term<>("Midterms");
+
+        prelimsC3.insert(topic1PrelimsC3);
+        prelimsC3.insert(topic2PrelimsC3);
+        prelimsC3.insert(topic3PrelimsC3);
+        prelimsC3.insert(topic4PrelimsC3);
+        prelimsC3.insert(topic5PrelimsC3);
+
+        midtermsC3.insert(topic1MidtermsC3);
+        midtermsC3.insert(topic2MidtermsC3);
+        midtermsC3.insert(topic3MidtermsC3);
+        midtermsC3.insert(topic3MidtermsC3);
+        midtermsC3.insert(topic3MidtermsC3);
+
+        finalsC3.insert(topic1FinalsC3);
+        finalsC3.insert(topic1FinalsC3);
+        finalsC3.insert(topic1FinalsC3);
+        finalsC3.insert(topic1FinalsC3);
+        finalsC3.insert(topic1FinalsC3);
         //--------------------------------------------------
         DoublyLinkedList<Course> courseList = new DoublyLinkedList<>();
         courseList.insert(c1);
         courseList.insert(c2);
+        courseList.insert(c3);
 
         return courseList;
     }
