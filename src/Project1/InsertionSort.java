@@ -1,4 +1,4 @@
-/**
+package Project1; /**
  * Group MixAndMatch
  * Class Code and Course Number: 9342 - CS 211
  * Schedule: TF 9:00 - 10:30 AM
@@ -13,12 +13,12 @@
  * </p>
  */
 
-import util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
-import util.FilePathReader;  // Importing FilePathReader utility for managing file paths
+import Project1.util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
+import Project1.util.FilePathReader;  // Importing FilePathReader utility for managing file paths
 import java.util.ArrayList;  // Importing ArrayList class for creating dynamic lists
 
 /**
- * The InsertionSort class provides an implementation of the Insertion Sort algorithm for sorting arrays
+ * The Project1.InsertionSort class provides an implementation of the Insertion Sort algorithm for sorting arrays
  * of strings read from various CSV files. It includes functionality to sort data according to different
  * size variants and arrangement types (Best, Worst, Average). The class also includes methods to create
  * file paths, sort the data, and display the statement counts for different data sets.
@@ -117,8 +117,8 @@ public class InsertionSort {
         ALGORITHM:
         1. Define labels for different data set sizes.
         2. Display a header with appropriate formatting.
-        3. Loop through the results array to display execution times for each dataset size.
-            - For each dataset size, display the execution times for best, worst, and average cases.
+        3. Loop through the results array to display execution times for each Project1.dataset size.
+            - For each Project1.dataset size, display the execution times for best, worst, and average cases.
         */
 
         // Define the labels for different data set sizes

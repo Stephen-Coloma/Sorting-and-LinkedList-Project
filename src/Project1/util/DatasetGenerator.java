@@ -13,7 +13,7 @@
  * </p>
  */
 
-package util;
+package Project1.util;
 
 import java.io.*;
 import java.util.*;
@@ -37,9 +37,9 @@ public class DatasetGenerator {
             uniqueStrings.add(generatedString);
         }
 
-        String fileNameAverage = "src/dataset/OneMillion/1M-AverageCase.csv";
-        String fileNameBest = "src/dataset/OneMillion/1M-BestCase.csv";
-        String fileNameWorst = "src/dataset/OneMillion/1M-WorstCase.csv";
+        String fileNameAverage = "src/Project1.dataset/OneMillion/1M-AverageCase.csv";
+        String fileNameBest = "src/Project1.dataset/OneMillion/1M-BestCase.csv";
+        String fileNameWorst = "src/Project1.dataset/OneMillion/1M-WorstCase.csv";
 
         //Convert Set to String[] array
         String[] stringArray = uniqueStrings.toArray(new String[0]);

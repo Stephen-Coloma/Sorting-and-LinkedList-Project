@@ -1,4 +1,4 @@
-/**
+package Project1; /**
  * Group MixAndMatch
  * Class Code and Course Number: 9342 - CS 211
  * Schedule: TF 9:00 - 10:30 AM
@@ -13,12 +13,12 @@
  * </p>
  */
 
-import util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
-import util.FilePathReader;  // Importing FilePathReader utility for managing file paths
+import Project1.util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
+import Project1.util.FilePathReader;  // Importing FilePathReader utility for managing file paths
 import java.util.ArrayList;  // Importing ArrayList class for creating dynamic lists
 
 /**
- * The SelectionSort class implements the Selection Sort algorithm to sort arrays of strings
+ * The Project1.SelectionSort class implements the Selection Sort algorithm to sort arrays of strings
  * representing data from CSV files. It measures and displays the number of executed statements
  * for different input sizes and arrangement variants (best, worst, and average cases).
  * The class includes methods for sorting, counting statements, and displaying results.
@@ -119,8 +119,8 @@ public class SelectionSort {
         ALGORITHM:
         1. Define labels for different data set sizes.
         2. Display a header with appropriate formatting.
-        3. Loop through the results array to display execution times for each dataset size.
-            - For each dataset size, display the execution times for best, worst, and average cases.
+        3. Loop through the results array to display execution times for each Project1.dataset size.
+            - For each Project1.dataset size, display the execution times for best, worst, and average cases.
     */
 
         // Define the labels for different data set sizes

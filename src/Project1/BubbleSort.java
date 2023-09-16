@@ -1,4 +1,4 @@
-/**
+package Project1; /**
  * Group MixAndMatch
  * Class Code and Course Number: 9342 - CS 211
  * Schedule: TF 9:00 - 10:30 AM
@@ -13,12 +13,12 @@
  * </p>
  */
 
-import util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
-import util.FilePathReader;  // Importing FilePathReader utility for managing file paths
+import Project1.util.CSVReader;       // Importing CSVReader utility for reading data from CSV files
+import Project1.util.FilePathReader;  // Importing FilePathReader utility for managing file paths
 import java.util.ArrayList;  // Importing ArrayList class for creating dynamic lists
 
 /**
- * The BubbleSort class demonstrates the Bubble Sort algorithm for sorting arrays of strings
+ * The Project1.BubbleSort class demonstrates the Bubble Sort algorithm for sorting arrays of strings
  * retrieved from CSV files. It measures and displays the number of executed statements for different
  * input sizes and arrangement variants, including best, worst, and average cases.
  */
@@ -101,16 +101,16 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
 
     /**
      * Displays the sorting results for different cases.
-     * @param results A 2D array containing sorting results for different dataset sizes and cases.
-     *                Each row corresponds to a dataset size, and columns correspond to best, worst, and average cases.
+     * @param results A 2D array containing sorting results for different Project1.dataset sizes and cases.
+     *                Each row corresponds to a Project1.dataset size, and columns correspond to best, worst, and average cases.
      */
     public static void displayCounts(long[][] results){
         /*
         ALGORITHM:
         1. Define labels for different data set sizes.
         2. Display a header with appropriate formatting.
-        3. Loop through the results array to display execution times for each dataset size.
-             - For each dataset size, display the execution times for best, worst, and average cases.
+        3. Loop through the results array to display execution times for each Project1.dataset size.
+             - For each Project1.dataset size, display the execution times for best, worst, and average cases.
         */
 
         // Define the labels for different data set sizes
@@ -120,7 +120,7 @@ import java.util.ArrayList;  // Importing ArrayList class for creating dynamic l
         System.out.printf("%-40S%-30S%-30S%-30S","BUBBLE SORT RESULTS","BEST CASE","WORST CASE","AVERAGE CASE");
         System.out.println();
 
-        // Display results for each dataset size
+        // Display results for each Project1.dataset size
         for (int i = 0; i < results.length; i++) {
             for (int j = 0; j < 1; j++) {
                 System.out.printf("%-40s%,-30d%,-30d%,-30d", sizes[i], results[i][j], results[i][j+1], results[i][j+2]);

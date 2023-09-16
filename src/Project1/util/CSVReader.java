@@ -13,7 +13,7 @@
  * </p>
  */
 
-package util;
+package Project1.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

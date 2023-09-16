@@ -22,20 +22,20 @@ including best-case, worst-case, and average-case scenarios.
 
 ## Sorting Util Classes
 
-### BubbleSort.java
-The `BubbleSort` class contains the implementation of the Bubble Sort algorithm. This classic sorting algorithm
+### Project1.BubbleSort.java
+The `Project1.BubbleSort` class contains the implementation of the Bubble Sort algorithm. This classic sorting algorithm
 repeatedly steps through the list to be sorted, compares adjacent elements, and swaps them if they are in
 the wrong order. The process is repeated until no more swaps are needed, indicating that the list is sorted.
 
-### InsertionSort.java
+### Project1.InsertionSort.java
 
-The `InsertionSort` class holds the implementation of the Insertion Sort algorithm. This algorithm builds the final
+The `Project1.InsertionSort` class holds the implementation of the Insertion Sort algorithm. This algorithm builds the final
 sorted array one item at a time by repeatedly taking an element from the unsorted part of the list and inserting
 it into its correct position within the sorted part of the list.
 
-### SelectionSort.java
+### Project1.SelectionSort.java
 
-In the `SelectionSort` class, you'll find the implementation of the Selection Sort algorithm. This algorithm divides
+In the `Project1.SelectionSort` class, you'll find the implementation of the Selection Sort algorithm. This algorithm divides
 the input list into two parts: the sublist of items already sorted and the sublist that needs to be sorted.
 The algorithm repeatedly selects the smallest (or largest, depending on the order) element from the unsorted
 sublist and moves it to the end of the sorted sublist.
@@ -54,16 +54,16 @@ To use our sorting algorithm analysis, follow these steps:
 
 3. Compile the Java programs for each sorting algorithm:
    ```
-   javac BubbleSort.java
-   javac InsertionSort.java
-   javac SelectionSort.java
+   javac Project1.BubbleSort.java
+   javac Project1.InsertionSort.java
+   javac Project1.SelectionSort.java
    ```
 
 4. Run the Java programs for each sorting algorithm with different data sizes and scenarios:
    ```
-   java BubbleSort
-   java InsertionSort
-   java SelectionSort
+   java Project1.BubbleSort
+   java Project1.InsertionSort
+   java Project1.SelectionSort
    ```
 
 5. Observe the output, which will display the number of statements executed during sorting for each algorithm and scenario.
@@ -74,7 +74,7 @@ To use our sorting algorithm analysis, follow these steps:
 For a comprehensive understanding of our project's findings, methodology, results, and analysis,
 please refer to our detailed [MixAndMAtchPrelimGroupProjectOnAlgorithmAnalysis](https://docs.google.com/document/d/1gKtJAHLXlthI0EKCrLfHiYVjrzdE2HUzpNh-_AHTRSQ/edit).
 
-Additionally, we provide data files for different data sizes and scenarios in the `dataset` directory.
+Additionally, we provide data files for different data sizes and scenarios in the `Project1.dataset` directory.
 These files serve as inputs for the sorting programs.
 
 ## Troubleshooting
