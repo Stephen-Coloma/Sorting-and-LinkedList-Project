@@ -1,5 +1,8 @@
 package Project2.GUI;
 
+import Project2.LinkedListImplementation.DoublyLinkedList;
+import Project2.ReferenceClasses.Course;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -8,20 +11,23 @@ import javax.swing.event.*;
 public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
     private JTextArea searchBar;
-    private JList listOfCourses;
+    private JList<Course> listOfCourses;
     private JButton addButton;
     private JButton deleteButton;
     private JButton previousButton;
     private JButton nextButton;
 
-    public CourseListPage() {
-        //construct preComponents
-        String[] listOfCoursesItems = {"9346 - GRVA (READING VISUAL ARTS)", "9343 - CS 212 (OPERATING SYSTEMS)", "9344 - CS 213 (HUMAN COMPUTER INTERACTION)", "9342 - CS 211 (DATA STRUCTURES)"};
+    public CourseListPage(DoublyLinkedList<Course> courseList) {
+        //changing courseList type to what is compatible to JList
+        DefaultListModel<Course> courseListModel = new DefaultListModel<>();
+        for (int i = 0; i < courseList.getSize(); i++) {
+            courseListModel.addElement(courseList.getElement(i));
+        }
 
         //construct components
         coursesLabel = new JLabel ("ENROLLED COURSES");
         searchBar = new JTextArea (5, 5);
-        listOfCourses = new JList (listOfCoursesItems);
+        listOfCourses = new JList (courseListModel);
         addButton = new JButton ("Add");
         deleteButton = new JButton ("Delete");
         previousButton = new JButton ("Previous");
@@ -50,12 +56,11 @@ public class CourseListPage extends JPanel {
         nextButton.setBounds (335, 405, 90, 35);
     }
 
-
-    public static void main (String[] args) {
-        JFrame frame = new JFrame ("Course List Page");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new CourseListPage());
-        frame.pack();
-        frame.setVisible (true);
-    }
+//    public static void main (String[] args) {
+//        JFrame frame = new JFrame ("Course List Page");
+//        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+//        frame.getContentPane().add (new CourseListPage());
+//        frame.pack();
+//        frame.setVisible (true);
+//    }
 }

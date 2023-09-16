@@ -29,6 +29,6 @@ public class Course<Term> extends DoublyLinkedList<Term> {
 
     @Override
     public String toString(){
-        return this.courseName + " " + this.courseID;
+        return this.courseID + " (" + this.courseName + ")";
     }
 }
