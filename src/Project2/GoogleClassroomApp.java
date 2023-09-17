@@ -98,6 +98,7 @@ public class GoogleClassroomApp extends JFrame {
         //adds the 2nd course in the courseList
         courseList.insert(course2);
 
+        //create and populate course3
         Course<Term<Topic>> course3 = new Course<>("HUMAN COMPUTER INTERACTION", "9344 - CS 213");
 
         Term<Topic> prelims3 = new Term<>("Prelims");
@@ -132,31 +133,36 @@ public class GoogleClassroomApp extends JFrame {
         //adds the 3rd course into the list
         courseList.insert(course3);
 
+        //create and populate course4
+        Course<Term<Topic>> course4 = new Course<>("SCIENCE, TECHNOLOGY AND SOCIETY" , "9345 - CS - GSTS");
+        Term<Topic> prelims4 = new Term<>("Prelims");
+        Term<Topic> midterms4 = new Term<>("Midterms");
+        Term<Topic> finals4 = new Term<>("Finals");
+
+        //populate prelims
+        prelims4.insert(new Topic("General Concepts and STS Historical Developments", "Task Name Here"));
+        prelims4.insert(new Topic("Intellectual Revolutions that Defined Society", "Task Name Here"));
+        prelims4.insert(new Topic("Science and Technology and Nation Building", "Task Name Here"));
+        prelims4.insert(new Topic("The Human Person Flourishing in Science and Technology", "Task Name Here"));
+
+        //populate midterms
+        midterms4.insert(new Topic("STS and Human Condition: The GOod Life", "Task Name Here"));
+        midterms4.insert(new Topic("When Technology and Humanity Cross", "Task Name Here"));
+        midterms4.insert(new Topic("The Information Age", "Task Name Here"));
+
+
+        //populate finals
+        finals4.insert(new Topic("Biodiversity and Health Society", "Task Name Here"));
+        finals4.insert(new Topic("The Nanotechnology World", "Task Name Here"));
+        finals4.insert(new Topic("Genetic Engineering", "Task Name Here"));
+
+        course4.insert(prelims4);
+        course4.insert(midterms4);
+        course4.insert(finals4);
+
+        //adds the 4th course into the list
+        courseList.insert(course4);
+
         return courseList;
-    }
-
-    public Course<Term<Topic>> populateCourse4(){
-        //FOR THE FOURTH COURSE:
-        Course<Term<Topic>> course = new Course<>("SCIENCE, TECHNOLOGY AND SOCIETY" , "9345 - CS - GSTS");
-        Term<Topic> prelims = new Term<>("Prelims");
-        Term<Topic> midterms = new Term<>("Midterms");
-        Term<Topic> finals = new Term<>("Finals");
-
-        prelims.insert(new Topic("General Concepts and STS Historical Developments", "Task Name Here"));
-        prelims.insert(new Topic("Intellectual Revolutions that Defined Society", "Task Name Here"));
-        prelims.insert(new Topic("Science and Technology and Nation Building", "Task Name Here"));
-        prelims.insert(new Topic("The Human Person Flourishing in Science and Technology", "Task Name Here"));
-
-        midterms.insert(new Topic("STS and Human Condition: The GOod Life", "Task Name Here"));
-        midterms.insert(new Topic("When Technology and Humanity Cross", "Task Name Here"));
-        midterms.insert(new Topic("The Information Age", "Task Name Here"));
-
-        finals.insert(new Topic("Biodiversity and Health Society", "Task Name Here"));
-        finals.insert(new Topic("The Nanotechnology World", "Task Name Here"));
-        finals.insert(new Topic("Genetic Engineering", "Task Name Here"));
-        course.insert(prelims);
-        course.insert(midterms);
-        course.insert(finals);
-        return course;
     }
 }
