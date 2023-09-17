@@ -157,6 +157,42 @@ public class GoogleClassroomApp extends JFrame {
         finalsC3.insert(topic1FinalsC3);
         finalsC3.insert(topic1FinalsC3);
         finalsC3.insert(topic1FinalsC3);
+
+
+        //FOR THE FOURTH COURSE:
+        Course c4 = new Course<>("SCIENCE, TECHNOLOGY AND SOCIETY" , "9345 - CS - GSTS");
+
+        Topic topic1PrelimsC4 = new Topic("General Concepts and STS Historical Developments", "Task Name Here");
+        Topic topic2PrelimsC4 = new Topic("Intellectual Revolutions that Defined Society", "Task Name Here");
+        Topic topic3PrelimsC4 = new Topic("Science and Technology and Nation Building", "Task Name Here");
+        Topic topic4PrelimsC4 = new Topic("The Human Person Flourishing in Science and Technology", "Task Name Here");
+
+        Topic topic1MidtermsC4 = new Topic("STS and Human Condition: The GOod Life", "Task Name Here");
+        Topic topic2MidtermsC4 = new Topic("When Technology and Humanity Cross", "Task Name Here");
+        Topic topic3MidtermsC4 = new Topic("The Information Age", "Task Name Here");
+
+        Topic topic1FinalsC4 = new Topic("Biodiversity and Health Society", "Task Name Here");
+        Topic topic2FinalsC4 = new Topic("The Nanotechnology World", "Task Name Here");
+        Topic topic3FinalsC4 = new Topic("Genetic Engineering", "Task Name Here");
+
+        Term prelimsC4 = new Term<>("Prelims");
+        Term midtermsC4 = new Term<>("Midterms");
+        Term finalsC4 =  new Term<>("Midterms");
+
+        prelimsC4.insert(topic1PrelimsC4);
+        prelimsC4.insert(topic2PrelimsC4);
+        prelimsC4.insert(topic3PrelimsC4);
+        prelimsC4.insert(topic4PrelimsC4);
+
+        midtermsC4.insert(topic1MidtermsC4);
+        midtermsC4.insert(topic2MidtermsC4);
+        midtermsC4.insert(topic3MidtermsC4);
+
+        finalsC4.insert(topic1FinalsC4);
+        finalsC4.insert(topic2FinalsC4);
+        finalsC4.insert(topic3FinalsC4);
+
+
         //--------------------------------------------------
         DoublyLinkedList<Course> courseList = new DoublyLinkedList<>();
         courseList.insert(c1);
