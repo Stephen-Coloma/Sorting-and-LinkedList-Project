@@ -63,7 +63,7 @@ public class TermPage extends JPanel {
         prelimButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Term<Topic> prelimsTerm = course.getTerm("Prelims");
-                if (prelimsTerm != null) {
+                if (prelimsTerm != null) {  //TODO: when opening the TopicsListPage, the TermPage frame should dispose.
                     openTopicsListPage(prelimsTerm);
 
                 } else {
