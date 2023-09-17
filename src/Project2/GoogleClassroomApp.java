@@ -158,7 +158,6 @@ public class GoogleClassroomApp extends JFrame {
         finalsC3.insert(topic1FinalsC3);
         finalsC3.insert(topic1FinalsC3);
 
-
         //FOR THE FOURTH COURSE:
         Course c4 = new Course<>("SCIENCE, TECHNOLOGY AND SOCIETY" , "9345 - CS - GSTS");
 
