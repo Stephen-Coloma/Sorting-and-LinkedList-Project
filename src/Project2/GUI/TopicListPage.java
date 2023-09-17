@@ -1,54 +1,63 @@
 package Project2.GUI;
 
 
+import Project2.ReferenceClasses.Term;
+import Project2.ReferenceClasses.Topic;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
 public class TopicListPage extends JPanel {
+    private JScrollPane scrollPane;
     private JLabel topicsLabel;
-    private JButton addButton;
-    private JButton deleteButton;
-    private JButton previousButton;
-    private JButton nextButton;
-    private JTextArea jcomp6;
-    private JList topicsList;
+    private JButton addButton, deleteButton, previousButton, nextButton;
+    private JTextArea searchBar;
+    private JList<Topic> topicsList;
 
-    public TopicListPage() {
-        //construct preComponents
-        String[] topicsListItems = {"Topic 1: Introduction to Operating Systems", "Topic 2: Process Management", "Topic 3: Memory Management", "Topic 4: File Systems and Storage Management", "Topic 5: I/O Systems and Device Management"};
+    public TopicListPage(Term<Topic> term) {
+        // Construct components
+        topicsLabel = new JLabel("Topics for " + term.getTermName());
+        topicsList = new JList<>(new DefaultListModel<>());
 
-        //construct components
-        topicsLabel = new JLabel ("TOPICS");
-        addButton = new JButton ("Add");
-        deleteButton = new JButton ("Delete");
-        previousButton = new JButton ("Previous");
-        nextButton = new JButton ("Next");
-        jcomp6 = new JTextArea (5, 5);
-        topicsList = new JList (topicsListItems);
+        // Add topics to the list
+        DefaultListModel<Topic> topicListModel = (DefaultListModel<Topic>) topicsList.getModel();
+        for (int i = 0; i < term.getSize(); i++) {
+            topicListModel.addElement(term.getElement(i));
+        }
 
-        //adjust size and set layout
-        setPreferredSize (new Dimension (452, 457));
-        setLayout (null);
 
-        //add components
-        add (topicsLabel);
-        add (addButton);
-        add (deleteButton);
-        add (previousButton);
-        add (nextButton);
-        add (jcomp6);
-        add (topicsList);
+        scrollPane = new JScrollPane(topicsList);
+        searchBar = new JTextArea(5, 5);
 
-        //set component bounds (only needed by Absolute Positioning)
+        addButton = new JButton("Add");
+        deleteButton = new JButton("Delete");
+        previousButton = new JButton("Previous");
+        nextButton = new JButton("Next");
+
+        // Adjust size and set layout
+        setPreferredSize(new Dimension(452, 457));
+        setLayout(null);
+
+        // Add components
+        add(topicsLabel);
+        add(searchBar);
+        add(scrollPane);
+        add(addButton);
+        add(deleteButton);
+        add(previousButton);
+        add(nextButton);
         topicsLabel.setBounds (30, 15, 130, 35);
+        searchBar.setBounds (245, 20, 180, 25);
+        scrollPane.setBounds (25, 60, 400, 330);
         addButton.setBounds (25, 405, 90, 35);
         deleteButton.setBounds (130, 405, 90, 35);
         previousButton.setBounds (235, 405, 85, 35);
         nextButton.setBounds (335, 405, 90, 35);
-        jcomp6.setBounds (230, 20, 195, 30);
-        topicsList.setBounds (25, 65, 400, 320);
+
+
+
     }
 
 

@@ -31,4 +31,13 @@ public class Course<Term> extends DoublyLinkedList<Term> {
     public String toString(){
         return this.courseID + " (" + this.courseName + ")";
     }
+    public Project2.ReferenceClasses.Term<Topic> getTerm(String termName) {
+        for (int i = 0; i < getSize(); i++) {
+            Project2.ReferenceClasses.Term<Topic> term = (Project2.ReferenceClasses.Term<Topic>) getElement(i);
+            if (term.getTermName().equals(termName)) {
+                return term;
+            }
+        }
+        return null;
+    }
 }

@@ -2,6 +2,8 @@ package Project2.GUI;
 
 import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
+import Project2.ReferenceClasses.Term;
+import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -11,13 +13,10 @@ import javax.swing.event.*;
 public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
     private JTextArea searchBar;
-    private JList<Course> listOfCourses;
-    private JButton addButton;
-    private JButton deleteButton;
-    private JButton previousButton;
-    private JButton nextButton;
+    private JList<Course<Term<Topic>>> listOfCourses;
+    private JButton addButton, deleteButton, previousButton, nextButton;
 
-    public CourseListPage(DoublyLinkedList<Course> courseList) {
+    public CourseListPage(DoublyLinkedList<Course<Term<Topic>>> courseList) {
         //changing courseList type to what is compatible to JList
         DefaultListModel<Course> courseListModel = new DefaultListModel<>();
         for (int i = 0; i < courseList.getSize(); i++) {
@@ -54,7 +53,29 @@ public class CourseListPage extends JPanel {
         deleteButton.setBounds (130, 405, 90, 35);
         previousButton.setBounds (235, 405, 85, 35);
         nextButton.setBounds (335, 405, 90, 35);
+
+        listOfCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (evt.getClickCount() == 2) { // Double-click detected
+                    Course selectedCourse = listOfCourses.getSelectedValue();
+                    if (selectedCourse != null) {
+                        openTermPage(selectedCourse);
+                    }
+                }
+            }
+        });
     }
+    private void openTermPage(Course<Term<Topic>> selectedCourse) {
+        JFrame frame = new JFrame(selectedCourse.getCourseName());
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add(new TermPage(selectedCourse));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
+
 
 //    public static void main (String[] args) {
 //        JFrame frame = new JFrame ("Course List Page");

@@ -1,5 +1,9 @@
 package Project2.GUI;
 
+import Project2.ReferenceClasses.Course;
+import Project2.ReferenceClasses.Term;
+import Project2.ReferenceClasses.Topic;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -7,15 +11,18 @@ import javax.swing.event.*;
 
 public class TermPage extends JPanel {
     private JLabel termLabel;
-    private JButton addButton;
-    private JButton deleteButton;
-    private JButton previousButton;
-    private JButton nextButton;
-    private JButton prelimButton;
-    private JButton midtermButton;
-    private JButton finalButton;
+    private JButton addButton, deleteButton, previousButton, nextButton, prelimButton, midtermButton, finalButton;
 
-    public TermPage() {
+    public TermPage(Course<Term<Topic>> course) {
+        // Debugging: Print out the terms in the course
+        if (course.getSize() > 0) {
+            for (int i = 0; i < course.getSize(); i++) {
+                Term<Topic> term = course.getElement(i);
+                System.out.println("Term: " + term.getTermName());
+            }
+        } else {
+            System.out.println("Course is empty");
+        }
         //construct components
         termLabel = new JLabel ("TERM");
         addButton = new JButton ("Add");
@@ -53,8 +60,27 @@ public class TermPage extends JPanel {
         prelimButton.setBounds (25, 55, 400, 90);
         midtermButton.setBounds (25, 170, 400, 95);
         finalButton.setBounds (25, 290, 400, 95);
-    }
+        prelimButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Term<Topic> prelimsTerm = course.getTerm("Prelims");
+                if (prelimsTerm != null) {
+                    openTopicsListPage(prelimsTerm);
 
+                } else {
+                    System.out.println("Prelims term is null");
+                }
+            }
+        });
+    }
+    private void openTopicsListPage(Term<Topic> term) {
+        JFrame frame = new JFrame(term.getTermName()); // Use getTermName to set the frame title
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add(new TopicListPage(term));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
 
 //    public static void main (String[] args) {
 //        JFrame frame = new JFrame ("Term Page");
