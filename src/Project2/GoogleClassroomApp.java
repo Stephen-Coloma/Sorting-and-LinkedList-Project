@@ -20,7 +20,7 @@ public class GoogleClassroomApp extends JFrame {
         courseList = initialPopulation();
         this.setContentPane(new CourseListPage(courseList));
         this.setTitle("Course List Page");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
@@ -29,22 +29,6 @@ public class GoogleClassroomApp extends JFrame {
 
     private DoublyLinkedList<Course<Term<Topic>>> initialPopulation() {
         // Create and populate Course 1
-        Course<Term<Topic>> c1 = populateCourse1();
-        courseList.insert(c1);
-
-        // Create and populate Course 2
-        Course<Term<Topic>> c2 = populateCourse2();
-        courseList.insert(c2);
-
-        // Create and populate Course 3
-        Course<Term<Topic>> c3 = populateCourse3();
-        courseList.insert(c3);
-
-        return courseList;
-    }
-
-
-    private Course<Term<Topic>> populateCourse1() {
         Course<Term<Topic>> course = new Course<>("DATA STRUCTURES", "9342 - CS 211");
 
         Term<Topic> prelims = new Term<>("Prelims");
@@ -76,8 +60,11 @@ public class GoogleClassroomApp extends JFrame {
         course.insert(midterms);
         course.insert(finals);
 
-        return course;
+        courseList.insert(course);
+
+        return courseList;
     }
+
 
     private Course<Term<Topic>> populateCourse2() {
         Course<Term<Topic>> course = new Course<>("OPERATING SYSTEMS", "9343 - CS 212");
