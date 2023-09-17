@@ -62,44 +62,45 @@ public class GoogleClassroomApp extends JFrame {
 
         courseList.insert(course);
 
+        //Create and populate Course 2
+        Course<Term<Topic>> course2 = new Course<>("OPERATING SYSTEMS", "9343 - CS 212");
+
+        Term<Topic> prelims2 = new Term<>("Prelims");
+        Term<Topic> midterms2 = new Term<>("Midterms");
+        Term<Topic> finals2 = new Term<>("Finals");
+
+        // Populate Prelims
+        prelims2.insert(new Topic("Introduction to Operating Systems", "Task Name Here"));
+        prelims2.insert(new Topic("Process Management", "Task Name Here"));
+        prelims2.insert(new Topic("Memory Management", "Task Name Here"));
+        prelims2.insert(new Topic("File Systems and Storage Management", "Task Name Here"));
+        prelims2.insert(new Topic("I/O Systems and Device Management", "Task Name Here"));
+
+        // Populate Midterms
+        midterms2.insert(new Topic("Process Synchronization", "Task Name Here"));
+        midterms2.insert(new Topic("CPU Scheduling and Multiprogramming", "Task Name Here"));
+        midterms2.insert(new Topic("Virtual Memory Management", "Task Name Here"));
+        midterms2.insert(new Topic("File System Implementation", "Task Name Here"));
+        midterms2.insert(new Topic("I/O Systems Optimization", "Task Name Here"));
+
+        // Populate Finals
+        finals2.insert(new Topic("Process and Thread Management", "Task Name Here"));
+        finals2.insert(new Topic("Memory Protection and Security", "Task Name Here"));
+        finals2.insert(new Topic("Graph Search/Traversal", "Task Name Here"));
+        finals2.insert(new Topic("Security and Authentication", "Task Name Here"));
+        finals2.insert(new Topic("Virtualization and Cloud Computing", "Task Name Here"));
+
+        course2.insert(prelims2);
+        course2.insert(midterms2);
+        course2.insert(finals2);
+
+        //adds the 2nd course in the courseList
+        courseList.insert(course2);
+
+
         return courseList;
     }
 
-
-    private Course<Term<Topic>> populateCourse2() {
-        Course<Term<Topic>> course = new Course<>("OPERATING SYSTEMS", "9343 - CS 212");
-
-        Term<Topic> prelims = new Term<>("Prelims");
-        Term<Topic> midterms = new Term<>("Midterms");
-        Term<Topic> finals = new Term<>("Finals");
-
-        // Populate Prelims
-        prelims.insert(new Topic("Introduction to Operating Systems", "Task Name Here"));
-        prelims.insert(new Topic("Process Management", "Task Name Here"));
-        prelims.insert(new Topic("Memory Management", "Task Name Here"));
-        prelims.insert(new Topic("File Systems and Storage Management", "Task Name Here"));
-        prelims.insert(new Topic("I/O Systems and Device Management", "Task Name Here"));
-
-        // Populate Midterms
-        midterms.insert(new Topic("Process Synchronization", "Task Name Here"));
-        midterms.insert(new Topic("CPU Scheduling and Multiprogramming", "Task Name Here"));
-        midterms.insert(new Topic("Virtual Memory Management", "Task Name Here"));
-        midterms.insert(new Topic("File System Implementation", "Task Name Here"));
-        midterms.insert(new Topic("I/O Systems Optimization", "Task Name Here"));
-
-        // Populate Finals
-        finals.insert(new Topic("Process and Thread Management", "Task Name Here"));
-        finals.insert(new Topic("Memory Protection and Security", "Task Name Here"));
-        finals.insert(new Topic("Graph Search/Traversal", "Task Name Here"));
-        finals.insert(new Topic("Security and Authentication", "Task Name Here"));
-        finals.insert(new Topic("Virtualization and Cloud Computing", "Task Name Here"));
-
-        course.insert(prelims);
-        course.insert(midterms);
-        course.insert(finals);
-
-        return course;
-    }
 
     private Course<Term<Topic>> populateCourse3() {
         Course<Term<Topic>> course = new Course<>("HUMAN COMPUTER INTERACTION", "9344 - CS 213");
