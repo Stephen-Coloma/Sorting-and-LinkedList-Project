@@ -71,25 +71,25 @@ public class GoogleClassroomApp extends JFrame {
         Term<Topic> finals2 = new Term<>("Finals");
 
         // Populate Prelims
-        prelims2.insert(new Topic("Introduction to Operating Systems", "Task Name Here"));
-        prelims2.insert(new Topic("Process Management", "Task Name Here"));
-        prelims2.insert(new Topic("Memory Management", "Task Name Here"));
-        prelims2.insert(new Topic("File Systems and Storage Management", "Task Name Here"));
-        prelims2.insert(new Topic("I/O Systems and Device Management", "Task Name Here"));
+        prelims2.insert(new Topic("Introduction to Operating Systems", "Read Chapter 1 and summarize key concepts."));
+        prelims2.insert(new Topic("Process Management", "Implement a basic process scheduling algorithm in C."));
+        prelims2.insert(new Topic("Memory Management", "Compare and contrast paging and segmentation in OS memory management."));
+        prelims2.insert(new Topic("File Systems and Storage Management", "Create a file system structure diagram for a given scenario."));
+        prelims2.insert(new Topic("I/O Systems and Device Management", "Write a program to demonstrate I/O operations in Java."));
 
-        // Populate Midterms
-        midterms2.insert(new Topic("Process Synchronization", "Task Name Here"));
-        midterms2.insert(new Topic("CPU Scheduling and Multiprogramming", "Task Name Here"));
-        midterms2.insert(new Topic("Virtual Memory Management", "Task Name Here"));
-        midterms2.insert(new Topic("File System Implementation", "Task Name Here"));
-        midterms2.insert(new Topic("I/O Systems Optimization", "Task Name Here"));
+// Populate Midterms
+        midterms2.insert(new Topic("Process Synchronization", "Implement the producer-consumer problem using semaphores in C++."));
+        midterms2.insert(new Topic("CPU Scheduling and Multiprogramming", "Analyze the performance of various CPU scheduling algorithms through simulation."));
+        midterms2.insert(new Topic("Virtual Memory Management", "Explain the concept of demand paging and its advantages."));
+        midterms2.insert(new Topic("File System Implementation", "Design and document the structure of a simple file system."));
+        midterms2.insert(new Topic("I/O Systems Optimization", "Optimize file read and write operations in a given program."));
 
-        // Populate Finals
-        finals2.insert(new Topic("Process and Thread Management", "Task Name Here"));
-        finals2.insert(new Topic("Memory Protection and Security", "Task Name Here"));
-        finals2.insert(new Topic("Graph Search/Traversal", "Task Name Here"));
-        finals2.insert(new Topic("Security and Authentication", "Task Name Here"));
-        finals2.insert(new Topic("Virtualization and Cloud Computing", "Task Name Here"));
+// Populate Finals
+        finals2.insert(new Topic("Process and Thread Management", "Discuss the differences between processes and threads in terms of management and overhead."));
+        finals2.insert(new Topic("Memory Protection and Security", "Present a case study on a real-world OS security breach and propose countermeasures."));
+        finals2.insert(new Topic("Graph Search/Traversal", "Implement breadth-first search (BFS) and depth-first search (DFS) algorithms in Python."));
+        finals2.insert(new Topic("Security and Authentication", "Design a secure authentication system for a cloud-based application."));
+        finals2.insert(new Topic("Virtualization and Cloud Computing", "Explain the benefits and challenges of virtualization in cloud computing."));
 
         course2.insert(prelims2);
         course2.insert(midterms2);
