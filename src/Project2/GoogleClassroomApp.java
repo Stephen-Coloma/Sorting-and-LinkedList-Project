@@ -139,22 +139,21 @@ public class GoogleClassroomApp extends JFrame {
         Term<Topic> midterms4 = new Term<>("Midterms");
         Term<Topic> finals4 = new Term<>("Finals");
 
-        //populate prelims
-        prelims4.insert(new Topic("General Concepts and STS Historical Developments", "Task Name Here"));
-        prelims4.insert(new Topic("Intellectual Revolutions that Defined Society", "Task Name Here"));
-        prelims4.insert(new Topic("Science and Technology and Nation Building", "Task Name Here"));
-        prelims4.insert(new Topic("The Human Person Flourishing in Science and Technology", "Task Name Here"));
+        // Populate Prelims
+        prelims4.insert(new Topic("General Concepts and STS Historical Developments", "Present key historical developments in the field of STS."));
+        prelims4.insert(new Topic("Intellectual Revolutions that Defined Society", "Write an essay on how intellectual revolutions have shaped society."));
+        prelims4.insert(new Topic("Science and Technology and Nation Building", "Analyze the role of science and technology in the process of nation-building."));
+        prelims4.insert(new Topic("The Human Person Flourishing in Science and Technology", "Discuss the ethical considerations of technological advancements"));
 
-        //populate midterms
-        midterms4.insert(new Topic("STS and Human Condition: The GOod Life", "Task Name Here"));
-        midterms4.insert(new Topic("When Technology and Humanity Cross", "Task Name Here"));
-        midterms4.insert(new Topic("The Information Age", "Task Name Here"));
+        // Populate Midterms
+        midterms4.insert(new Topic("STS and Human Condition: The Good Life", "Explore the concept of 'the good life' in the context of STS"));
+        midterms4.insert(new Topic("When Technology and Humanity Cross", "Examine ethical dilemmas that arise when technology and humanity intersect."));
+        midterms4.insert(new Topic("The Information Age", "Research and present a case study on the impact of the information age on society."));
 
-
-        //populate finals
-        finals4.insert(new Topic("Biodiversity and Health Society", "Task Name Here"));
-        finals4.insert(new Topic("The Nanotechnology World", "Task Name Here"));
-        finals4.insert(new Topic("Genetic Engineering", "Task Name Here"));
+        // Populate Finals
+        finals4.insert(new Topic("Biodiversity and Health Society", "Investigate the relationship between biodiversity and public health and propose solutions."));
+        finals4.insert(new Topic("The Nanotechnology World", "Summarize recent advancements in nanotechnology and their potential applications."));
+        finals4.insert(new Topic("Genetic Engineering", "Discuss the ethical and societal implications of genetic engineering and gene editing technologies."));
 
         course4.insert(prelims4);
         course4.insert(midterms4);
