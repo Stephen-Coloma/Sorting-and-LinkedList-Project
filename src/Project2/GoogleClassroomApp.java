@@ -43,18 +43,18 @@ public class GoogleClassroomApp extends JFrame {
         prelims.insert(new Topic("Singly, Doubly, and Circular Linked List", "Describing LinkedList Implementation"));
 
         // Populate Midterms
-        midterms.insert(new Topic("The Stack and Queue Data Structures", "Task Name Here"));
-        midterms.insert(new Topic("The Stack and Queue ADT", "Task Name Here"));
-        midterms.insert(new Topic("Applications of the Queue", "Task Name Here"));
-        midterms.insert(new Topic("The Tree Data Structures", "Task Name Here"));
-        midterms.insert(new Topic("Huffman Coding - Application of the Tree Data Structure", "Task Name Here"));
+        midterms.insert(new Topic("The Stack and Queue Data Structures", "Two-Stack Queue Implementation"));
+        midterms.insert(new Topic("The Stack and Queue ADT", "Building a Stack and Queue Data Structure from Scratch"));
+        midterms.insert(new Topic("Applications of the Queue", "Exploring Practical Applications of Queues"));
+        midterms.insert(new Topic("The Tree Data Structures", "Implementing and Traversing Tree Structures"));
+        midterms.insert(new Topic("Huffman Coding - Application of the Tree Data Structure", "Implementing Huffman Coding for Data Compression"));
 
         // Populate Finals
-        finals.insert(new Topic("The Graph Data Structure", "Task Name Here"));
-        finals.insert(new Topic("Graph Representation", "Task Name Here"));
-        finals.insert(new Topic("Graph Search/Traversal", "Task Name Here"));
-        finals.insert(new Topic("Hash Function and Table", "Task Name Here"));
-        finals.insert(new Topic("Collision Handling", "Task Name Here"));
+        finals.insert(new Topic("The Graph Data Structure", "Graph Basics: Implementation and Algorithms"));
+        finals.insert(new Topic("Graph Representation", "Implementing Graph Representation"));
+        finals.insert(new Topic("Graph Search/Traversal", "Graph Search and Traversal Challenge"));
+        finals.insert(new Topic("Hash Function and Table", "Hash Function and Table Implementation "));
+        finals.insert(new Topic("Collision Handling", "Handling Collisions in Hash Tables"));
 
         course.insert(prelims);
         course.insert(midterms);
