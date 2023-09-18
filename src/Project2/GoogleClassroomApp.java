@@ -106,25 +106,25 @@ public class GoogleClassroomApp extends JFrame {
         Term<Topic> finals3 = new Term<>("Finals");
 
         // Populate Prelims
-        prelims3.insert(new Topic("Introduction to Operating Systems", "Task Name Here"));
-        prelims3.insert(new Topic("Process Management", "Task Name Here"));
-        prelims3.insert(new Topic("Memory Management", "Task Name Here"));
-        prelims3.insert(new Topic("File Systems and Storage Management", "Task Name Here"));
-        prelims3.insert(new Topic("I/O Systems and Device Management", "Task Name Here"));
+        prelims3.insert(new Topic("Introduction to Operating Systems", "Read Chapter 1 and summarize key concepts"));
+        prelims3.insert(new Topic("Process Management", "Implement a basic process scheduling algorithm in C"));
+        prelims3.insert(new Topic("Memory Management", "Compare and contrast paging and segmentation in OS memory management"));
+        prelims3.insert(new Topic("File Systems and Storage Management", "Create a file system structure diagram for a given scenario"));
+        prelims3.insert(new Topic("I/O Systems and Device Management", "Optimize file read and write operations in a given program"));
 
         // Populate Midterms
-        midterms3.insert(new Topic("Process Synchronization", "Task Name Here"));
-        midterms3.insert(new Topic("CPU Scheduling and Multiprogramming", "Task Name Here"));
-        midterms3.insert(new Topic("Virtual Memory Management", "Task Name Here"));
-        midterms3.insert(new Topic("File System Implementation", "Task Name Here"));
-        midterms3.insert(new Topic("I/O Systems Optimization", "Task Name Here"));
+        midterms3.insert(new Topic("Process Synchronization", "Implementing Process Synchronization Mechanisms"));
+        midterms3.insert(new Topic("CPU Scheduling and Multiprogramming", "Designing CPU Scheduling Algorithms"));
+        midterms3.insert(new Topic("Virtual Memory Management", "Develop a Virtual Memory Management Strategies"));
+        midterms3.insert(new Topic("File System Implementation", "Creating a File System from Scratch"));
+        midterms3.insert(new Topic("I/O Systems Optimization", "Optimizing I/O Systems for Performance"));
 
         // Populate Finals
-        finals3.insert(new Topic("Process and Thread Management", "Task Name Here"));
-        finals3.insert(new Topic("Memory Protection and Security", "Task Name Here"));
-        finals3.insert(new Topic("Graph Search/Traversal", "Task Name Here"));
-        finals3.insert(new Topic("Security and Authentication", "Task Name Here"));
-        finals3.insert(new Topic("Virtualization and Cloud Computing", "Task Name Here"));
+        finals3.insert(new Topic("Process and Thread Management", "Efficient Process and Thread Management Implementation"));
+        finals3.insert(new Topic("Memory Protection and Security", "Enhancing Memory Protection and Security Measures"));
+        finals3.insert(new Topic("Graph Search/Traversal", "Implementation of Graph Search and Traversal Algorithms"));
+        finals3.insert(new Topic("Security and Authentication", "Security and Authentication Project"));
+        finals3.insert(new Topic("Virtualization and Cloud Computing", "Exploring Cloud Computing using Java    "));
 
         course3.insert(prelims3);
         course3.insert(midterms3);
