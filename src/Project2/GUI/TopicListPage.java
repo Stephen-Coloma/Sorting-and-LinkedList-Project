@@ -1,6 +1,6 @@
 package Project2.GUI;
 
-
+import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
@@ -27,10 +27,8 @@ public class TopicListPage extends JPanel {
             topicListModel.addElement(term.getElement(i));
         }
 
-
         scrollPane = new JScrollPane(topicsList);
         searchBar = new JTextArea(5, 5);
-
         addButton = new JButton("Add");
         deleteButton = new JButton("Delete");
         previousButton = new JButton("Previous");
@@ -56,9 +54,29 @@ public class TopicListPage extends JPanel {
         previousButton.setBounds (235, 405, 85, 35);
         nextButton.setBounds (335, 405, 90, 35);
 
-
+        topicsList.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (evt.getClickCount() == 2) { // Double-click detected
+                    Topic selectedTopic = topicsList.getSelectedValue();
+                    if (selectedTopic != null) {
+                        openModulesTasksPage(selectedTopic);
+                    }
+                }
+            }
+        });
 
     }
+
+    private void openModulesTasksPage(Topic topic) {
+        JFrame frame = new JFrame(topic.getModule()); // Use getModule to set the frame title
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add(new ModulesTasksPage(topic));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    } // end of openModulesTasksPage method
 
 
 //    public static void main (String[] args) {
@@ -68,4 +86,4 @@ public class TopicListPage extends JPanel {
 //        frame.pack();
 //        frame.setVisible (true);
 //    }
-}
+} // end of TopicListPage class
