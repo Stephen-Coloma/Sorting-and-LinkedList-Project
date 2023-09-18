@@ -7,7 +7,6 @@ import Project2.ReferenceClasses.Topic;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class TermPage extends JPanel {
     private JLabel termLabel;
@@ -60,18 +59,44 @@ public class TermPage extends JPanel {
         prelimButton.setBounds (25, 55, 400, 90);
         midtermButton.setBounds (25, 170, 400, 95);
         finalButton.setBounds (25, 290, 400, 95);
+
         prelimButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Term<Topic> prelimsTerm = course.getTerm("Prelims");
-                if (prelimsTerm != null) {  //TODO: when opening the TopicsListPage, the TermPage frame should dispose.
+                if (prelimsTerm != null) {
                     openTopicsListPage(prelimsTerm);
-
+                    SwingUtilities.getWindowAncestor(TermPage.this).dispose();
                 } else {
                     System.out.println("Prelims term is null");
                 }
             }
         });
+
+        midtermButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Term<Topic> midtermTerm = course.getTerm("Midterms");
+                if (midtermTerm != null) {
+                    openTopicsListPage(midtermTerm);
+                    SwingUtilities.getWindowAncestor(TermPage.this).dispose();
+                } else {
+                    System.out.println("Midterms term is null");
+                }
+            }
+        });
+
+        finalButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Term<Topic> finalTerm = course.getTerm("Finals");
+                if (finalTerm != null) {
+                    openTopicsListPage(finalTerm);
+                    SwingUtilities.getWindowAncestor(TermPage.this).dispose();
+                } else {
+                    System.out.println("Finals term is null");
+                }
+            }
+        });
     }
+
     private void openTopicsListPage(Term<Topic> term) {
         JFrame frame = new JFrame(term.getTermName()); // Use getTermName to set the frame title
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -80,7 +105,7 @@ public class TermPage extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
-    }
+    } // end of openTopicsListPage method
 
 //    public static void main (String[] args) {
 //        JFrame frame = new JFrame ("Term Page");
@@ -89,4 +114,4 @@ public class TermPage extends JPanel {
 //        frame.pack();
 //        frame.setVisible (true);
 //    }
-}
+} // end of TermPage class
