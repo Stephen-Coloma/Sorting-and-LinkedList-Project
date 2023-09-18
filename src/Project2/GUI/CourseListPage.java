@@ -10,6 +10,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
+import static java.awt.Color.pink;
+
 public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
     private JTextArea searchBar;
@@ -62,6 +64,87 @@ public class CourseListPage extends JPanel {
                     if (selectedCourse != null) {
                         openTermPage(selectedCourse);
                     }
+                }
+            }
+        });
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==addButton){
+                    JDialog addCourseDialog = new JDialog();
+                    addCourseDialog.setTitle("Add Course");
+
+                    JTextField yearField = new JTextField(20);
+                    JTextField termField = new JTextField(20);
+                    JTextField courseNumberField = new JTextField(20);
+                    JTextField descTitleField = new JTextField(20);
+                    JTextField unitsField = new JTextField(20);
+                    JTextField gradeField = new JTextField(20);
+
+                    JButton okButton = new JButton("Ok");
+                    /*
+                    okButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            try {
+                                String year = String.valueOf(Integer.parseInt(yearField.getText()));
+                                String term = String.valueOf(Integer.parseInt(termField.getText()));
+                                String courseNumber = courseNumberField.getText();
+                                String descTitle = descTitleField.getText();
+                                int units = Integer.parseInt(unitsField.getText());
+                                int grade = gradeField.getText().isEmpty() ? 0 : Integer.parseInt(gradeField.getText());
+
+                                Course newCourse = new Course(year, term, courseNumber, descTitle, units, grade);
+                                list.add(newCourse);
+                                if (grade == 0 || grade > 64) {
+                                    unfinishedCourses.add(newCourse);
+                                    tableModel.addRow(new Object[]{++index[0], newCourse.getCourseNumber(),
+                                            newCourse.getDescTitle()});
+                                }
+                                addCourseDialog.dispose();
+                            } catch (NumberFormatException ex) {
+                                JOptionPane.showMessageDialog(frameFinishedCourse, "Invalid input. Please make sure all " +
+                                        "fields are filled correctly.", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    });
+
+                     */
+
+                    JButton cancelButton = new JButton("Cancel");
+                    cancelButton.addActionListener(f -> {
+                        addCourseDialog.dispose();
+                    });
+
+                    JPanel addCoursePanel = new JPanel(new GridLayout(6, 2, 5, 5));
+                    addCoursePanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+                    addCoursePanel.add(new JLabel("Year:"));
+                    addCoursePanel.add(yearField);
+                    addCoursePanel.add(new JLabel("Term:"));
+                    addCoursePanel.add(termField);
+                    addCoursePanel.add(new JLabel("Course Number:"));
+                    addCoursePanel.add(courseNumberField);
+                    addCoursePanel.add(new JLabel("Descriptive Title:"));
+                    addCoursePanel.add(descTitleField);
+                    addCoursePanel.add(new JLabel("Units:"));
+                    addCoursePanel.add(unitsField);
+                    addCoursePanel.add(new JLabel("Grade (Leave blank if not graded):"));
+                    addCoursePanel.add(gradeField);
+                    addCoursePanel.setBackground(pink);
+
+                    JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
+                    buttonPanel.add(okButton);
+                    buttonPanel.add(cancelButton);
+                    buttonPanel.setBackground(pink);
+                    buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
+
+                    addCourseDialog.add(addCoursePanel, BorderLayout.NORTH);
+                    addCourseDialog.add(buttonPanel, BorderLayout.CENTER);
+
+                    addCourseDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    addCourseDialog.setSize(500, 250);
+                    addCourseDialog.setVisible(true);
+                    addCourseDialog.setLocationRelativeTo(null);
                 }
             }
         });
