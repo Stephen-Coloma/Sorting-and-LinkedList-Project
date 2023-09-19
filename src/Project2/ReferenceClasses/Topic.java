@@ -26,7 +26,7 @@ public class Topic {
 
     @Override
     public String toString() {
-        return module + " - " + task;
+        return module;
     }
 }
 

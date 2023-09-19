@@ -1,5 +1,6 @@
 package Project2.GUI;
 
+import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
@@ -9,15 +10,30 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class TermPage extends JPanel {
-    private JLabel termLabel;
-    private JButton addButton, editButton, deleteButton, prelimButton, midtermButton, finalButton;
+    private final JLabel termLabel;
+    private final JButton addButton;
+    private final JButton editButton;
+    private final JButton deleteButton;
+    private final JButton prelimButton;
+    private final JButton midtermButton;
+    private final JButton finalButton;
 
     public TermPage(Course<Term<Topic>> course) {
+
+        prelimButton = new JButton ();
+        midtermButton = new JButton ();
+        finalButton= new JButton ();
+
+        //list  of button
+        DoublyLinkedList<JButton> buttonsToPopulate = new DoublyLinkedList<>();
+        buttonsToPopulate.insert(prelimButton);
+        buttonsToPopulate.insert(midtermButton);
+        buttonsToPopulate.insert(finalButton);
+
         // Debugging: Print out the terms in the course
         if (course.getSize() > 0) {
             for (int i = 0; i < course.getSize(); i++) {
-                Term<Topic> term = course.getElement(i);
-                System.out.println("Term: " + term.getTermName());
+                buttonsToPopulate.getElement(i).setText(course.getElement(i).toString());
             }
         } else {
             System.out.println("Course is empty");
@@ -28,9 +44,6 @@ public class TermPage extends JPanel {
         editButton = new JButton ("Edit");
         deleteButton = new JButton ("Delete");
 
-        prelimButton = new JButton ("Prelim");
-        midtermButton = new JButton ("Midterm");
-        finalButton = new JButton ("Finals");
 
         //disabling add and delete button
         addButton.setEnabled(false);
@@ -61,41 +74,22 @@ public class TermPage extends JPanel {
         midtermButton.setBounds (25, 170, 400, 95);
         finalButton.setBounds (25, 290, 400, 95);
 
-        prelimButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Term<Topic> prelimsTerm = course.getTerm("Prelims");
-                if (prelimsTerm != null) {
-                    openTopicsListPage(prelimsTerm);
-                    SwingUtilities.getWindowAncestor(TermPage.this).dispose();
-                } else {
-                    System.out.println("Prelims term is null");
-                }
-            }
+
+        prelimButton.addActionListener(e->{
+            Term<Topic> prelims = course.getElement(0);
+            openTopicsListPage(prelims);
         });
 
-        midtermButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Term<Topic> midtermTerm = course.getTerm("Midterms");
-                if (midtermTerm != null) {
-                    openTopicsListPage(midtermTerm);
-                    SwingUtilities.getWindowAncestor(TermPage.this).dispose();
-                } else {
-                    System.out.println("Midterms term is null");
-                }
-            }
+        midtermButton.addActionListener(e->{
+            Term<Topic> midterms = course.getElement(1);
+            openTopicsListPage(midterms);
         });
 
-        finalButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Term<Topic> finalTerm = course.getTerm("Finals");
-                if (finalTerm != null) {
-                    openTopicsListPage(finalTerm);
-                    SwingUtilities.getWindowAncestor(TermPage.this).dispose();
-                } else {
-                    System.out.println("Finals term is null");
-                }
-            }
+        finalButton.addActionListener(e->{
+            Term<Topic> finals = course.getElement(2);
+            openTopicsListPage(finals);
         });
+
     }
 
     private void openTopicsListPage(Term<Topic> term) {
@@ -107,12 +101,4 @@ public class TermPage extends JPanel {
         frame.setResizable(false);
         frame.setVisible(true);
     } // end of openTopicsListPage method
-
-//    public static void main (String[] args) {
-//        JFrame frame = new JFrame ("Term Page");
-//        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-//        frame.getContentPane().add (new TermPage());
-//        frame.pack();
-//        frame.setVisible (true);
-//    }
 } // end of TermPage class

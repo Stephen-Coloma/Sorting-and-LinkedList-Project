@@ -22,16 +22,18 @@ public class TopicListPage extends JPanel {
         topicsList = new JList<>(new DefaultListModel<>());
 
         // Add topics to the list
-        DefaultListModel<Topic> topicListModel = (DefaultListModel<Topic>) topicsList.getModel();
+        DefaultListModel<Topic> topicListModel = new DefaultListModel<>();
         for (int i = 0; i < term.getSize(); i++) {
             topicListModel.addElement(term.getElement(i));
         }
 
+        topicsList = new JList<>(topicListModel);
         scrollPane = new JScrollPane(topicsList);
         searchBar = new JTextArea(5, 5);
         addButton = new JButton("Add");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
+
 
         // Adjust size and set layout
         setPreferredSize(new Dimension(452, 457));
@@ -74,13 +76,4 @@ public class TopicListPage extends JPanel {
         frame.setResizable(false);
         frame.setVisible(true);
     } // end of openModulesTasksPage method
-
-
-//    public static void main (String[] args) {
-//        JFrame frame = new JFrame ("Topics Page");
-//        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-//        frame.getContentPane().add (new TopicListPage());
-//        frame.pack();
-//        frame.setVisible (true);
-//    }
 } // end of TopicListPage class

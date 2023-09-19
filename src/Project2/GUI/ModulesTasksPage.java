@@ -12,9 +12,9 @@ public class ModulesTasksPage extends JPanel {
 
     public ModulesTasksPage(Topic topic) {
         //construct components
-        topicName = new JLabel ("OPERATING SYSTEMS AND ITS IMPORTANCE TO OUR DAILY LIVES");
-        moduleName = new JLabel ("Module 1: Introduction to Operating Systems ");
-        taskName = new JLabel ("Task        : Lab Activity 1");
+        topicName = new JLabel ();
+        moduleName = new JLabel ();
+        taskName = new JLabel ();
 
         //adjust size and set layout
         setPreferredSize (new Dimension (520, 134));
