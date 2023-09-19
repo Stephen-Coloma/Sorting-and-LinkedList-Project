@@ -1,16 +1,16 @@
 package Project2.GUI;
 
+import Project2.ReferenceClasses.Topic;
+
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class ModulesTasksPage extends JPanel {
     private JLabel topicName;
     private JLabel moduleName;
     private JLabel taskName;
 
-    public ModulesTasksPage() {
+    public ModulesTasksPage(Topic topic) {
         //construct components
         topicName = new JLabel ("OPERATING SYSTEMS AND ITS IMPORTANCE TO OUR DAILY LIVES");
         moduleName = new JLabel ("Module 1: Introduction to Operating Systems ");
@@ -32,11 +32,11 @@ public class ModulesTasksPage extends JPanel {
     }
 
 
-    public static void main (String[] args) {
-        JFrame frame = new JFrame ("ModulesTasksPage");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new ModulesTasksPage());
-        frame.pack();
-        frame.setVisible (true);
-    }
+//    public static void main (String[] args) {
+//        JFrame frame = new JFrame ("ModulesTasksPage");
+//        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+//        frame.getContentPane().add (new ModulesTasksPage(topic));
+//        frame.pack();
+//        frame.setVisible (true);
+//    }
 }

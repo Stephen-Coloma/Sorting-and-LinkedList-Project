@@ -16,7 +16,7 @@ public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
     private JTextArea searchBar;
     private JList<Course<Term<Topic>>> listOfCourses;
-    private JButton addButton, deleteButton, previousButton, nextButton;
+    private JButton addButton, deleteButton, editButton;
 
     public CourseListPage(DoublyLinkedList<Course<Term<Topic>>> courseList) {
         //changing courseList type to what is compatible to JList
@@ -31,8 +31,7 @@ public class CourseListPage extends JPanel {
         listOfCourses = new JList (courseListModel);
         addButton = new JButton ("Add");
         deleteButton = new JButton ("Delete");
-        previousButton = new JButton ("Previous");
-        nextButton = new JButton ("Next");
+        editButton = new JButton ("Edit");
 
         //adjust size and set layout
         setPreferredSize (new Dimension (452, 457));
@@ -43,18 +42,19 @@ public class CourseListPage extends JPanel {
         add (searchBar);
         add (listOfCourses);
         add (addButton);
+        add(editButton);
         add (deleteButton);
-        add (previousButton);
-        add (nextButton);
+        add (editButton);
+
 
         //set component bounds (only needed by Absolute Positioning)
         coursesLabel.setBounds (30, 15, 130, 35);
         searchBar.setBounds (245, 20, 180, 25);
         listOfCourses.setBounds (25, 60, 400, 330);
-        addButton.setBounds (25, 405, 90, 35);
-        deleteButton.setBounds (130, 405, 90, 35);
-        previousButton.setBounds (235, 405, 85, 35);
-        nextButton.setBounds (335, 405, 90, 35);
+
+        addButton.setBounds (75, 405, 90, 35);
+        editButton.setBounds (180, 405, 90, 35);
+        deleteButton.setBounds(285, 405, 90, 35);
 
         listOfCourses.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -82,34 +82,6 @@ public class CourseListPage extends JPanel {
                     JTextField gradeField = new JTextField(20);
 
                     JButton okButton = new JButton("Ok");
-                    /*
-                    okButton.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            try {
-                                String year = String.valueOf(Integer.parseInt(yearField.getText()));
-                                String term = String.valueOf(Integer.parseInt(termField.getText()));
-                                String courseNumber = courseNumberField.getText();
-                                String descTitle = descTitleField.getText();
-                                int units = Integer.parseInt(unitsField.getText());
-                                int grade = gradeField.getText().isEmpty() ? 0 : Integer.parseInt(gradeField.getText());
-
-                                Course newCourse = new Course(year, term, courseNumber, descTitle, units, grade);
-                                list.add(newCourse);
-                                if (grade == 0 || grade > 64) {
-                                    unfinishedCourses.add(newCourse);
-                                    tableModel.addRow(new Object[]{++index[0], newCourse.getCourseNumber(),
-                                            newCourse.getDescTitle()});
-                                }
-                                addCourseDialog.dispose();
-                            } catch (NumberFormatException ex) {
-                                JOptionPane.showMessageDialog(frameFinishedCourse, "Invalid input. Please make sure all " +
-                                        "fields are filled correctly.", "Error", JOptionPane.ERROR_MESSAGE);
-                            }
-                        }
-                    });
-
-                     */
 
                     JButton cancelButton = new JButton("Cancel");
                     cancelButton.addActionListener(f -> {
@@ -158,13 +130,4 @@ public class CourseListPage extends JPanel {
         frame.setResizable(false);
         frame.setVisible(true);
     }
-
-
-//    public static void main (String[] args) {
-//        JFrame frame = new JFrame ("Course List Page");
-//        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-//        frame.getContentPane().add (new CourseListPage());
-//        frame.pack();
-//        frame.setVisible (true);
-//    }
 }
