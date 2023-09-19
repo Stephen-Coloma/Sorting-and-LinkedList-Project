@@ -68,15 +68,12 @@ public class CourseListPage extends JPanel {
             }
         });
 
-        /**RE EDIT ADD BUTTON*/
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == addButton) {
-                    AddCoursePage addCourseDialog = new AddCoursePage((JFrame) SwingUtilities.getWindowAncestor(CourseListPage.this), courseListModel, courseList);
-                    addCourseDialog.setVisible(true);
+        addButton.addActionListener(e->{
+            if (e.getSource() == addButton) {
+                AddCoursePage addCourseDialog = new AddCoursePage((JFrame) SwingUtilities.getWindowAncestor(CourseListPage.this), courseListModel, courseList);
+                addCourseDialog.setVisible(true);
                 }
-            }
+
         });
     }
     private void openTermPage(Course<Term<Topic>> selectedCourse) {

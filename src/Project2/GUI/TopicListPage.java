@@ -66,14 +66,9 @@ public class TopicListPage extends JPanel {
                 }
             }
         });
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == addButton) {
-                    AddTopicPage addTopicFrame = new AddTopicPage(selectedTerm, (DefaultListModel<Topic>) topicsList.getModel());
-                    addTopicFrame.setVisible(true);
-                }
-            }
+        addButton.addActionListener(e-> {
+            AddTopicPage addTopicFrame = new AddTopicPage(selectedTerm, (DefaultListModel<Topic>) topicsList.getModel());
+            addTopicFrame.setVisible(true);
         });
 
     }

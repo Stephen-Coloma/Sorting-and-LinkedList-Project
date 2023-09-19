@@ -41,11 +41,8 @@ public class AddTopicPage extends JFrame {
         });
 
         JButton cancelButton = new JButton("Cancel");
-        cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        cancelButton.addActionListener(e->{
                 dispose();
-            }
         });
 
         JPanel addTopicPanel = new JPanel(new GridLayout(2, 2, 5, 5));
