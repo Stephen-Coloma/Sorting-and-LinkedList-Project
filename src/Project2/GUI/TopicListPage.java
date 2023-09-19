@@ -15,11 +15,13 @@ public class TopicListPage extends JPanel {
     private JButton addButton, deleteButton, editButton;
     private JTextArea searchBar;
     private JList<Topic> topicsList;
+    private Term<Topic> selectedTerm;
 
     public TopicListPage(Term<Topic> term) {
         // Construct components
         topicsLabel = new JLabel("Topics for " + term.getTermName());
         topicsList = new JList<>(new DefaultListModel<>());
+        selectedTerm = term;
 
         // Add topics to the list
         DefaultListModel<Topic> topicListModel = new DefaultListModel<>();
@@ -64,9 +66,17 @@ public class TopicListPage extends JPanel {
                 }
             }
         });
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == addButton) {
+                    AddTopicPage addTopicFrame = new AddTopicPage(selectedTerm, (DefaultListModel<Topic>) topicsList.getModel());
+                    addTopicFrame.setVisible(true);
+                }
+            }
+        });
 
     }
-
     private void openModulesTasksPage(Topic topic) {
         JFrame frame = new JFrame(topic.getModule()); // Use getModule to set the frame title
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

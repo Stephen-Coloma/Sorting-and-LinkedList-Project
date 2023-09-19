@@ -114,14 +114,9 @@ public class GoogleClassroomApp extends JFrame {
         Term<Topic> finals3 = new Term<>("Finals");
 
         // Populate Prelims
-        prelims3.insert(new Topic("Introduction to Human Computer Interaction",
-                "Discuss the evolution of Human-Computer Interaction (HCI) " +
-                        "and its impact on modern design practices"));
-        prelims3.insert(new Topic("Design of Everyday Things",
-                "Examine key principles of user-centered design and their real-world applications"));
-        prelims3.insert(new Topic("Errors",
-                "Explore common usability errors in interface design and propose strategies " +
-                        "for error prevention and recovery"));
+        prelims3.insert(new Topic("Introduction to Human Computer Interaction", "Discuss the evolution of Human-Computer Interaction (HCI) " + "and its impact on modern design practices"));
+        prelims3.insert(new Topic("Design of Everyday Things", "Examine key principles of user-centered design and their real-world applications"));
+        prelims3.insert(new Topic("Errors", "Explore common usability errors in interface design and propose strategies " + "for error prevention and recovery"));
         prelims3.insert(new Topic("Interface Design Principles",
                 "Discuss foundational principles of interface design, providing practical examples " +
                         "from user interfaces in use today"));
