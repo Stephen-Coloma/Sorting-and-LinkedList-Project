@@ -8,21 +8,23 @@ import Project2.ReferenceClasses.Topic;
 import javax.swing.*;
 import java.awt.*;
 
-public class AddCoursePage extends JDialog {
-    private JTextField courseNameField;
+public class AddCoursePage extends JFrame {
+    private JTextField courseNameField, courseCodeField;
     private DefaultListModel<Course> courseListModel;
     private DoublyLinkedList<Course<Term<Topic>>> courseList;
+    private JButton okButton, cancelButton;
+    JPanel addCoursePanel, buttonPanel;
+    public AddCoursePage(DefaultListModel<Course> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
 
-    public AddCoursePage(JFrame parentFrame, DefaultListModel<Course> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
-        super(parentFrame, "Add Course", true);
-
+        setTitle("Add Course");
+        setLayout(new BorderLayout());
         this.courseListModel = courseListModel;
         this.courseList = courseList;
 
         courseNameField = new JTextField(20);
-
-        JButton okButton = new JButton("Ok");
-        JButton cancelButton = new JButton("Cancel");
+        courseCodeField = new JTextField(4);
+        okButton = new JButton("Ok");
+        cancelButton = new JButton("Cancel");
 
         cancelButton.addActionListener(e -> {
             dispose();
@@ -30,9 +32,10 @@ public class AddCoursePage extends JDialog {
 
         okButton.addActionListener(e -> {
             String courseName = courseNameField.getText();
-            if (!courseName.isEmpty()) {
+            String courseID = courseCodeField.getText();
+            if (!courseName.isEmpty() && !courseID.isEmpty()) {
                 // Create a new course with the specified name
-                Course<Term<Topic>> newCourse = new Course<>(courseName, "Course Code");
+                Course<Term<Topic>> newCourse = new Course<>(courseName, courseID);
 
                 // Add the initial terms (Prelims, Midterms, Finals) and empty topics
                 newCourse.insert(new Term<>("Prelims"));
@@ -50,13 +53,16 @@ public class AddCoursePage extends JDialog {
             }
         });
 
-        JPanel addCoursePanel = new JPanel(new GridLayout(2, 2, 5, 5));
+
+        addCoursePanel = new JPanel(new GridLayout(4, 2, 5, 5));
         addCoursePanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        addCoursePanel.add(new JLabel("Course ID:"));
+        addCoursePanel.add(courseCodeField);
         addCoursePanel.add(new JLabel("Course Name:"));
         addCoursePanel.add(courseNameField);
         addCoursePanel.setBackground(Color.PINK);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
+        buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
         buttonPanel.add(okButton);
         buttonPanel.add(cancelButton);
         buttonPanel.setBackground(Color.PINK);
@@ -65,8 +71,8 @@ public class AddCoursePage extends JDialog {
         add(addCoursePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(400, 150);
-        setLocationRelativeTo(parentFrame);
+        setSize(400, 180);
+        setLocationRelativeTo(null);
     }
 }
 

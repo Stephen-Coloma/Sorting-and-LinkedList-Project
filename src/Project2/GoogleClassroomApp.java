@@ -156,8 +156,7 @@ public class GoogleClassroomApp extends JFrame {
         courseList.insert(course3);
 
         //create and populate course4
-        Course<Term<Topic>> course4 = new Course<>("SCIENCE, TECHNOLOGY AND SOCIETY" ,
-                "9345 - CS - GSTS");
+        Course<Term<Topic>> course4 = new Course<>("SCIENCE, TECHNOLOGY AND SOCIETY" , "9345 - CS - GSTS");
         Term<Topic> prelims4 = new Term<>("Prelims");
         Term<Topic> midterms4 = new Term<>("Midterms");
         Term<Topic> finals4 = new Term<>("Finals");

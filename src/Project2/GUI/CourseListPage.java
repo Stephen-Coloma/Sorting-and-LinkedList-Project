@@ -70,8 +70,8 @@ public class CourseListPage extends JPanel {
 
         addButton.addActionListener(e->{
             if (e.getSource() == addButton) {
-                AddCoursePage addCourseDialog = new AddCoursePage((JFrame) SwingUtilities.getWindowAncestor(CourseListPage.this), courseListModel, courseList);
-                addCourseDialog.setVisible(true);
+                AddCoursePage addCoursePage = new AddCoursePage(courseListModel, courseList);
+                addCoursePage.setVisible(true);
                 }
 
         });
