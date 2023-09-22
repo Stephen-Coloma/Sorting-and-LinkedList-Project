@@ -70,9 +70,17 @@ public class TopicListPage extends JPanel {
             AddTopicPage addTopicFrame = new AddTopicPage(selectedTerm, (DefaultListModel<Topic>) topicsList.getModel());
             addTopicFrame.setVisible(true);
         });
+        deleteButton.addActionListener(e -> {
+            int selectedIndex = topicJList.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Topic selectedTopic = topicDefaultListModel.getElementAt(selectedIndex);
+                int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected Topic?", "Delete Topic", JOptionPane.YES_NO_OPTION);
+            }
+    });
+}
 
-    }
-    private void openModulesTasksPage(Topic topic) {
+
+            private void openModulesTasksPage(Topic topic) {
         JFrame frame = new JFrame(topic.getModule()); // Use getModule to set the frame title
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add(new ModulesTasksPage(topic));
