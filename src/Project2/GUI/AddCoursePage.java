@@ -10,11 +10,11 @@ import java.awt.*;
 
 public class AddCoursePage extends JFrame {
     private JTextField courseNameField, courseCodeField;
-    private DefaultListModel<Course> courseListModel;
+    private DefaultListModel<Course<Term<Topic>>> courseListModel;
     private DoublyLinkedList<Course<Term<Topic>>> courseList;
     private JButton okButton, cancelButton;
     JPanel addCoursePanel, buttonPanel;
-    public AddCoursePage(DefaultListModel<Course> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
+    public AddCoursePage(DefaultListModel<Course<Term<Topic>>> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
 
         setTitle("Add Course");
         setLayout(new BorderLayout());

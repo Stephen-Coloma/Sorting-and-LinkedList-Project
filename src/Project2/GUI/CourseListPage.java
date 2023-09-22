@@ -6,26 +6,29 @@ import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.lang.annotation.ElementType;
 import javax.swing.*;
 
 import static java.awt.Color.pink;
 
 public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
-    private JTextArea searchBar;
+    private JTextField searchBar;
     private JList<Course<Term<Topic>>> listOfCourses;
     private JButton addButton, deleteButton, editButton;
 
     public CourseListPage(DoublyLinkedList<Course<Term<Topic>>> courseList) {
         //changing courseList type to what is compatible to JList
-        DefaultListModel<Course> courseListModel = new DefaultListModel<>();
+        DefaultListModel<Course<Term<Topic>>> courseListModel = new DefaultListModel<>();
         for (int i = 0; i < courseList.getSize(); i++) {
             courseListModel.addElement(courseList.getElement(i));
         }
 
         //construct components
         coursesLabel = new JLabel("ENROLLED COURSES");
-        searchBar = new JTextArea(5, 5);
+        searchBar = new JTextField( "Search",5);
         listOfCourses = new JList(courseListModel);
         addButton = new JButton("Add");
         deleteButton = new JButton("Delete");
@@ -34,15 +37,6 @@ public class CourseListPage extends JPanel {
         //adjust size and set layout
         setPreferredSize(new Dimension(452, 457));
         setLayout(null);
-
-        //add components
-        add(coursesLabel);
-        add(searchBar);
-        add(listOfCourses);
-        add(addButton);
-        add(editButton);
-        add(deleteButton);
-        add(editButton);
 
 
         //set component bounds (only needed by Absolute Positioning)
@@ -54,6 +48,7 @@ public class CourseListPage extends JPanel {
         editButton.setBounds(180, 405, 90, 35);
         deleteButton.setBounds(285, 405, 90, 35);
 
+        //double click implementation
         listOfCourses.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -66,6 +61,7 @@ public class CourseListPage extends JPanel {
             }
         });
 
+        //add button implementation
         addButton.addActionListener(e -> {
             if (e.getSource() == addButton) {
                 AddCoursePage addCoursePage = new AddCoursePage(courseListModel, courseList);
@@ -74,6 +70,7 @@ public class CourseListPage extends JPanel {
 
         });
 
+        //delete button implementation
         deleteButton.addActionListener(e -> {
             int selectedIndex = listOfCourses.getSelectedIndex();
             if (selectedIndex >= 0) {
@@ -93,6 +90,7 @@ public class CourseListPage extends JPanel {
             }
         });
 
+        //edit button implementation
         editButton.addActionListener(e -> {
             int selectedIndex = listOfCourses.getSelectedIndex();
             if (selectedIndex >= 0) {
@@ -109,6 +107,41 @@ public class CourseListPage extends JPanel {
                 JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
+
+        DefaultListModel<Course<Term<Topic>>> filteredListModel = new DefaultListModel<>();
+        searchBar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String searchText = searchBar.getText().toLowerCase(); // Convert to lowercase for case-insensitive search
+                // Clear the filtered list model
+                filteredListModel.clear();
+
+                if (searchText.isEmpty()) {
+                    // If there's no search text, show the full original list
+                    for (int i = 0; i < courseListModel.size(); i++) {
+                        filteredListModel.addElement(courseListModel.get(i));
+                    }
+                } else {
+                    // Filter and add matching items to the filtered list model
+                    for (int i = 0; i < courseListModel.size(); i++) {
+                        String listItem = courseListModel.get(i).toString().toLowerCase();
+                        if (listItem.contains(searchText)) {
+                            filteredListModel.addElement(courseListModel.get(i));
+                        }
+                    }
+                }
+                listOfCourses.setModel(filteredListModel);
+            }
+        });
+
+        //add components
+        add(coursesLabel);
+        add(searchBar);
+        add(listOfCourses);
+        add(addButton);
+        add(editButton);
+        add(deleteButton);
+        add(editButton);
     }
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
         JFrame frame = new JFrame(selectedCourse.getCourseName());

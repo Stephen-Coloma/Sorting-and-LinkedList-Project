@@ -13,7 +13,7 @@ public class EditCoursePage extends JFrame {
     private JButton updateButton;
     private JPanel editCoursePanel, buttonPanel;
 
-    public EditCoursePage(DefaultListModel<Course> courseDefaultListModel, Course<Term<Topic>> selectedCourse, int selectedIndex) {
+    public EditCoursePage(DefaultListModel<Course<Term<Topic>>> courseDefaultListModel, Course<Term<Topic>> selectedCourse, int selectedIndex) {
         setTitle("Edit Course");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

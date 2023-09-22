@@ -10,7 +10,7 @@ public class TopicListPage extends JPanel {
     private JScrollPane scrollPane;
     private JLabel topicsLabel;
     private JButton addButton, deleteButton, editButton;
-    private JTextArea searchBar;
+    private JTextField searchBar;
     private JList<Topic> topicsList;
     private Term<Topic> selectedTerm;
 
@@ -28,7 +28,7 @@ public class TopicListPage extends JPanel {
 
         topicsList = new JList<>(topicListModel);
         scrollPane = new JScrollPane(topicsList);
-        searchBar = new JTextArea(5, 5);
+        searchBar = new JTextField("Search", 5);
         addButton = new JButton("Add");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
@@ -52,6 +52,7 @@ public class TopicListPage extends JPanel {
         editButton.setBounds (180, 405, 90, 35);
         deleteButton.setBounds(285, 405, 90, 35);
 
+        //double click on list
         topicsList.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,10 +64,14 @@ public class TopicListPage extends JPanel {
                 }
             }
         });
+
+        //add button implementation
         addButton.addActionListener(e-> {
             AddTopicPage addTopicFrame = new AddTopicPage(selectedTerm, (DefaultListModel<Topic>) topicsList.getModel());
             addTopicFrame.setVisible(true);
         });
+
+        //delete button implementation
         deleteButton.addActionListener(e -> {
             int selectedIndex = topicsList.getSelectedIndex();
             if (selectedIndex >= 0) {
@@ -83,6 +88,8 @@ public class TopicListPage extends JPanel {
 
             }
         });
+
+        //edit button implementation
         editButton.addActionListener(e -> {
             int selectedIndex = topicsList.getSelectedIndex();
             if (selectedIndex >= 0) {
