@@ -1,13 +1,10 @@
 package Project2.GUI;
 
-import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class TopicListPage extends JPanel {
     private JScrollPane scrollPane;
@@ -85,7 +82,7 @@ public class TopicListPage extends JPanel {
                 JOptionPane.showMessageDialog(this, "Please select a course to delete.", "Error", JOptionPane.ERROR_MESSAGE);
 
             }
-    });
+        });
         editButton.addActionListener(e -> {
             int selectedIndex = topicsList.getSelectedIndex();
             if (selectedIndex >= 0) {
@@ -98,11 +95,8 @@ public class TopicListPage extends JPanel {
                 JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
-
     }
-
-
-            private void openModulesTasksPage(Topic topic) {
+    private void openModulesTasksPage(Topic topic) {
         JFrame frame = new JFrame(topic.getModule()); // Use getModule to set the frame title
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add(new ModulesTasksPage(topic));
