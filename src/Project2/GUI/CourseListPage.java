@@ -77,14 +77,14 @@ public class CourseListPage extends JPanel {
         });
 
         deleteButton.addActionListener(e -> {
-            int selectedIndex = courseJList.getSelectedIndex();
+            int selectedIndex = listOfCourses.getSelectedIndex();
             if (selectedIndex >= 0) {
-                Course selectedCourse = courseDefaultListModel.getElementAt(selectedIndex);
+                Course selectedCourse = courseListModel.getElementAt(selectedIndex);
                 int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected course?", "Delete Course", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
 
                     try {
-                        EditCoursePage editCoursePage = new EditCoursePage(courseDefaultListModel, selectedCourse, selectedIndex);
+                        EditCoursePage editCoursePage = new EditCoursePage(courseListModel, selectedCourse, selectedIndex);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
@@ -96,7 +96,20 @@ public class CourseListPage extends JPanel {
         });
 
         editButton.addActionListener(e -> {
+            int selectedIndex = listOfCourses.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Course selectedCourse = courseListModel.getElementAt(selectedIndex);
 
+                // Open the edit page for the selected course
+                try {
+                    EditCoursePage editCoursePage = new EditCoursePage(courseListModel, selectedCourse, selectedIndex);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                // If no course selected, show an error message or do nothing
+                JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         });
     }
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
