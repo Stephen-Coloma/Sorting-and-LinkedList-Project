@@ -41,5 +41,19 @@ public class EditTopicPage extends JFrame{
         editTopicPanel.add(taskField);
         editTopicPanel.setBackground(Color.PINK);
 
+
+        buttonPanel = new JPanel(new GridLayout(1, 1, 5, 5));
+        buttonPanel.add(updateButton);
+        buttonPanel.setBackground(Color.PINK);
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
+
+        add(editTopicPanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.CENTER);
+
+        setSize(400, 200);
+        setLocationRelativeTo(null);
+        setVisible(true);
+
+
     }
 }
