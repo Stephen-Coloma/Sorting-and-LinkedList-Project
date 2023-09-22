@@ -6,6 +6,8 @@ import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.lang.annotation.ElementType;
@@ -47,6 +49,15 @@ public class CourseListPage extends JPanel {
         addButton.setBounds(75, 405, 90, 35);
         editButton.setBounds(180, 405, 90, 35);
         deleteButton.setBounds(285, 405, 90, 35);
+
+        //add components
+        add(coursesLabel);
+        add(searchBar);
+        add(listOfCourses);
+        add(addButton);
+        add(editButton);
+        add(deleteButton);
+        add(editButton);
 
         //double click implementation
         listOfCourses.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,6 +119,24 @@ public class CourseListPage extends JPanel {
             }
         });
 
+        // Add a FocusListener to clear the text when focused
+        searchBar.addFocusListener(new FocusAdapter() {
+
+            @Override
+            public void focusGained(FocusEvent e) {
+                if ("Search".equals(searchBar.getText())) {
+                    searchBar.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (searchBar.getText().isEmpty()) {
+                    searchBar.setText("Search");
+                }
+            }
+        });
+
         DefaultListModel<Course<Term<Topic>>> filteredListModel = new DefaultListModel<>();
         searchBar.addKeyListener(new KeyAdapter() {
             @Override
@@ -134,14 +163,6 @@ public class CourseListPage extends JPanel {
             }
         });
 
-        //add components
-        add(coursesLabel);
-        add(searchBar);
-        add(listOfCourses);
-        add(addButton);
-        add(editButton);
-        add(deleteButton);
-        add(editButton);
     }
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
         JFrame frame = new JFrame(selectedCourse.getCourseName());

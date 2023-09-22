@@ -1,9 +1,14 @@
 package Project2.GUI;
 
+import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class TopicListPage extends JPanel {
@@ -100,6 +105,50 @@ public class TopicListPage extends JPanel {
             } else {
                 // If no course selected, show an error message or do nothing
                 JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        // Add a FocusListener to clear the text when focused
+        searchBar.addFocusListener(new FocusAdapter() {
+
+            @Override
+            public void focusGained(FocusEvent e) {
+                if ("Search".equals(searchBar.getText())) {
+                    searchBar.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (searchBar.getText().isEmpty()) {
+                    searchBar.setText("Search");
+                }
+            }
+        });
+
+        DefaultListModel<Topic> filteredListModel = new DefaultListModel<>();
+        searchBar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String searchText = searchBar.getText().toLowerCase(); // Convert to lowercase for case-insensitive search
+                // Clear the filtered list model
+                filteredListModel.clear();
+
+                if (searchText.isEmpty()) {
+                    // If there's no search text, show the full original list
+                    for (int i = 0; i < topicListModel.size(); i++) {
+                        filteredListModel.addElement(topicListModel.get(i));
+                    }
+                } else {
+                    // Filter and add matching items to the filtered list model
+                    for (int i = 0; i < topicListModel.size(); i++) {
+                        String listItem = topicListModel.get(i).toString().toLowerCase();
+                        if (listItem.contains(searchText)) {
+                            filteredListModel.addElement(topicListModel.get(i));
+                        }
+                    }
+                }
+                topicsList.setModel(filteredListModel);
             }
         });
     }
