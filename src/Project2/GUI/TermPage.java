@@ -50,6 +50,16 @@ public class TermPage extends JPanel {
         buttonsToPopulate.insert(midtermButton);
         buttonsToPopulate.insert(finalButton);
 
+        // passing the course's list of terms to the button text
+        if (course.getSize() > 0) {
+            for (int i = 0; i < course.getSize(); i++) {
+                buttonsToPopulate.getElement(i).setText(course.getElement(i).toString());
+            }
+        } else {
+            System.out.println("Course is empty");
+        }
+
+
         //construct components
         termLabel = new JLabel ("TERM");
         addButton = new JButton ("Add");
