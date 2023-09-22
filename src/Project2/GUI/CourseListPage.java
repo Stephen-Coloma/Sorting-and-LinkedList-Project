@@ -91,10 +91,12 @@ public class CourseListPage extends JPanel {
                 } else {
                     // If no course selected, show an error message or do nothing
                     JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
-
-
                 }
             }
+        });
+
+        editButton.addActionListener(e -> {
+
         });
     }
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
