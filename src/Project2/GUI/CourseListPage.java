@@ -83,6 +83,15 @@ public class CourseListPage extends JPanel {
                 int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected course?", "Delete Course", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
 
+                    try {
+                        EditCoursePage editCoursePage = new EditCoursePage(courseDefaultListModel, selectedCourse, selectedIndex);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    // If no course selected, show an error message or do nothing
+                    JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+
 
                 }
             }
