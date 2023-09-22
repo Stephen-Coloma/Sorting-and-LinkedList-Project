@@ -44,5 +44,17 @@ public class EditCoursePage extends JFrame {
         editCoursePanel.add(courseNameField);
         editCoursePanel.setBackground(Color.PINK);
 
+        buttonPanel = new JPanel(new GridLayout(1, 1, 5, 5));
+        buttonPanel.add(updateButton);
+        buttonPanel.setBackground(Color.PINK);
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
+
+        add(editCoursePanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.CENTER);
+
+        setSize(400, 180);
+        setLocationRelativeTo(null);
+        setVisible(true);
+
     }
 }
