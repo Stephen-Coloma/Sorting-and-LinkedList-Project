@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class EditCoursePage {
+public class EditCoursePage extends JFrame {
     private JTextField courseNameField, courseIdField;
     private JButton updateButton;
     private JPanel editCoursePanel, buttonPanel;
@@ -23,9 +23,26 @@ public class EditCoursePage {
 
         updateButton = new JButton("Update");
         updateButton.addActionListener(e -> {
+            // Update the course details based on the input fields
+            selectedCourse.setCourseName(courseNameField.getText());
+            selectedCourse.setCourseID(courseIdField.getText());
+            courseDefaultListModel.setElementAt(selectedCourse, selectedIndex);
 
+            //Debugging: to determine if the selected course is edited
+            System.out.println(selectedCourse.getCourseName());
+            System.out.println(selectedCourse.getCourseID());
 
+            // Close the edit page
+            dispose();
+        });
 
-        }
+        editCoursePanel = new JPanel(new GridLayout(4, 1, 5, 5));
+        editCoursePanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        editCoursePanel.add(new JLabel("Course ID"));
+        editCoursePanel.add(courseIdField);
+        editCoursePanel.add(new JLabel("Course Name:"));
+        editCoursePanel.add(courseNameField);
+        editCoursePanel.setBackground(Color.PINK);
+
     }
 }
