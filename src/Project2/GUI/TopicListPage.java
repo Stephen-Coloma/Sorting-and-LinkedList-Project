@@ -1,19 +1,19 @@
 package Project2.GUI;
 
-import Project2.ReferenceClasses.Course;
+import Project2.GUI.UtilGUI.AddTopicPage;
+import Project2.GUI.UtilGUI.EditTopicPage;
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class TopicListPage extends JPanel {
     private JScrollPane scrollPane;
     private JLabel topicsLabel;
     private JButton addButton, deleteButton, editButton;
-    private JTextArea searchBar;
+    private JTextField searchBar;
     private JList<Topic> topicsList;
     private Term<Topic> selectedTerm;
 
@@ -31,7 +31,7 @@ public class TopicListPage extends JPanel {
 
         topicsList = new JList<>(topicListModel);
         scrollPane = new JScrollPane(topicsList);
-        searchBar = new JTextArea(5, 5);
+        searchBar = new JTextField("Search", 5);
         addButton = new JButton("Add");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
@@ -55,6 +55,7 @@ public class TopicListPage extends JPanel {
         editButton.setBounds (180, 405, 90, 35);
         deleteButton.setBounds(285, 405, 90, 35);
 
+        //double click on list
         topicsList.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -66,19 +67,110 @@ public class TopicListPage extends JPanel {
                 }
             }
         });
+
+        //add button implementation
         addButton.addActionListener(e-> {
             AddTopicPage addTopicFrame = new AddTopicPage(selectedTerm, (DefaultListModel<Topic>) topicsList.getModel());
             addTopicFrame.setVisible(true);
         });
 
+        //delete button implementation
+        deleteButton.addActionListener(e -> {
+            int selectedIndex = topicsList.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Topic selectedTopic = topicListModel.getElementAt(selectedIndex);
+                int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected Topic?", "Delete Topic", JOptionPane.YES_NO_OPTION);
+                if (option == JOptionPane.YES_OPTION) {
+                    // User confirmed deletion, remove the topic both from the list display and the data structure
+                    topicListModel.remove(selectedIndex);   //If you want to debug, remove this code and delete the selected topic twice to determine if the topic was also removed from the list
+                    selectedTerm.delete(selectedTopic);
+                }
+            } else {
+                // If no topic selected, show an error message or do nothing
+                JOptionPane.showMessageDialog(this, "Please select a course to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }
+        });
+
+        //edit button implementation
+        editButton.addActionListener(e -> {
+            int selectedIndex = topicsList.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Topic selectedTopic = topicListModel.getElementAt(selectedIndex);
+
+                // Open the edit page for the selected course
+                EditTopicPage editTopicPage = new EditTopicPage(topicListModel, selectedTopic, selectedIndex);
+            } else {
+                // If no course selected, show an error message or do nothing
+                JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        // Add a FocusListener to clear the text when focused
+        searchBar.addFocusListener(new FocusAdapter() {
+
+            @Override
+            public void focusGained(FocusEvent e) {
+                if ("Search".equals(searchBar.getText())) {
+                    searchBar.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (searchBar.getText().isEmpty()) {
+                    searchBar.setText("Search");
+                }
+            }
+        });
+
+        DefaultListModel<Topic> filteredListModel = new DefaultListModel<>();
+        searchBar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String searchText = searchBar.getText().toLowerCase(); // Convert to lowercase for case-insensitive search
+                // Clear the filtered list model
+                filteredListModel.clear();
+
+                if (searchText.isEmpty()) {
+                    // If there's no search text, show the full original list
+                    for (int i = 0; i < topicListModel.size(); i++) {
+                        filteredListModel.addElement(topicListModel.get(i));
+                    }
+                } else {
+                    // Filter and add matching items to the filtered list model
+                    for (int i = 0; i < topicListModel.size(); i++) {
+                        String listItem = topicListModel.get(i).toString().toLowerCase();
+                        if (listItem.contains(searchText)) {
+                            filteredListModel.addElement(topicListModel.get(i));
+                        }
+                    }
+                }
+                topicsList.setModel(filteredListModel);
+            }
+        });
     }
     private void openModulesTasksPage(Topic topic) {
         JFrame frame = new JFrame(topic.getModule()); // Use getModule to set the frame title
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().add(new ModulesTasksPage(topic));
+        frame.getContentPane().add(new ModuleTaskPage(topic));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
+
+        //this is for opening many ModuleTaskPage. Closes the active frame when clicked outside the frame
+        frame.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+                // Do nothing when the frame gains focus
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+                // Close the frame when it loses focus
+                frame.dispose();
+            }
+        });
     } // end of openModulesTasksPage method
 } // end of TopicListPage class

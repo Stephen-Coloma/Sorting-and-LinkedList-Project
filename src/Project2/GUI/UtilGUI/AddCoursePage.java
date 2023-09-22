@@ -1,4 +1,4 @@
-package Project2.GUI;
+package Project2.GUI.UtilGUI;
 
 import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
@@ -10,11 +10,11 @@ import java.awt.*;
 
 public class AddCoursePage extends JFrame {
     private JTextField courseNameField, courseCodeField;
-    private DefaultListModel<Course> courseListModel;
+    private DefaultListModel<Course<Term<Topic>>> courseListModel;
     private DoublyLinkedList<Course<Term<Topic>>> courseList;
     private JButton okButton, cancelButton;
     JPanel addCoursePanel, buttonPanel;
-    public AddCoursePage(DefaultListModel<Course> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
+    public AddCoursePage(DefaultListModel<Course<Term<Topic>>> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
 
         setTitle("Add Course");
         setLayout(new BorderLayout());
@@ -60,12 +60,10 @@ public class AddCoursePage extends JFrame {
         addCoursePanel.add(courseCodeField);
         addCoursePanel.add(new JLabel("Course Name:"));
         addCoursePanel.add(courseNameField);
-        addCoursePanel.setBackground(Color.PINK);
 
         buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
         buttonPanel.add(okButton);
         buttonPanel.add(cancelButton);
-        buttonPanel.setBackground(Color.PINK);
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
 
         add(addCoursePanel, BorderLayout.NORTH);
