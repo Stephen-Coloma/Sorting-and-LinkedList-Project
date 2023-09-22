@@ -71,13 +71,13 @@ public class TopicListPage extends JPanel {
             addTopicFrame.setVisible(true);
         });
         deleteButton.addActionListener(e -> {
-            int selectedIndex = topicJList.getSelectedIndex();
+            int selectedIndex = topicsList.getSelectedIndex();
             if (selectedIndex >= 0) {
-                Topic selectedTopic = topicDefaultListModel.getElementAt(selectedIndex);
+                Topic selectedTopic = topicListModel.getElementAt(selectedIndex);
                 int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected Topic?", "Delete Topic", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     // User confirmed deletion, remove the topic both from the list display and the data structure
-                    topicDefaultListModel.remove(selectedIndex);   //If you want to debug, remove this code and delete the selected topic twice to determine if the topic was also removed from the list
+                    topicListModel.remove(selectedIndex);   //If you want to debug, remove this code and delete the selected topic twice to determine if the topic was also removed from the list
                     selectedTerm.delete(selectedTopic);
                 }
             } else {
@@ -86,7 +86,20 @@ public class TopicListPage extends JPanel {
 
             }
     });
-}
+        editButton.addActionListener(e -> {
+            int selectedIndex = topicsList.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Topic selectedTopic = topicListModel.getElementAt(selectedIndex);
+
+                // Open the edit page for the selected course
+                EditTopicPage editTopicPage = new EditTopicPage(topicListModel, selectedTopic, selectedIndex);
+            } else {
+                // If no course selected, show an error message or do nothing
+                JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+    }
 
 
             private void openModulesTasksPage(Topic topic) {
