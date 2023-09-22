@@ -32,5 +32,14 @@ public class EditTopicPage extends JFrame{
             dispose();
 
         });
+
+        editTopicPanel = new JPanel(new GridLayout(4, 1, 5, 5));
+        editTopicPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        editTopicPanel.add(new JLabel("Module:"));
+        editTopicPanel.add(moduleField);
+        editTopicPanel.add(new JLabel("Task:"));
+        editTopicPanel.add(taskField);
+        editTopicPanel.setBackground(Color.PINK);
+
     }
 }
