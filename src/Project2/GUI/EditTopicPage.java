@@ -24,10 +24,6 @@ public class EditTopicPage extends JFrame{
             selectedTopic.setTask(taskField.getText());
             topicDefaultListModel.setElementAt(selectedTopic, selectedIndex);
 
-            //Debugging: to determine if the topic is indeed edited
-            System.out.println(selectedTopic.getModule());
-            System.out.println(selectedTopic.getTask());
-
             // Close the edit page
             dispose();
 

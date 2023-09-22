@@ -28,10 +28,6 @@ public class EditCoursePage extends JFrame {
             selectedCourse.setCourseID(courseIdField.getText());
             courseDefaultListModel.setElementAt(selectedCourse, selectedIndex);
 
-            //Debugging: to determine if the selected course is edited
-            System.out.println(selectedCourse.getCourseName());
-            System.out.println(selectedCourse.getCourseID());
-
             // Close the edit page
             dispose();
         });

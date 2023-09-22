@@ -80,9 +80,9 @@ public class CourseListPage extends JPanel {
                 Course selectedCourse = courseListModel.getElementAt(selectedIndex);
                 int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected course?", "Delete Course", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
-
                     try {
-                        EditCoursePage editCoursePage = new EditCoursePage(courseListModel, selectedCourse, selectedIndex);
+                        courseListModel.remove(selectedIndex);   //If you want to debug, remove this code and delete the selected topic twice to determine if the topic was also removed from the list
+                        courseList.delete(selectedCourse);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
