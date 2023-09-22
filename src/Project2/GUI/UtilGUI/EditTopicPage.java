@@ -1,4 +1,4 @@
-package Project2.GUI;
+package Project2.GUI.UtilGUI;
 import Project2.ReferenceClasses.Topic;
 import javax.swing.*;
 import java.awt.*;
@@ -49,7 +49,5 @@ public class EditTopicPage extends JFrame{
         setSize(400, 200);
         setLocationRelativeTo(null);
         setVisible(true);
-
-
     }
 }

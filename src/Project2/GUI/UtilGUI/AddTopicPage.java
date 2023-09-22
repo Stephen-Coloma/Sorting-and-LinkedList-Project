@@ -1,4 +1,4 @@
-package Project2.GUI;
+package Project2.GUI.UtilGUI;
 
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;

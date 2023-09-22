@@ -26,10 +26,9 @@ import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
-public class TermPage extends JPanel {
+public class TermListPage extends JPanel {
     private final JLabel termLabel;
     private final JButton addButton;
     private final JButton editButton;
@@ -38,7 +37,7 @@ public class TermPage extends JPanel {
     private final JButton midtermButton;
     private final JButton finalButton;
 
-    public TermPage(Course<Term<Topic>> course) {
+    public TermListPage(Course<Term<Topic>> course) {
 
         prelimButton = new JButton ();
         midtermButton = new JButton ();

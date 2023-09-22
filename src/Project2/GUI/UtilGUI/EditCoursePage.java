@@ -1,4 +1,4 @@
-package Project2.GUI;
+package Project2.GUI.UtilGUI;
 
 import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
@@ -51,6 +51,5 @@ public class EditCoursePage extends JFrame {
         setSize(400, 180);
         setLocationRelativeTo(null);
         setVisible(true);
-
     }
 }

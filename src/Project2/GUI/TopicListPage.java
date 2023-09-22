@@ -1,14 +1,12 @@
 package Project2.GUI;
 
-import Project2.ReferenceClasses.Course;
+import Project2.GUI.UtilGUI.AddTopicPage;
+import Project2.GUI.UtilGUI.EditTopicPage;
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class TopicListPage extends JPanel {
@@ -155,10 +153,24 @@ public class TopicListPage extends JPanel {
     private void openModulesTasksPage(Topic topic) {
         JFrame frame = new JFrame(topic.getModule()); // Use getModule to set the frame title
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().add(new ModulesTasksPage(topic));
+        frame.getContentPane().add(new ModuleTaskPage(topic));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
+
+        //this is for opening many ModuleTaskPage. Closes the active frame when clicked outside the frame
+        frame.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+                // Do nothing when the frame gains focus
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+                // Close the frame when it loses focus
+                frame.dispose();
+            }
+        });
     } // end of openModulesTasksPage method
 } // end of TopicListPage class

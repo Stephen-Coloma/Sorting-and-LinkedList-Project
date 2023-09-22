@@ -1,4 +1,4 @@
-package Project2.GUI;
+package Project2.GUI.UtilGUI;
 
 import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
@@ -60,12 +60,10 @@ public class AddCoursePage extends JFrame {
         addCoursePanel.add(courseCodeField);
         addCoursePanel.add(new JLabel("Course Name:"));
         addCoursePanel.add(courseNameField);
-        addCoursePanel.setBackground(Color.PINK);
 
         buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
         buttonPanel.add(okButton);
         buttonPanel.add(cancelButton);
-        buttonPanel.setBackground(Color.PINK);
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
 
         add(addCoursePanel, BorderLayout.NORTH);

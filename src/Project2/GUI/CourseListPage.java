@@ -1,5 +1,7 @@
 package Project2.GUI;
 
+import Project2.GUI.UtilGUI.AddCoursePage;
+import Project2.GUI.UtilGUI.EditCoursePage;
 import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
@@ -10,10 +12,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.lang.annotation.ElementType;
 import javax.swing.*;
-
-import static java.awt.Color.pink;
 
 public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
@@ -167,7 +166,7 @@ public class CourseListPage extends JPanel {
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
         JFrame frame = new JFrame(selectedCourse.getCourseName());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().add(new TermPage(selectedCourse));
+        frame.getContentPane().add(new TermListPage(selectedCourse));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
