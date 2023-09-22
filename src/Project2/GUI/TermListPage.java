@@ -26,10 +26,10 @@ import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
-public class TermPage extends JPanel {
+public class TermListPage extends JPanel {
+    // GUI components declarations
     private final JLabel termLabel;
     private final JButton addButton;
     private final JButton editButton;
@@ -38,7 +38,7 @@ public class TermPage extends JPanel {
     private final JButton midtermButton;
     private final JButton finalButton;
 
-    public TermPage(Course<Term<Topic>> course) {
+    public TermListPage(Course<Term<Topic>> course) {
 
         prelimButton = new JButton ();
         midtermButton = new JButton ();
@@ -50,15 +50,18 @@ public class TermPage extends JPanel {
         buttonsToPopulate.insert(midtermButton);
         buttonsToPopulate.insert(finalButton);
 
-        // passing the course's list of terms to the button text
-        if (course.getSize() > 0) {
-            for (int i = 0; i < course.getSize(); i++) {
-                buttonsToPopulate.getElement(i).setText(course.getElement(i).toString());
+        // Populate button text with the course's list of terms
+        try {
+            if (course.getSize() > 0) {
+                for (int i = 0; i < course.getSize(); i++) {
+                    buttonsToPopulate.getElement(i).setText(course.getElement(i).toString());
+                }
+            } else {
+                System.out.println("Course is empty");
             }
-        } else {
-            System.out.println("Course is empty");
+        } catch (Exception ex) {
+            System.out.println("Error while populating buttons: " + ex.getMessage());
         }
-
 
         //construct components
         termLabel = new JLabel ("TERM");

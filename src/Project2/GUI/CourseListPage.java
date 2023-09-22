@@ -1,5 +1,22 @@
+/**
+ * Group MixAndMatch
+ * Class Code and Course Number: 9342 - CS 211
+ * Schedule: TF 9:00 - 10:30 AM
+ * <p>
+ *     COLOMA, Stephen M.- 2232847@slu.edu.ph
+ *     GUZMAN, Sanchie Earl M.- 2232886@slu.edu.ph
+ *     NONATO, Marius Glenn M.- 2232731@slu.edu.ph
+ *     RAMOS, Jerwin Kyle R.- 2232862@slu.edu.ph
+ *     RAGUDOS, Hannah T.- 2233361@slu.edu.ph
+ *     ROQUE, Rey Daniel L. - 2233357@slu.edu.ph
+ *     SANTOS, Lourdene Eira C.- 2233120@slu.edu.ph
+ * </p>
+ */
+
 package Project2.GUI;
 
+import Project2.GUI.UtilGUI.AddCoursePage;
+import Project2.GUI.UtilGUI.EditCoursePage;
 import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
@@ -10,10 +27,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.lang.annotation.ElementType;
 import javax.swing.*;
-
-import static java.awt.Color.pink;
 
 public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
@@ -81,7 +95,7 @@ public class CourseListPage extends JPanel {
 
         });
 
-        //delete button implementation
+        // Action listener for Delete button
         deleteButton.addActionListener(e -> {
             int selectedIndex = listOfCourses.getSelectedIndex();
             if (selectedIndex >= 0) {
@@ -89,32 +103,28 @@ public class CourseListPage extends JPanel {
                 int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected course?", "Delete Course", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     try {
-                        courseListModel.remove(selectedIndex);   //If you want to debug, remove this code and delete the selected topic twice to determine if the topic was also removed from the list
+                        courseListModel.remove(selectedIndex);
                         courseList.delete(selectedCourse);
                     } catch (Exception ex) {
-                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(this, "Error deleting course: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                } else {
-                    // If no course selected, show an error message or do nothing
-                    JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please select a course to delete.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
-        //edit button implementation
+        // Action listener for Edit button
         editButton.addActionListener(e -> {
             int selectedIndex = listOfCourses.getSelectedIndex();
             if (selectedIndex >= 0) {
                 Course selectedCourse = courseListModel.getElementAt(selectedIndex);
-
-                // Open the edit page for the selected course
                 try {
                     EditCoursePage editCoursePage = new EditCoursePage(courseListModel, selectedCourse, selectedIndex);
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "Error editing course: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                // If no course selected, show an error message or do nothing
                 JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
@@ -164,10 +174,12 @@ public class CourseListPage extends JPanel {
         });
 
     }
+
+    // Open TermListPage for the given course
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
         JFrame frame = new JFrame(selectedCourse.getCourseName());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().add(new TermPage(selectedCourse));
+        frame.getContentPane().add(new TermListPage(selectedCourse));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
