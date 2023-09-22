@@ -26,34 +26,34 @@ public class CourseListPage extends JPanel {
         }
 
         //construct components
-        coursesLabel = new JLabel ("ENROLLED COURSES");
-        searchBar = new JTextArea (5, 5);
-        listOfCourses = new JList (courseListModel);
-        addButton = new JButton ("Add");
-        deleteButton = new JButton ("Delete");
-        editButton = new JButton ("Edit");
+        coursesLabel = new JLabel("ENROLLED COURSES");
+        searchBar = new JTextArea(5, 5);
+        listOfCourses = new JList(courseListModel);
+        addButton = new JButton("Add");
+        deleteButton = new JButton("Delete");
+        editButton = new JButton("Edit");
 
         //adjust size and set layout
-        setPreferredSize (new Dimension (452, 457));
-        setLayout (null);
+        setPreferredSize(new Dimension(452, 457));
+        setLayout(null);
 
         //add components
-        add (coursesLabel);
-        add (searchBar);
-        add (listOfCourses);
-        add (addButton);
+        add(coursesLabel);
+        add(searchBar);
+        add(listOfCourses);
+        add(addButton);
         add(editButton);
-        add (deleteButton);
-        add (editButton);
+        add(deleteButton);
+        add(editButton);
 
 
         //set component bounds (only needed by Absolute Positioning)
-        coursesLabel.setBounds (30, 15, 130, 35);
-        searchBar.setBounds (245, 20, 180, 25);
-        listOfCourses.setBounds (25, 60, 400, 330);
+        coursesLabel.setBounds(30, 15, 130, 35);
+        searchBar.setBounds(245, 20, 180, 25);
+        listOfCourses.setBounds(25, 60, 400, 330);
 
-        addButton.setBounds (75, 405, 90, 35);
-        editButton.setBounds (180, 405, 90, 35);
+        addButton.setBounds(75, 405, 90, 35);
+        editButton.setBounds(180, 405, 90, 35);
         deleteButton.setBounds(285, 405, 90, 35);
 
         listOfCourses.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -68,12 +68,24 @@ public class CourseListPage extends JPanel {
             }
         });
 
-        addButton.addActionListener(e->{
+        addButton.addActionListener(e -> {
             if (e.getSource() == addButton) {
                 AddCoursePage addCoursePage = new AddCoursePage(courseListModel, courseList);
                 addCoursePage.setVisible(true);
-                }
+            }
 
+        });
+
+        deleteButton.addActionListener(e -> {
+            int selectedIndex = courseJList.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Course selectedCourse = courseDefaultListModel.getElementAt(selectedIndex);
+                int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected course?", "Delete Course", JOptionPane.YES_NO_OPTION);
+                if (option == JOptionPane.YES_OPTION) {
+
+
+                }
+            }
         });
     }
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
