@@ -61,14 +61,14 @@ public class AddTopicPage extends JFrame {
         // Modify the text field appearance
         int textFieldHeight = 40; // Adjust the height as needed
         moduleField.setPreferredSize(new Dimension(200, textFieldHeight));
-        moduleField.setBorder(BorderFactory.createLineBorder(mustard, 2));
+        moduleField.setBorder(BorderFactory.createLineBorder(royalBlue, 2));
         taskField.setPreferredSize(new Dimension(200, textFieldHeight));
-        taskField.setBorder(BorderFactory.createLineBorder(mustard, 2));
+        taskField.setBorder(BorderFactory.createLineBorder(royalBlue, 2));
 
         //Modify the label appearance
         Font labelFont = new Font("Roboto", Font.BOLD, 18); // Replace "Roboto" with your desired font
-        moduleLabel.setForeground(mustard);
-        taskLabel.setForeground(mustard);
+        moduleLabel.setForeground(royalBlue);
+        taskLabel.setForeground(royalBlue);
         moduleLabel.setFont(labelFont);
         taskLabel.setFont(labelFont);
 
@@ -109,12 +109,12 @@ public class AddTopicPage extends JFrame {
         addTopicPanel.add(moduleField);
         addTopicPanel.add(taskLabel);
         addTopicPanel.add(taskField);
-        addTopicPanel.setBackground(royalBlue);
+        addTopicPanel.setBackground(mustard);
 
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 30, 10, 30));
         buttonPanel.add(addButton);
         buttonPanel.add(cancelButton);
-        buttonPanel.setBackground(royalBlue);
+        buttonPanel.setBackground(mustard);
 
         add(addTopicPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
@@ -129,10 +129,10 @@ public class AddTopicPage extends JFrame {
         button.setFont(new Font("Roboto", Font.BOLD, 14));
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createLineBorder(royalBlue, 2, false), // Set border color, thickness, and roundness
                 BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-        button.setBackground(flashWhite);
-        button.setForeground(polynesianBlue);
+        button.setBackground(polynesianBlue);
+        button.setForeground(mustard);
         button.addMouseListener(new MouseAdapter() {
 
             @Override
@@ -140,9 +140,9 @@ public class AddTopicPage extends JFrame {
                 super.mouseEntered(e);
                 button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(royalBlue, 2, false), // Set border color, thickness, and roundness
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(mustard); // Set a new color when mouse hovers over the button
+                button.setBackground(royalBlue); // Set a new color when mouse hovers over the button
                 button.setForeground(flashWhite);
             } // end of mouseEntered method
 
@@ -150,10 +150,10 @@ public class AddTopicPage extends JFrame {
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(royalBlue, 2, false), // Set border color, thickness, and roundness
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(flashWhite); // Set back the original color when the mouse leaves the button
-                button.setForeground(polynesianBlue);
+                button.setBackground(polynesianBlue); // Set back the original color when the mouse leaves the button
+                button.setForeground(mustard);
             } // end of mouseExited method
         });
     } // end of buttonDesign method
