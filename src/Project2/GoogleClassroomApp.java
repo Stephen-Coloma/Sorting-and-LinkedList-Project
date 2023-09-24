@@ -204,41 +204,37 @@ public class GoogleClassroomApp extends JFrame {
 
         //adds the 5th course into the list
 
-        //create and populate course5
+        // create and populate course5
         Course<Term<Topic>> course5 = new Course<>("READING VISUAL ARTS" , "9346 - CS - GRVA");
         Term<Topic> prelims5 = new Term<>("Prelims");
         Term<Topic> midterms5 = new Term<>("Midterms");
         Term<Topic> finals5 = new Term<>("Finals");
 
         // Populate Prelims
-        // TODO: 9/19/2023 - Change modules and tasks
-        prelims5.insert(new Topic("General Concepts and STS Historical Developments",
-                "Present key historical developments in the field of STS."));
-        prelims5.insert(new Topic("Intellectual Revolutions that Defined Society",
-                "Write an essay on how intellectual revolutions have shaped society."));
-        prelims5.insert(new Topic("Science and Technology and Nation Building",
-                "Analyze the role of science and technology in the process of nation-building."));
-        prelims5.insert(new Topic("The Human Person Flourishing in Science and Technology",
-                "Discuss the ethical considerations of technological advancements"));
+        prelims5.insert(new Topic("Introduction to Visual Arts",
+                "Discuss the fundamental elements and principles of visual arts."));
+        prelims5.insert(new Topic("Historical Evolution of Visual Arts",
+                "Trace the transformation of visual arts from ancient to modern times."));
+        prelims5.insert(new Topic("Visual Arts and Cultural Identity",
+                "Examine how visual arts represent and shape cultural identities across different societies."));
+        prelims5.insert(new Topic("Art Criticism and Interpretation",
+                "Learn the techniques of critiquing and interpreting various forms of visual arts."));
 
         // Populate Midterms
-        // TODO: 9/19/2023 - Change modules and tasks
-        midterms5.insert(new Topic("STS and Human Condition: The Good Life",
-                "Explore the concept of 'the good life' in the context of STS"));
-        midterms5.insert(new Topic("When Technology and Humanity Cross",
-                "Examine ethical dilemmas that arise when technology and humanity intersect."));
-        midterms5.insert(new Topic("The Information Age",
-                "Research and present a case study on the impact of the information age on society."));
+        midterms5.insert(new Topic("Techniques in Visual Arts",
+                "Explore different techniques and mediums used in visual arts, from traditional to digital."));
+        midterms5.insert(new Topic("Visual Arts in Digital Age",
+                "Investigate the impact of digital technology on the evolution and consumption of visual arts."));
+        midterms5.insert(new Topic("Art Movements and Their Influence",
+                "Study various art movements and their influence on contemporary visual arts."));
 
         // Populate Finals
-        // TODO: 9/19/2023 - Change modules and tasks
-        finals5.insert(new Topic("Biodiversity and Health Society",
-                "Investigate the relationship between biodiversity and public health and propose solutions."));
-        finals5.insert(new Topic("The Nanotechnology World",
-                "Summarize recent advancements in nanotechnology and their potential applications."));
-        finals5.insert(new Topic("Genetic Engineering",
-                "Discuss the ethical and societal implications of genetic engineering " +
-                        "and gene editing technologies."));
+        finals5.insert(new Topic("Public Art and Society",
+                "Analyze the role of public art in society and its influence on public spaces and community engagement."));
+        finals5.insert(new Topic("Careers in Visual Arts",
+                "Discover various career paths in the field of visual arts and what they entail."));
+        finals5.insert(new Topic("Art and Activism",
+                "Discuss how visual arts have been used as a tool for social and political activism throughout history."));
 
         course5.insert(prelims5);
         course5.insert(midterms5);
@@ -255,47 +251,40 @@ public class GoogleClassroomApp extends JFrame {
         Term<Topic> finals6 = new Term<>("Finals");
 
         // Populate Prelims
-        // TODO: 9/19/2023 - Change modules and tasks
-        prelims6.insert(new Topic("Introduction to Human Computer Interaction",
-                "Discuss the evolution of Human-Computer Interaction (HCI) " +
-                        "and its impact on modern design practices"));
-        prelims6.insert(new Topic("Design of Everyday Things",
-                "Examine key principles of user-centered design and their real-world applications"));
-        prelims6.insert(new Topic("Errors",
-                "Explore common usability errors in interface design and propose strategies " +
-                        "for error prevention and recovery"));
-        prelims6.insert(new Topic("Interface Design Principles",
-                "Discuss foundational principles of interface design, providing practical examples " +
-                        "from user interfaces in use today"));
-        prelims6.insert(new Topic("Usability Evaluation",
-                "Perform a usability evaluation for a software application, identify usability issues, " +
-                        "and suggest actionable improvements"));
+        prelims6.insert(new Topic("Introduction to CWTS",
+                "Discuss the evolution and significance of the Civil Welfare Training Service in the national context"));
+        prelims6.insert(new Topic("Role of Youth in Nation Building",
+                "Examine the integral role of the youth in building and uplifting communities"));
+        prelims6.insert(new Topic("Basic First Aid",
+                "Introduction to basic first aid techniques and their importance in community service"));
+        prelims6.insert(new Topic("Environmental Awareness",
+                "Understand the environmental challenges and the role of CWTS in promoting sustainable practices"));
+        prelims6.insert(new Topic("Community Immersion",
+                "Engage in a basic community immersion activity, understanding the grassroots level issues and concerns"));
 
         // Populate Midterms
-        // TODO: 9/19/2023 - Change modules and tasks
-        midterms6.insert(new Topic("Introduction to Information Architecture",
-                "Define information architecture and illustrate its role in designing intuitive websites"));
-        midterms6.insert(new Topic("Interaction Design", "Prototype creation for a mobile app"));
-        midterms6.insert(new Topic("User Interface Prototyping",
-                "Develop both low-fidelity and high-fidelity prototypes for a web application"));
-        midterms6.insert(new Topic("Mobile and Responsive Design",
-                "Analyze the complexities of designing"));
-        midterms6.insert(new Topic("Information Visualization",
-                "Visualize a dataset using appropriate techniques and interpret"));
+        midterms6.insert(new Topic("Community Assessment",
+                "Methods and tools for assessing community needs and resources"));
+        midterms6.insert(new Topic("Project Planning and Implementation",
+                "Learn the basics of planning and executing community-based projects"));
+        midterms6.insert(new Topic("Resource Mobilization",
+                "Strategies for sourcing resources for community projects"));
+        midterms6.insert(new Topic("Basic Counseling Skills",
+                "Introduction to basic counseling techniques for community engagement"));
+        midterms6.insert(new Topic("Stakeholder Collaboration",
+                "Engage and collaborate with different stakeholders in the community for successful project outcomes"));
 
         // Populate Finals
-        // TODO: 9/19/2023 - Change modules and tasks
-        finals6.insert(new Topic("Accessibility and Inclusive Design",
-                "Evaluate the accessibility of a websites or applications and propose enhancements"));
-        finals6.insert(new Topic("User Experience (UX) Design",
-                "Conduct user research to identify user needs and preferences for a chosen product"));
-        finals6.insert(new Topic("Ethical Considerations in HCI",
-                "Delve into ethical dilemmas tied to user data privacy in digital products " +
-                        "and provide ethical guidelines for responsible design"));
-        finals6.insert(new Topic("Future Trends in HCI",
-                "Research emerging technologies and analyze their potential impacts on the field"));
-        finals6.insert(new Topic("Cognitive Psychology in UX Design",
-                "Apply cognitive psychology principles to assess the user experience"));
+        finals6.insert(new Topic("Monitoring and Evaluation",
+                "Techniques for monitoring and evaluating the progress and impact of community projects"));
+        finals6.insert(new Topic("Documenting Community Projects",
+                "Methods for documenting and reporting community engagements and projects"));
+        finals6.insert(new Topic("Ethical Considerations in Community Service",
+                "Understanding ethical dilemmas and responsibilities while serving in communities"));
+        finals6.insert(new Topic("Leadership and Team Building",
+                "Develop leadership skills and understand the dynamics of working in teams"));
+        finals6.insert(new Topic("Reflection and Feedback",
+                "Reflect on the experiences during the course and provide feedback for future improvements"));
 
         course6.insert(prelims6);
         course6.insert(midterms6);
