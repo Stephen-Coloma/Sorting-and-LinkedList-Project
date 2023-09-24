@@ -237,27 +237,25 @@ public class GoogleClassroomApp extends JFrame {
         course5.insert(finals5);
         courseList.insert(course5);
 
-        // ... [previous courses' code]
-
-// Create and populate Course 6: SCIENCE, TECHNOLOGY, AND SOCIETY
+        // Create and populate Course 6: SCIENCE, TECHNOLOGY, AND SOCIETY
         Course<Term<Topic>> course6 = new Course<>("SCIENCE, TECHNOLOGY, AND SOCIETY", "9345 - GSTS");
 
         Term<Topic> prelims6 = new Term<>("Prelims");
         Term<Topic> midterms6 = new Term<>("Midterms");
         Term<Topic> finals6 = new Term<>("Finals");
 
-// Populate Prelims for course6
+        // Populate Prelims for course6
         prelims6.insert(new Topic("General Concepts and STS Historical Developments", "Present key historical developments in the field of STS."));
         prelims6.insert(new Topic("Intellectual Revolutions that Defined Society", "Write an essay on how intellectual revolutions have shaped society."));
         prelims6.insert(new Topic("Science and Technology and Nation Building", "Analyze the role of science and technology in the process of nation-building."));
         prelims6.insert(new Topic("The Human Person Flourishing in Science and Technology", "Discuss the ethical considerations of technological advancements"));
 
-// Populate Midterms for course6
+        // Populate Midterms for course6
         midterms6.insert(new Topic("STS and Human Condition: The Good Life", "Explore the concept of 'the good life' in the context of STS"));
         midterms6.insert(new Topic("When Technology and Humanity Cross", "Examine ethical dilemmas that arise when technology and humanity intersect."));
         midterms6.insert(new Topic("The Information Age", "Research and present a case study on the impact of the information age on society."));
 
-// Populate Finals for course6
+        // Populate Finals for course6
         finals6.insert(new Topic("Biodiversity and Health Society", "Investigate the relationship between biodiversity and public health and propose solutions."));
         finals6.insert(new Topic("The Nanotechnology World", "Summarize recent advancements in nanotechnology and their potential applications."));
         finals6.insert(new Topic("Genetic Engineering", "Discuss the ethical and societal implications of genetic engineering " + "and gene editing technologies."));
@@ -267,25 +265,25 @@ public class GoogleClassroomApp extends JFrame {
         course6.insert(finals6);
         courseList.insert(course6);
 
-// Create and populate Course 7: READING VISUAL ART
+        // Create and populate Course 7: READING VISUAL ART
         Course<Term<Topic>> course7 = new Course<>("READING VISUAL ART", "9346 - GRVA");
 
         Term<Topic> prelims7 = new Term<>("Prelims");
         Term<Topic> midterms7 = new Term<>("Midterms");
         Term<Topic> finals7 = new Term<>("Finals");
 
-// Populate Prelims for course7
+        // Populate Prelims for course7
         prelims7.insert(new Topic("Introduction to Visual Arts", "Discuss the fundamental elements and principles of visual arts."));
         prelims7.insert(new Topic("Historical Evolution of Visual Arts", "Trace the transformation of visual arts from ancient to modern times."));
         prelims7.insert(new Topic("Visual Arts and Cultural Identity", "Examine how visual arts represent and shape cultural identities across different societies."));
         prelims7.insert(new Topic("Art Criticism and Interpretation", "Learn the techniques of critiquing and interpreting various forms of visual arts."));
 
-// Populate Midterms for course7
+        // Populate Midterms for course7
         midterms7.insert(new Topic("Techniques in Visual Arts", "Explore different techniques and mediums used in visual arts, from traditional to digital."));
         midterms7.insert(new Topic("Visual Arts in Digital Age", "Investigate the impact of digital technology on the evolution and consumption of visual arts."));
         midterms7.insert(new Topic("Art Movements and Their Influence", "Study various art movements and their influence on contemporary visual arts."));
 
-// Populate Finals for course7
+        // Populate Finals for course7
         finals7.insert(new Topic("Public Art and Society", "Analyze the role of public art in society and its influence on public spaces and community engagement."));
         finals7.insert(new Topic("Careers in Visual Arts", "Discover various career paths in the field of visual arts and what they entail."));
         finals7.insert(new Topic("Art and Activism", "Discuss how visual arts have been used as a tool for social and political activism throughout history."));
