@@ -13,11 +13,6 @@
  * </p>
  */
 
-// TODO: Provide the algorithm here:
-/*
-ALGORITHM:
- */
-
 package Project2.GUI;
 
 import Project2.LinkedListImplementation.DoublyLinkedList;
@@ -27,6 +22,8 @@ import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TermListPage extends JPanel {
     // GUI components declarations
@@ -40,11 +37,11 @@ public class TermListPage extends JPanel {
 
     public TermListPage(Course<Term<Topic>> course) {
 
-        prelimButton = new JButton ();
-        midtermButton = new JButton ();
-        finalButton= new JButton ();
+        prelimButton = new JButton();
+        midtermButton = new JButton();
+        finalButton = new JButton();
 
-        //list  of button
+        // list of button
         DoublyLinkedList<JButton> buttonsToPopulate = new DoublyLinkedList<>();
         buttonsToPopulate.insert(prelimButton);
         buttonsToPopulate.insert(midtermButton);
@@ -63,54 +60,87 @@ public class TermListPage extends JPanel {
             System.out.println("Error while populating buttons: " + ex.getMessage());
         }
 
-        //construct components
-        termLabel = new JLabel ("TERM");
-        addButton = new JButton ("Add");
-        editButton = new JButton ("Edit");
-        deleteButton = new JButton ("Delete");
+        // construct components
+        termLabel = new JLabel("TERM");
+        addButton = new JButton("Add");
+        editButton = new JButton("Edit");
+        deleteButton = new JButton("Delete");
 
+        // Set the background and font colors based on the specification
+        setBackground(new Color(17, 41, 107));
+        termLabel.setFont(new Font("", Font.BOLD, 20));
+        termLabel.setForeground(new Color(255, 219, 87));
 
-        //disabling add and delete button
+        Color buttonBgColor = new Color(237, 237, 237);
+        Color buttonHoverColor = new Color(255, 219, 87);
+
+        // Modify the term buttons' appearance
+        JButton[] termButtonsArray = {prelimButton, midtermButton, finalButton};
+        for (JButton btn : termButtonsArray) {
+            btn.setFont(new Font("Roboto", Font.BOLD, 14));
+            btn.setBorder(BorderFactory.createLineBorder(buttonHoverColor, 2));
+            btn.setBackground(buttonBgColor);
+            btn.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    btn.setBackground(buttonHoverColor);
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    btn.setBackground(buttonBgColor);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    btn.setBackground(buttonBgColor);
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    btn.setBackground(buttonHoverColor);
+                }
+            });
+        }
+
+        // disabling add, delete, and edit button
         addButton.setEnabled(false);
         deleteButton.setEnabled(false);
         editButton.setEnabled(false);
 
-        //adjust size and set layout
-        setPreferredSize (new Dimension (452, 457));
-        setLayout (null);
+        // adjust size and set layout
+        setPreferredSize(new Dimension(452, 457));
+        setLayout(null);
 
-        //add components
-        add (termLabel);
-        add (addButton);
+        // add components
+        add(termLabel);
+        add(addButton);
         add(editButton);
-        add (deleteButton);
-        add (prelimButton);
-        add (midtermButton);
-        add (finalButton);
+        add(deleteButton);
+        add(prelimButton);
+        add(midtermButton);
+        add(finalButton);
 
-        //set component bounds (only needed by Absolute Positioning)
-        termLabel.setBounds (30, 15, 130, 35);
-        addButton.setBounds (75, 405, 90, 35);
-        editButton.setBounds (180, 405, 90, 35);
-        deleteButton.setBounds(285, 405, 90, 35);
+        // set component bounds (only needed by Absolute Positioning)
+        termLabel.setBounds(28, 15, 130, 35);
+        addButton.setBounds(24, 398, 120, 35);
+        editButton.setBounds(165, 398, 120, 35);
+        deleteButton.setBounds(307, 398, 120, 35);
+        prelimButton.setBounds(25, 65, 400, 80);
+        midtermButton.setBounds(25, 180, 400, 80);
+        finalButton.setBounds(25, 290, 400, 80);
 
-
-        prelimButton.setBounds (25, 55, 400, 90);
-        midtermButton.setBounds (25, 170, 400, 95);
-        finalButton.setBounds (25, 290, 400, 95);
-
-
-        prelimButton.addActionListener(e->{
+        prelimButton.addActionListener(e -> {
             Term<Topic> prelims = course.getElement(0);
             openTopicsListPage(prelims);
         });
 
-        midtermButton.addActionListener(e->{
+        midtermButton.addActionListener(e -> {
             Term<Topic> midterms = course.getElement(1);
             openTopicsListPage(midterms);
         });
 
-        finalButton.addActionListener(e->{
+        finalButton.addActionListener(e -> {
             Term<Topic> finals = course.getElement(2);
             openTopicsListPage(finals);
         });
@@ -118,8 +148,14 @@ public class TermListPage extends JPanel {
     }
 
     private void openTopicsListPage(Term<Topic> term) {
-        JFrame frame = new JFrame(term.getTermName()); // Use getTermName to set the frame title
+        JFrame frame = new JFrame(term.getTermName());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Add the icon to the JFrame
+        String iconPath = "D:\\cs211_9342_mixandmatch\\src\\Project2\\GUI\\Icons\\COURSE ICON.jpg";
+        ImageIcon icon = new ImageIcon(iconPath);
+        frame.setIconImage(icon.getImage());
+
         frame.getContentPane().add(new TopicListPage(term));
         frame.pack();
         frame.setLocationRelativeTo(null);

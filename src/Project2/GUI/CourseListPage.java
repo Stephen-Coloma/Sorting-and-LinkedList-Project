@@ -263,6 +263,12 @@ public class CourseListPage extends JPanel {
     private void openTermPage(Course<Term<Topic>> selectedCourse) {
         JFrame frame = new JFrame(selectedCourse.getCourseName());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Add the icon to the JFrame
+        String iconPath = "D:\\cs211_9342_mixandmatch\\src\\Project2\\GUI\\Icons\\COURSE ICON.jpg";
+        ImageIcon icon = new ImageIcon(iconPath);
+        frame.setIconImage(icon.getImage());
+
         frame.getContentPane().add(new TermListPage(selectedCourse));
         frame.pack();
         frame.setLocationRelativeTo(null);

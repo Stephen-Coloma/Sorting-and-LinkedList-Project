@@ -7,6 +7,7 @@ import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class GoogleClassroomApp extends JFrame {
     private DoublyLinkedList<Course<Term<Topic>>> courseList = new DoublyLinkedList<>();
@@ -19,8 +20,14 @@ public class GoogleClassroomApp extends JFrame {
         //initial population of Courses, Terms and Topics
         courseList = initialPopulation();
         this.setContentPane(new CourseListPage(courseList));
-        this.setTitle("Course List Page");
+        this.setTitle("Enrolled Courses List");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Set the icon image for the taskbar
+        String iconPath = "D:\\cs211_9342_mixandmatch\\src\\Project2\\GUI\\Icons\\COURSE ICON.jpg";
+        ImageIcon icon = new ImageIcon(iconPath);
+        this.setIconImage(icon.getImage());
+
         this.pack();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
