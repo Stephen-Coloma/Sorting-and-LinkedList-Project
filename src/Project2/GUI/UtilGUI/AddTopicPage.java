@@ -119,6 +119,11 @@ public class AddTopicPage extends JFrame {
         add(addTopicPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
 
+        // Add the icon to the JFrame
+        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        this.setIconImage(icon.getImage());
+
         // Frame properties
         setSize(470, 210);
         setLocationRelativeTo(null);

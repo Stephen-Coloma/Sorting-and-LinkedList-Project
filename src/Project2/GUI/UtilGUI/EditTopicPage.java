@@ -93,6 +93,11 @@ public class EditTopicPage extends JFrame{
         add(editTopicPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
 
+        // Add the icon to the JFrame
+        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        this.setIconImage(icon.getImage());
+
         // Frame Properties
         setTitle("Edit Topic");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

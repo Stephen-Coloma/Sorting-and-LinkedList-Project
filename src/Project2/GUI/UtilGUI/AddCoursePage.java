@@ -119,6 +119,12 @@ public class AddCoursePage extends JFrame {
 
         add(addCoursePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
+
+        // Add the icon to the JFrame
+        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        this.setIconImage(icon.getImage());
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(400, 190);
         setLocationRelativeTo(null);

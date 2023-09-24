@@ -87,6 +87,12 @@ public class EditCoursePage extends JFrame {
         add(editCoursePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
 
+        // Add the icon to the JFrame
+        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        this.setIconImage(icon.getImage());
+
+        // Frame properties
         setSize(400, 190);
         setLocationRelativeTo(null);
         setVisible(true);

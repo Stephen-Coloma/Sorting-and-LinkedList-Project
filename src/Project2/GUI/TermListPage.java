@@ -135,7 +135,7 @@ public class TermListPage extends JPanel {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Add the icon to the JFrame
-        String iconPath = "D:\\cs211_9342_mixandmatch\\src\\Project2\\GUI\\Icons\\COURSE ICON.jpg";
+        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
         ImageIcon icon = new ImageIcon(iconPath);
         frame.setIconImage(icon.getImage());
 
