@@ -111,7 +111,7 @@ public class RoundButton extends JButton {
         Graphics2D g2d = (Graphics2D) g;
 
         // Set the desired border thickness (e.g., 2 pixels)
-        int borderThickness = 3;
+        int borderThickness = 2;
         g2d.setStroke(new BasicStroke(borderThickness));
 
         g.drawRoundRect(0, 0, getWidth() - 1, getHeight() -1, CORNER_RADIUS, CORNER_RADIUS);

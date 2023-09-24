@@ -17,6 +17,7 @@ package Project2.GUI;
 
 import Project2.GUI.UtilGUI.AddCoursePage;
 import Project2.GUI.UtilGUI.EditCoursePage;
+import Project2.GUI.UtilGUI.RoundButton;
 import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
@@ -30,7 +31,7 @@ public class CourseListPage extends JPanel {
     private JLabel coursesLabel;
     private JTextField searchBar;
     private JList<Course<Term<Topic>>> listOfCourses;
-    private JButton addButton, deleteButton, editButton;
+    private RoundButton addButton, deleteButton, editButton;
 
 
     // Custom cell renderer to change the background color of the selected item
@@ -58,9 +59,9 @@ public class CourseListPage extends JPanel {
         coursesLabel = new JLabel("COURSES");
         searchBar = new JTextField( "Search...",4);
         listOfCourses = new JList(courseListModel);
-        addButton = new JButton("Add");
-        deleteButton = new JButton("Delete");
-        editButton = new JButton("Edit");
+        addButton = new RoundButton("Add");
+        deleteButton = new RoundButton("Delete");
+        editButton = new RoundButton("Edit");
 
         //adjust size and set layout
         setPreferredSize(new Dimension(452, 457));
@@ -70,38 +71,10 @@ public class CourseListPage extends JPanel {
         coursesLabel.setFont(new Font("", Font.BOLD, 20));
         coursesLabel.setForeground(new Color(255, 219, 87));
 
-        Color buttonBgColor = new Color(237, 237, 237);
-        Color buttonHoverColor = new Color(255, 219, 87);
-
         // Modify the term buttons' appearance
-
-        JButton[] termButtonsArray = {addButton, editButton, deleteButton};
-        for (JButton btn : termButtonsArray) {
-            btn.setFont(new Font("Roboto", Font.BOLD, 14));
-            btn.setBorder(BorderFactory.createLineBorder(buttonHoverColor, 2));
-            btn.setBackground(buttonBgColor);
-            btn.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mousePressed(MouseEvent e) {
-                    btn.setBackground(buttonHoverColor);
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                    btn.setBackground(buttonBgColor);
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    btn.setBackground(buttonBgColor);
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    btn.setBackground(buttonHoverColor);
-                }
-            });
-        }
+        buttonDesign(addButton);
+        buttonDesign(deleteButton);
+        buttonDesign(editButton);
 
         //set component bounds (only needed by Absolute Positioning)
         listOfCourses.setBounds(25, 60, 400, 330);
@@ -245,4 +218,51 @@ public class CourseListPage extends JPanel {
         frame.setResizable(false);
         frame.setVisible(true);
     }
+
+    private void buttonDesign(RoundButton button) {
+        button.setFont(new Font("Roboto", Font.BOLD, 14));
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(255, 219, 87), 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+        button.setBackground(new Color(237, 237, 237));
+        button.setForeground(new Color(0, 80, 157));
+        button.addMouseListener(new MouseAdapter() {
+
+            /**
+             * Method that changes the cursor to a hand cursor and sets the background
+             * color of the button to purple to indicate that the button can be clicked.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(new Color(255, 219, 87), 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(new Color(255, 219, 87)); // Set a new color when mouse hovers over the button
+                button.setForeground(new Color(237, 237, 237));
+            } // end of mouseEntered method
+
+            /**
+             * Method that sets the background color of the button back to new Color(237, 237, 237) and the
+             * foreground color back to navy to indicate that the button is no longer being
+             * hovered over.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(new Color(255, 219, 87), 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(new Color(237, 237, 237)); // Set back the original color when the mouse leaves the button
+                button.setForeground(new Color(0, 80, 157));
+            } // end of mouseExited method
+        });
+    } // end of buttonDesign method
+
 }
