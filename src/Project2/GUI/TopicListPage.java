@@ -9,6 +9,7 @@ import Project2.ReferenceClasses.Topic;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class TopicListPage extends JPanel {
     // Declare GUI components and data structures
@@ -41,7 +42,7 @@ public class TopicListPage extends JPanel {
 
     public TopicListPage(Term<Topic> term) {
         // Construct components
-        topicsLabel = new JLabel("TOPICS FOR" + term.getTermName());
+        topicsLabel = new JLabel("<html>TOPICS FOR " + term.getTermName().toUpperCase() + "</html>");
         topicsList = new JList<>(new DefaultListModel<>());
         selectedTerm = term;
 
@@ -64,7 +65,7 @@ public class TopicListPage extends JPanel {
 
         // Modify appearance
         setBackground(royalBlue);
-        topicsLabel.setFont(new Font("", Font.BOLD, 20));
+        topicsLabel.setFont(new Font("", Font.BOLD, 16));
         topicsLabel.setForeground(mustard);
 
         // Modify buttons' appearance

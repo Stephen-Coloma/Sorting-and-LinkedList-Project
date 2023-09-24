@@ -29,6 +29,7 @@ public class AddTopicPage extends JFrame {
     // Declare GUI components and data structures
     private JLabel moduleLabel, taskLabel;
     private JTextField moduleField, taskField;
+    private JPanel addTopicPanel, buttonPanel;
     private Term<Topic> selectedTerm;
     private DefaultListModel<Topic> topicListModel;
     private RoundButton addButton, cancelButton;
@@ -52,6 +53,8 @@ public class AddTopicPage extends JFrame {
         taskLabel = new JLabel("Task: ");
         moduleField = new JTextField(30);
         taskField = new JTextField(30);
+        addTopicPanel = new JPanel(new GridLayout(2, 2, 5, 10));
+        buttonPanel = new JPanel(new GridLayout(1, 2, 30, 5));
         cancelButton = new RoundButton("Cancel");
         addButton = new RoundButton("Add");
 
@@ -101,7 +104,6 @@ public class AddTopicPage extends JFrame {
         });
 
         // Set up GUI layout
-        JPanel addTopicPanel = new JPanel(new GridLayout(2, 2, 5, 10));
         addTopicPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         addTopicPanel.add(moduleLabel);
         addTopicPanel.add(moduleField);
@@ -109,7 +111,6 @@ public class AddTopicPage extends JFrame {
         addTopicPanel.add(taskField);
         addTopicPanel.setBackground(royalBlue);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 30, 5));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 30, 10, 30));
         buttonPanel.add(addButton);
         buttonPanel.add(cancelButton);
@@ -118,6 +119,7 @@ public class AddTopicPage extends JFrame {
         add(addTopicPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
 
+        // Frame properties
         setSize(470, 210);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
