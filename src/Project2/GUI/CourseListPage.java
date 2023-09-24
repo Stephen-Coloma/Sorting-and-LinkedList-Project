@@ -68,15 +68,13 @@ public class CourseListPage extends JPanel {
 
         setBackground(new Color(17, 41, 107));
         coursesLabel.setFont(new Font("", Font.BOLD, 20));
-        coursesLabel.setForeground(Color.WHITE);
-
+        coursesLabel.setForeground(new Color(255, 219, 87));
 
         Color buttonBgColor = new Color(237, 237, 237);
 
         // Modify the buttons' appearance when pressed
         addButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        addButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
-        addButton.setForeground(Color.BLACK); 
+        addButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
         addButton.setBackground(buttonBgColor); 
         addButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -95,9 +93,28 @@ public class CourseListPage extends JPanel {
             }
         });
 
+        editButton.setFont(new Font("Roboto", Font.BOLD, 14));
+        editButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+        editButton.setBackground(buttonBgColor);
+        editButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                editButton.setBackground(new Color(255, 219, 87));
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                editButton.setBackground(buttonBgColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                editButton.setBackground(buttonBgColor);
+            }
+        });
+
         deleteButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        deleteButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
-        deleteButton.setForeground(Color.BLACK); 
+        deleteButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
         deleteButton.setBackground(buttonBgColor); 
         deleteButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -116,37 +133,17 @@ public class CourseListPage extends JPanel {
             }
         });
 
-        editButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        editButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
-        editButton.setForeground(Color.BLACK);
-        editButton.setBackground(buttonBgColor); 
-        editButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                editButton.setBackground(new Color(255, 219, 87));
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                editButton.setBackground(buttonBgColor);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                editButton.setBackground(buttonBgColor);
-            }
-        });
-
-
         //set component bounds (only needed by Absolute Positioning)
-        coursesLabel.setBounds(30, 15, 130, 35);
-        searchBar.setBounds(245, 20, 180, 25);
+        listOfCourses.setBounds(25, 60, 400, 330);
+        listOfCourses.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+
+        coursesLabel.setBounds(28, 14, 130, 35);
+        searchBar.setBounds(245, 18, 180, 25);
         listOfCourses.setBounds(25, 60, 400, 330);
         
-        addButton.setBounds(75, 405, 90, 35);
-        editButton.setBounds(180, 405, 90, 35);
-        deleteButton.setBounds(285, 405, 90, 35);
-
+        addButton.setBounds(24, 406, 120, 35);
+        editButton.setBounds(165, 406, 120, 35);
+        deleteButton.setBounds(307, 406, 120, 35);
 
         //add components
         add(coursesLabel);
@@ -215,8 +212,6 @@ public class CourseListPage extends JPanel {
             }
         });
 
-
-
         // Add a FocusListener to clear the text when focused
         searchBar.addFocusListener(new FocusAdapter() {
 
@@ -225,6 +220,7 @@ public class CourseListPage extends JPanel {
                 if ("Search".equals(searchBar.getText())) {
                     searchBar.setText("");
                 }
+                searchBar.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
             }
 
             @Override

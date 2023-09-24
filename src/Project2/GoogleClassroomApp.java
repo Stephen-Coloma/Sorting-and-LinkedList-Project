@@ -297,5 +297,7 @@ public class GoogleClassroomApp extends JFrame {
         //adds the 6th course into the list
         courseList.insert(course6);
         return courseList;
+
+
     }
 } // end of GoogleClassroomApp class
