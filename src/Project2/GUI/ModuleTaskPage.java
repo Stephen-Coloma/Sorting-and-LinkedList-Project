@@ -13,44 +13,62 @@
  SANTOS, Lourdene Eira C.- 2233120@slu.edu.ph
  </p>
  */
-
-// TODO: Provide the algorithm here:
-/*
-ALGORITHM:
-
- */
 package Project2.GUI;
 
 import Project2.ReferenceClasses.Topic;
-
 import java.awt.*;
 import javax.swing.*;
 
 public class ModuleTaskPage extends JPanel {
-    private JLabel moduleName;
-    private JLabel taskName;
+    // Declare GUI components in ModuleTaskPage class
+    private JPanel panel;
+    private JLabel moduleName, taskName;
+
+    //Declare static instances of the Color class representing colors used in the GUI of the program.
+    static  Color mustard = new Color(255, 219, 87);
+    static Color royalBlue = new Color(17, 41, 107);
 
     public ModuleTaskPage(Topic topic) {
-        try {
-            //construct components
-            moduleName = new JLabel ("Module: "+ topic.getModule());
-            taskName = new JLabel ("Task: " + topic.getTask());
+        // Create a JPanel to contain the labels
+        panel = new JPanel(new GridLayout(2, 1, 20, 5));
+        panel.setLayout(null);
+        panel.setBackground(mustard);
 
-            //adjust size and set layout
-            setPreferredSize (new Dimension (400, 100));
-            setLayout (null);
+        // Construct components
+        moduleName = new JLabel("<html> Module: " + topic.getModule() + "</html>");
+        taskName = new JLabel("<html> Task: " + topic.getTask() + "</html>");
 
-            //add components
-            add (moduleName);
-            add (taskName);
+        // Modify the label appearance
+        Font labelFont = new Font("Roboto", Font.BOLD, 15);
+        moduleName.setForeground(royalBlue);
+        taskName.setForeground(royalBlue);
+        moduleName.setFont(labelFont);
+        taskName.setFont(labelFont);
 
-            //set component bounds (only needed by Absolute Positioning)
-            moduleName.setBounds (10, 20, 390, 30);
-            taskName.setBounds (10, 45, 390, 30);
+        // Calculate the preferred size of the labels based on their text
+        Dimension moduleNameSize = moduleName.getPreferredSize();
+        Dimension taskNameSize = taskName.getPreferredSize();
 
-        } catch (Exception ex) {
-            // Generic error handling
-            JOptionPane.showMessageDialog(this, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        // Set bounds for the labels dynamically based on their preferred size
+        int labelWidth = Math.max(moduleNameSize.width, taskNameSize.width);
+        int labelHeight = moduleNameSize.height + taskNameSize.height + 10;
+
+        moduleName.setBounds(20, 20, labelWidth, moduleNameSize.height);
+        taskName.setBounds(20, 30 + moduleNameSize.height, labelWidth, taskNameSize.height);
+
+        // Calculate the preferred size of the panel
+        int panelWidth = labelWidth + 40;
+        int panelHeight = labelHeight + 40;
+
+        // Set the preferred size of the ModuleTaskPage
+        setPreferredSize(new Dimension(panelWidth, panelHeight));
+        setLayout(new BorderLayout());
+
+        // Add components in the panel
+        panel.add(moduleName);
+        panel.add(taskName);
+
+        add(panel, BorderLayout.CENTER);
     }
-}
+
+} // end of ModuleTaskPage class
