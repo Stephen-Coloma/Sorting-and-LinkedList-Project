@@ -23,7 +23,7 @@ public class GoogleClassroomApp extends JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Set the icon image for the taskbar
-        String iconPath = "D:\\cs211_9342_mixandmatch\\src\\Project2\\GUI\\Icons\\COURSE ICON.jpg";
+        String iconPath = "D:\\cs211_9342_mixandmatch\\src\\Project2\\GUI\\Icons\\COURSE ICON.png";
         ImageIcon icon = new ImageIcon(iconPath);
         this.setIconImage(icon.getImage());
 

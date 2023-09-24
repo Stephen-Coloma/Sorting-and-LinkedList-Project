@@ -22,6 +22,8 @@ import Project2.ReferenceClasses.Topic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AddCoursePage extends JFrame {
 
@@ -31,6 +33,13 @@ public class AddCoursePage extends JFrame {
     private DoublyLinkedList<Course<Term<Topic>>> courseList;
     private JButton okButton, cancelButton;
     JPanel addCoursePanel, buttonPanel;
+
+    // Color theme from CourseListPage
+    static Color mustard = new Color(255, 219, 87);
+    static Color royaBlue = new Color(17, 41, 107);
+    static Color flashWhite = new Color(237, 237, 237);
+    static Color polynesianBlue = new Color(0, 80, 157);
+
     public AddCoursePage(DefaultListModel<Course<Term<Topic>>> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
 
         setTitle("Add Course");
@@ -46,16 +55,20 @@ public class AddCoursePage extends JFrame {
         okButton = new JButton("Ok");
         cancelButton = new JButton("Cancel");
 
+        // Apply the color theme and styles
+        setBackground(mustard);
+        buttonDesign(okButton);
+        buttonDesign(cancelButton);
+
         // Action listener for the cancel button
         cancelButton.addActionListener(e -> {
             dispose();
         });
 
-        // Action listener for the OK button
         okButton.addActionListener(e -> {
             try {
-                String courseName = courseNameField.getText();
-                String courseID = courseCodeField.getText();
+                String courseName = courseNameField.getText().trim();
+                String courseID = courseCodeField.getText().trim();
 
                 if (!courseName.isEmpty() && !courseID.isEmpty()) {
                     // Create a new course object
@@ -69,7 +82,10 @@ public class AddCoursePage extends JFrame {
                     // Add the new course to the list and update the GUI
                     courseList.insert(newCourse);
                     courseListModel.addElement(newCourse);
-                    dispose();
+
+                    JOptionPane.showMessageDialog(this, "Course added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                    dispose(); // Close the Add Course Page
                 } else {
                     // Display error message if input fields are empty
                     JOptionPane.showMessageDialog(this, "Both Course ID and Course Name must be filled out.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -80,15 +96,21 @@ public class AddCoursePage extends JFrame {
             }
         });
 
-        // Set up GUI layout
+        // Set up GUI layout with the color theme
         addCoursePanel = new JPanel(new GridLayout(4, 2, 5, 5));
+        addCoursePanel.setBackground(mustard);
         addCoursePanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        addCoursePanel.add(new JLabel("Course ID:"));
+
+        JLabel courseIdLabel = new JLabel("Course ID:");
+        addCoursePanel.add(courseIdLabel);
         addCoursePanel.add(courseCodeField);
-        addCoursePanel.add(new JLabel("Course Name:"));
+
+        JLabel courseNameLabel = new JLabel("Course Name:");
+        addCoursePanel.add(courseNameLabel);
         addCoursePanel.add(courseNameField);
 
         buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
+        buttonPanel.setBackground(mustard);
         buttonPanel.add(okButton);
         buttonPanel.add(cancelButton);
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
@@ -96,8 +118,41 @@ public class AddCoursePage extends JFrame {
         add(addCoursePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(400, 180);
+        setSize(400, 190);
         setLocationRelativeTo(null);
     }
-}
 
+    private void buttonDesign(JButton button) {
+        // Styling buttons similar to CourseListPage's buttonDesign method
+        button.setFont(new Font("Roboto", Font.BOLD, 14));
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+        button.setBackground(flashWhite);
+        button.setForeground(polynesianBlue);
+
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(polynesianBlue);
+                button.setForeground(flashWhite);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(flashWhite); // Revert the background to white
+                button.setForeground(polynesianBlue); // Revert the foreground to blue
+            }
+        });
+    }
+}
