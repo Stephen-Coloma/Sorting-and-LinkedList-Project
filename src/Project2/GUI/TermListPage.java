@@ -38,7 +38,7 @@ public class TermListPage extends JPanel {
 
     //Declare static instances of the Color class representing colors used in the GUI of the program.
     static  Color mustard = new Color(255, 219, 87);
-    static Color royaBlue = new Color(17, 41, 107);
+    static Color royalBlue = new Color(17, 41, 107);
     static Color flashWhite = new Color(237, 237, 237);
     static Color polynesianBlue = new Color(0, 80, 157);
 
@@ -74,7 +74,7 @@ public class TermListPage extends JPanel {
         deleteButton = new RoundButton("Delete");
 
         // Set the background and font colors based on the specification
-        setBackground(royaBlue);
+        setBackground(royalBlue);
         termLabel.setFont(new Font("", Font.BOLD, 20));
         termLabel.setForeground(mustard);
 

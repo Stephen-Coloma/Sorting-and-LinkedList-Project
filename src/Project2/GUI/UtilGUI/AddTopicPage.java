@@ -22,13 +22,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AddTopicPage extends JFrame {
     // Declare GUI components and data structures
-    private JTextField moduleField;
-    private JTextField taskField;
+    private JLabel moduleLabel, taskLabel;
+    private JTextField moduleField, taskField;
     private Term<Topic> selectedTerm;
     private DefaultListModel<Topic> topicListModel;
+    private RoundButton addButton, cancelButton;
+
+    //Declare static instances of the Color class representing colors used in the GUI of the program.
+    static  Color mustard = new Color(255, 219, 87);
+    static Color royalBlue = new Color(17, 41, 107);
+    static Color flashWhite = new Color(237, 237, 237);
+    static Color polynesianBlue = new Color(0, 80, 157);
 
     public AddTopicPage(Term<Topic> selectedTerm, DefaultListModel<Topic> topicListModel) {
         // Initialize data structures
@@ -39,10 +48,30 @@ public class AddTopicPage extends JFrame {
         setLayout(new BorderLayout());
 
         // Initialize GUI components
-        moduleField = new JTextField(20);
-        taskField = new JTextField(20);
+        moduleLabel = new JLabel("Module: ");
+        taskLabel = new JLabel("Task: ");
+        moduleField = new JTextField(30);
+        taskField = new JTextField(30);
+        cancelButton = new RoundButton("Cancel");
+        addButton = new RoundButton("Add");
 
-        JButton addButton = new JButton("Add");
+        // Modify the text field appearance
+        int textFieldHeight = 40; // Adjust the height as needed
+        moduleField.setPreferredSize(new Dimension(200, textFieldHeight));
+        moduleField.setBorder(BorderFactory.createLineBorder(mustard, 2));
+        taskField.setPreferredSize(new Dimension(200, textFieldHeight));
+        taskField.setBorder(BorderFactory.createLineBorder(mustard, 2));
+
+        //Modify the label appearance
+        Font labelFont = new Font("Roboto", Font.BOLD, 18); // Replace "Roboto" with your desired font
+        moduleLabel.setForeground(mustard);
+        taskLabel.setForeground(mustard);
+        moduleLabel.setFont(labelFont);
+        taskLabel.setFont(labelFont);
+
+        // Modify the term buttons' appearance
+        buttonDesign(addButton);
+        buttonDesign(cancelButton);
 
         // Action listener for the Add button
         addButton.addActionListener(e -> {
@@ -67,29 +96,64 @@ public class AddTopicPage extends JFrame {
         });
 
         // Action listener for the cancel button
-        JButton cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(e->{
                 dispose();
         });
 
         // Set up GUI layout
-        JPanel addTopicPanel = new JPanel(new GridLayout(2, 2, 5, 5));
+        JPanel addTopicPanel = new JPanel(new GridLayout(2, 2, 5, 10));
         addTopicPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        addTopicPanel.add(new JLabel("Module:"));
+        addTopicPanel.add(moduleLabel);
         addTopicPanel.add(moduleField);
-        addTopicPanel.add(new JLabel("Task:"));
+        addTopicPanel.add(taskLabel);
         addTopicPanel.add(taskField);
+        addTopicPanel.setBackground(royalBlue);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 30, 5));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 30, 10, 30));
         buttonPanel.add(addButton);
         buttonPanel.add(cancelButton);
+        buttonPanel.setBackground(royalBlue);
 
         add(addTopicPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
 
-        setSize(400, 150);
+        setSize(470, 210);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
-}
 
+    private void buttonDesign(RoundButton button) {
+        button.setFont(new Font("Roboto", Font.BOLD, 14));
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+        button.setBackground(flashWhite);
+        button.setForeground(polynesianBlue);
+        button.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(mustard); // Set a new color when mouse hovers over the button
+                button.setForeground(flashWhite);
+            } // end of mouseEntered method
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(flashWhite); // Set back the original color when the mouse leaves the button
+                button.setForeground(polynesianBlue);
+            } // end of mouseExited method
+        });
+    } // end of buttonDesign method
+
+} // end of AddTopicPage class

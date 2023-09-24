@@ -35,7 +35,7 @@ public class CourseListPage extends JPanel {
 
     //Declare static instances of the Color class representing colors used in the GUI of the program.
     static  Color mustard = new Color(255, 219, 87);
-    static Color royaBlue = new Color(17, 41, 107);
+    static Color royalBlue = new Color(17, 41, 107);
     static Color flashWhite = new Color(237, 237, 237);
     static Color polynesianBlue = new Color(0, 80, 157);
 
@@ -65,6 +65,7 @@ public class CourseListPage extends JPanel {
         //construct components
         coursesLabel = new JLabel("COURSES");
         searchBar = new JTextField( "Search...",4);
+        searchBar.setForeground(Color.GRAY);
         listOfCourses = new JList(courseListModel);
         addButton = new RoundButton("Add");
         deleteButton = new RoundButton("Delete");
@@ -74,7 +75,7 @@ public class CourseListPage extends JPanel {
         setPreferredSize(new Dimension(452, 457));
         setLayout(null);
 
-        setBackground(royaBlue);
+        setBackground(royalBlue);
         coursesLabel.setFont(new Font("", Font.BOLD, 20));
         coursesLabel.setForeground(mustard);
 
@@ -174,11 +175,11 @@ public class CourseListPage extends JPanel {
 
         // Add a FocusListener to clear the text when focused
         searchBar.addFocusListener(new FocusAdapter() {
-
             @Override
             public void focusGained(FocusEvent e) {
-                if ("Search".equals(searchBar.getText())) {
+                if ("Search...".equals(searchBar.getText())) {
                     searchBar.setText("");
+                    searchBar.setForeground(Color.BLACK); // Set text color to black when focused
                 }
                 searchBar.setBorder(BorderFactory.createLineBorder(mustard, 2));
             }
@@ -186,7 +187,8 @@ public class CourseListPage extends JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if (searchBar.getText().isEmpty()) {
-                    searchBar.setText("Search");
+                    searchBar.setText("Search...");
+                    searchBar.setForeground(Color.GRAY); // Set text color to gray when not focused
                 }
             }
         });
@@ -216,7 +218,6 @@ public class CourseListPage extends JPanel {
                 listOfCourses.setModel(filteredListModel);
             }
         });
-
     }
 
     // Open TermListPage for the given course

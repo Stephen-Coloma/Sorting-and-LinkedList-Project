@@ -21,7 +21,7 @@ public class TopicListPage extends JPanel {
 
     //Declare static instances of the Color class representing colors used in the GUI of the program.
     static  Color mustard = new Color(255, 219, 87);
-    static Color royaBlue = new Color(17, 41, 107);
+    static Color royalBlue = new Color(17, 41, 107);
     static Color flashWhite = new Color(237, 237, 237);
     static Color polynesianBlue = new Color(0, 80, 157);
 
@@ -53,7 +53,7 @@ public class TopicListPage extends JPanel {
 
         topicsList = new JList<>(topicListModel);
         scrollPane = new JScrollPane(topicsList);
-        searchBar = new JTextField("Search", 5);
+        searchBar = new JTextField("Search...", 5);
         addButton = new RoundButton("Add");
         editButton = new RoundButton("Edit");
         deleteButton = new RoundButton("Delete");
@@ -63,7 +63,7 @@ public class TopicListPage extends JPanel {
         setLayout(null);
 
         // Modify appearance
-        setBackground(royaBlue);
+        setBackground(royalBlue);
         topicsLabel.setFont(new Font("", Font.BOLD, 20));
         topicsLabel.setForeground(mustard);
 
@@ -156,15 +156,18 @@ public class TopicListPage extends JPanel {
         searchBar.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
-                if ("Search".equals(searchBar.getText())) {
+                if ("Search...".equals(searchBar.getText())) {
                     searchBar.setText("");
+                    searchBar.setForeground(Color.BLACK); // Set text color to black when focused
                 }
                 searchBar.setBorder(BorderFactory.createLineBorder(mustard, 2));
             }
+
             @Override
             public void focusLost(FocusEvent e) {
                 if (searchBar.getText().isEmpty()) {
-                    searchBar.setText("Search");
+                    searchBar.setText("Search...");
+                    searchBar.setForeground(Color.GRAY); // Set text color to gray when not focused
                 }
             }
         });
