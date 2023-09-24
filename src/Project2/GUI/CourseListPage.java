@@ -23,10 +23,7 @@ import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
 import java.awt.*;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class CourseListPage extends JPanel {
@@ -35,13 +32,14 @@ public class CourseListPage extends JPanel {
     private JList<Course<Term<Topic>>> listOfCourses;
     private JButton addButton, deleteButton, editButton;
 
+
     // Custom cell renderer to change the background color of the selected item
     class CustomListCellRenderer extends DefaultListCellRenderer {
         @Override
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             if (isSelected) {
-                c.setBackground(new Color(255, 219, 87)); // Change the background color of the selected item
+                c.setBackground(new Color(255, 219, 87));
             } else {
                 c.setBackground(list.getBackground());
             }
@@ -75,20 +73,70 @@ public class CourseListPage extends JPanel {
 
         Color buttonBgColor = new Color(237, 237, 237);
 
-        addButton.setBackground(buttonBgColor);
+        // Modify the buttons' appearance when pressed
         addButton.setFont(new Font("Roboto", Font.BOLD, 14));
         addButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
-        addButton.setForeground(Color.BLACK); // Set font color to white
+        addButton.setForeground(Color.BLACK); 
+        addButton.setBackground(buttonBgColor); 
+        addButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                addButton.setBackground(new Color(255, 219, 87));
+            }
 
-        deleteButton.setBackground(buttonBgColor);
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                addButton.setBackground(buttonBgColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                addButton.setBackground(buttonBgColor);
+            }
+        });
+
         deleteButton.setFont(new Font("Roboto", Font.BOLD, 14));
         deleteButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
-        deleteButton.setForeground(Color.BLACK); // Set font color to white
+        deleteButton.setForeground(Color.BLACK); 
+        deleteButton.setBackground(buttonBgColor); 
+        deleteButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                deleteButton.setBackground(new Color(255, 219, 87));
+            }
 
-        editButton.setBackground(buttonBgColor);
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                deleteButton.setBackground(buttonBgColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                deleteButton.setBackground(buttonBgColor);
+            }
+        });
+
         editButton.setFont(new Font("Roboto", Font.BOLD, 14));
         editButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
         editButton.setForeground(Color.BLACK);
+        editButton.setBackground(buttonBgColor); 
+        editButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                editButton.setBackground(new Color(255, 219, 87));
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                editButton.setBackground(buttonBgColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                editButton.setBackground(buttonBgColor);
+            }
+        });
+
 
         //set component bounds (only needed by Absolute Positioning)
         coursesLabel.setBounds(30, 15, 130, 35);
@@ -166,6 +214,8 @@ public class CourseListPage extends JPanel {
                 JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
+
+
 
         // Add a FocusListener to clear the text when focused
         searchBar.addFocusListener(new FocusAdapter() {
