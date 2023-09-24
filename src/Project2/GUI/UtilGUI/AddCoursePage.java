@@ -54,6 +54,9 @@ public class AddCoursePage extends JFrame {
         courseCodeField = new JTextField(4);
         okButton = new JButton("Ok");
         cancelButton = new JButton("Cancel");
+        courseNameField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
+        courseCodeField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
+
 
         // Apply the color theme and styles
         setBackground(mustard);
