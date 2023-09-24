@@ -15,6 +15,7 @@
 
 package Project2.GUI;
 
+import Project2.GUI.UtilGUI.RoundButton;
 import Project2.LinkedListImplementation.DoublyLinkedList;
 import Project2.ReferenceClasses.Course;
 import Project2.ReferenceClasses.Term;
@@ -28,12 +29,12 @@ import java.awt.event.MouseEvent;
 public class TermListPage extends JPanel {
     // GUI components declarations
     private final JLabel termLabel;
-    private final JButton addButton;
-    private final JButton editButton;
-    private final JButton deleteButton;
-    private final JButton prelimButton;
-    private final JButton midtermButton;
-    private final JButton finalButton;
+    private final RoundButton addButton;
+    private final RoundButton editButton;
+    private final RoundButton deleteButton;
+    private final RoundButton prelimButton;
+    private final RoundButton midtermButton;
+    private final RoundButton finalButton;
 
     //Declare static instances of the Color class representing colors used in the GUI of the program.
     static  Color mustard = new Color(255, 219, 87);
@@ -43,12 +44,12 @@ public class TermListPage extends JPanel {
 
     public TermListPage(Course<Term<Topic>> course) {
 
-        prelimButton = new JButton();
-        midtermButton = new JButton();
-        finalButton = new JButton();
+        prelimButton = new RoundButton("Prelim");
+        midtermButton = new RoundButton("Midterm");
+        finalButton = new RoundButton("Final");
 
         // list of button
-        DoublyLinkedList<JButton> buttonsToPopulate = new DoublyLinkedList<>();
+        DoublyLinkedList<RoundButton> buttonsToPopulate = new DoublyLinkedList<>();
         buttonsToPopulate.insert(prelimButton);
         buttonsToPopulate.insert(midtermButton);
         buttonsToPopulate.insert(finalButton);
@@ -68,46 +69,22 @@ public class TermListPage extends JPanel {
 
         // construct components
         termLabel = new JLabel("TERM");
-        addButton = new JButton("Add");
-        editButton = new JButton("Edit");
-        deleteButton = new JButton("Delete");
+        addButton = new RoundButton("Add");
+        editButton = new RoundButton("Edit");
+        deleteButton = new RoundButton("Delete");
 
         // Set the background and font colors based on the specification
         setBackground(royaBlue);
         termLabel.setFont(new Font("", Font.BOLD, 20));
         termLabel.setForeground(mustard);
 
-        Color buttonBgColor = new Color(237, 237, 237);
-        Color buttonHoverColor = new Color(255, 219, 87);
-
         // Modify the term buttons' appearance
-        JButton[] termButtonsArray = {prelimButton, midtermButton, finalButton};
-        for (JButton btn : termButtonsArray) {
-            btn.setFont(new Font("Roboto", Font.BOLD, 14));
-            btn.setBorder(BorderFactory.createLineBorder(buttonHoverColor, 2));
-            btn.setBackground(buttonBgColor);
-            btn.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mousePressed(MouseEvent e) {
-                    btn.setBackground(buttonHoverColor);
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                    btn.setBackground(buttonBgColor);
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    btn.setBackground(buttonBgColor);
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    btn.setBackground(buttonHoverColor);
-                }
-            });
-        }
+        buttonDesign(prelimButton);
+        buttonDesign(midtermButton);
+        buttonDesign(finalButton);
+        buttonDesign(addButton);
+        buttonDesign(editButton);
+        buttonDesign(deleteButton);
 
         // disabling add, delete, and edit button
         addButton.setEnabled(false);
@@ -168,4 +145,38 @@ public class TermListPage extends JPanel {
         frame.setResizable(false);
         frame.setVisible(true);
     } // end of openTopicsListPage method
+
+    private void buttonDesign(RoundButton button) {
+        button.setFont(new Font("Roboto", Font.BOLD, 14));
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+        button.setBackground(flashWhite);
+        button.setForeground(polynesianBlue);
+        button.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(mustard); // Set a new color when mouse hovers over the button
+                button.setForeground(flashWhite);
+            } // end of mouseEntered method
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(flashWhite); // Set back the original color when the mouse leaves the button
+                button.setForeground(polynesianBlue);
+            } // end of mouseExited method
+        });
+    } // end of buttonDesign method
+
 } // end of TermPage class

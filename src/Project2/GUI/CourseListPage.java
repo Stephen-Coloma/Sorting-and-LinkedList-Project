@@ -43,7 +43,8 @@ public class CourseListPage extends JPanel {
     // Custom cell renderer to change the background color of the selected item
     class CustomListCellRenderer extends DefaultListCellRenderer {
         @Override
-        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+        public Component getListCellRendererComponent(JList list, Object value, int index,
+                                                      boolean isSelected, boolean cellHasFocus) {
             Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             if (isSelected) {
                 c.setBackground(mustard);
@@ -132,17 +133,23 @@ public class CourseListPage extends JPanel {
             int selectedIndex = listOfCourses.getSelectedIndex();
             if (selectedIndex >= 0) {
                 Course selectedCourse = courseListModel.getElementAt(selectedIndex);
-                int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected course?", "Delete Course", JOptionPane.YES_NO_OPTION);
+                int option = JOptionPane.showConfirmDialog(this,
+                        "Are you sure you want to delete the selected course?",
+                        "Delete Course", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     try {
                         courseListModel.remove(selectedIndex);
                         courseList.delete(selectedCourse);
                     } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(this, "Error deleting course: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this,
+                                "Error deleting course: " + ex.getMessage(),
+                                "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Please select a course to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                        "Please select a course to delete.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -154,10 +161,14 @@ public class CourseListPage extends JPanel {
                 try {
                     EditCoursePage editCoursePage = new EditCoursePage(courseListModel, selectedCourse, selectedIndex);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "Error editing course: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this,
+                            "Error editing course: " + ex.getMessage(),
+                            "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Please select a course to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                        "Please select a course to edit.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -235,12 +246,6 @@ public class CourseListPage extends JPanel {
         button.setForeground(polynesianBlue);
         button.addMouseListener(new MouseAdapter() {
 
-            /**
-             * Method that changes the cursor to a hand cursor and sets the background
-             * color of the button to purple to indicate that the button can be clicked.
-             *
-             * @param e the event to be processed
-             */
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
@@ -252,13 +257,6 @@ public class CourseListPage extends JPanel {
                 button.setForeground(flashWhite);
             } // end of mouseEntered method
 
-            /**
-             * Method that sets the background color of the button back to new Color(237, 237, 237) and the
-             * foreground color back to navy to indicate that the button is no longer being
-             * hovered over.
-             *
-             * @param e the event to be processed
-             */
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);

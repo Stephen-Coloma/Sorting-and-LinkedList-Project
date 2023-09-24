@@ -2,6 +2,7 @@ package Project2.GUI;
 
 import Project2.GUI.UtilGUI.AddTopicPage;
 import Project2.GUI.UtilGUI.EditTopicPage;
+import Project2.GUI.UtilGUI.RoundButton;
 import Project2.ReferenceClasses.Term;
 import Project2.ReferenceClasses.Topic;
 
@@ -13,7 +14,7 @@ public class TopicListPage extends JPanel {
     // Declare GUI components and data structures
     private JScrollPane scrollPane;
     private JLabel topicsLabel;
-    private JButton addButton, deleteButton, editButton;
+    private RoundButton addButton, deleteButton, editButton;
     private JTextField searchBar;
     private JList<Topic> topicsList;
     private Term<Topic> selectedTerm;
@@ -39,7 +40,6 @@ public class TopicListPage extends JPanel {
     }
 
     public TopicListPage(Term<Topic> term) {
-
         // Construct components
         topicsLabel = new JLabel("TOPICS FOR" + term.getTermName());
         topicsList = new JList<>(new DefaultListModel<>());
@@ -54,9 +54,9 @@ public class TopicListPage extends JPanel {
         topicsList = new JList<>(topicListModel);
         scrollPane = new JScrollPane(topicsList);
         searchBar = new JTextField("Search", 5);
-        addButton = new JButton("Add");
-        editButton = new JButton("Edit");
-        deleteButton = new JButton("Delete");
+        addButton = new RoundButton("Add");
+        editButton = new RoundButton("Edit");
+        deleteButton = new RoundButton("Delete");
 
         // Adjust size and set layout
         setPreferredSize(new Dimension(452, 457));
@@ -67,62 +67,10 @@ public class TopicListPage extends JPanel {
         topicsLabel.setFont(new Font("", Font.BOLD, 20));
         topicsLabel.setForeground(mustard);
 
-        Color buttonBgColor = new Color(237, 237, 237);
-
         // Modify buttons' appearance
-        addButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        addButton.setBorder(BorderFactory.createLineBorder(mustard, 2));
-        addButton.setBackground(buttonBgColor);
-        addButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                addButton.setBackground(mustard);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                addButton.setBackground(buttonBgColor);
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                addButton.setBackground(buttonBgColor);
-            }
-        });
-
-        editButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        editButton.setBorder(BorderFactory.createLineBorder(mustard, 2));
-        editButton.setBackground(buttonBgColor);
-        editButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                editButton.setBackground(mustard);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                editButton.setBackground(buttonBgColor);
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                editButton.setBackground(buttonBgColor);
-            }
-        });
-
-        deleteButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        deleteButton.setBorder(BorderFactory.createLineBorder(mustard, 2));
-        deleteButton.setBackground(buttonBgColor);
-        deleteButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                deleteButton.setBackground(mustard);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                deleteButton.setBackground(buttonBgColor);
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                deleteButton.setBackground(buttonBgColor);
-            }
-        });
+        buttonDesign(addButton);
+        buttonDesign(editButton);
+        buttonDesign(deleteButton);
 
         //set component bounds (only needed by Absolute Positioning)
         topicsList.setBounds(25, 60, 400, 330);
@@ -280,4 +228,38 @@ public class TopicListPage extends JPanel {
             }
         });
     } // end of openModulesTasksPage method
+
+    private void buttonDesign(RoundButton button) {
+        button.setFont(new Font("Roboto", Font.BOLD, 14));
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+        button.setBackground(flashWhite);
+        button.setForeground(polynesianBlue);
+        button.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(mustard); // Set a new color when mouse hovers over the button
+                button.setForeground(flashWhite);
+            } // end of mouseEntered method
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createEmptyBorder(8, 18, 8, 18)));
+                button.setBackground(flashWhite); // Set back the original color when the mouse leaves the button
+                button.setForeground(polynesianBlue);
+            } // end of mouseExited method
+        });
+    } // end of buttonDesign method
+
 } // end of TopicListPage class
