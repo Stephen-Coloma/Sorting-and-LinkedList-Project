@@ -18,13 +18,19 @@ public class TopicListPage extends JPanel {
     private JList<Topic> topicsList;
     private Term<Topic> selectedTerm;
 
+    //Declare static instances of the Color class representing colors used in the GUI of the program.
+    static  Color mustard = new Color(255, 219, 87);
+    static Color royaBlue = new Color(17, 41, 107);
+    static Color flashWhite = new Color(237, 237, 237);
+    static Color polynesianBlue = new Color(0, 80, 157);
+
     // Custom cell renderer to change the background color of the selected item
     class CustomListCellRenderer extends DefaultListCellRenderer {
         @Override
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             if (isSelected) {
-                c.setBackground(new Color(255, 219, 87));
+                c.setBackground(mustard);
             } else {
                 c.setBackground(list.getBackground());
             }
@@ -57,20 +63,20 @@ public class TopicListPage extends JPanel {
         setLayout(null);
 
         // Modify appearance
-        setBackground(new Color(17, 41, 107));
+        setBackground(royaBlue);
         topicsLabel.setFont(new Font("", Font.BOLD, 20));
-        topicsLabel.setForeground(new Color(255, 219, 87));
+        topicsLabel.setForeground(mustard);
 
         Color buttonBgColor = new Color(237, 237, 237);
 
         // Modify buttons' appearance
         addButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        addButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+        addButton.setBorder(BorderFactory.createLineBorder(mustard, 2));
         addButton.setBackground(buttonBgColor);
         addButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                addButton.setBackground(new Color(255, 219, 87));
+                addButton.setBackground(mustard);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -83,12 +89,12 @@ public class TopicListPage extends JPanel {
         });
 
         editButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        editButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+        editButton.setBorder(BorderFactory.createLineBorder(mustard, 2));
         editButton.setBackground(buttonBgColor);
         editButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                editButton.setBackground(new Color(255, 219, 87));
+                editButton.setBackground(mustard);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -101,12 +107,12 @@ public class TopicListPage extends JPanel {
         });
 
         deleteButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        deleteButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+        deleteButton.setBorder(BorderFactory.createLineBorder(mustard, 2));
         deleteButton.setBackground(buttonBgColor);
         deleteButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                deleteButton.setBackground(new Color(255, 219, 87));
+                deleteButton.setBackground(mustard);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -120,7 +126,7 @@ public class TopicListPage extends JPanel {
 
         //set component bounds (only needed by Absolute Positioning)
         topicsList.setBounds(25, 60, 400, 330);
-        topicsList.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+        topicsList.setBorder(BorderFactory.createLineBorder(mustard, 2));
 
         // Add components
         topicsLabel.setBounds (30, 15, 130, 35);
@@ -205,7 +211,7 @@ public class TopicListPage extends JPanel {
                 if ("Search".equals(searchBar.getText())) {
                     searchBar.setText("");
                 }
-                searchBar.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+                searchBar.setBorder(BorderFactory.createLineBorder(mustard, 2));
             }
             @Override
             public void focusLost(FocusEvent e) {

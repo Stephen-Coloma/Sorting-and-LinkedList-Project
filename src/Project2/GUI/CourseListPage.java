@@ -33,6 +33,12 @@ public class CourseListPage extends JPanel {
     private JList<Course<Term<Topic>>> listOfCourses;
     private RoundButton addButton, deleteButton, editButton;
 
+    //Declare static instances of the Color class representing colors used in the GUI of the program.
+    static  Color mustard = new Color(255, 219, 87);
+    static Color royaBlue = new Color(17, 41, 107);
+    static Color flashWhite = new Color(237, 237, 237);
+    static Color polynesianBlue = new Color(0, 80, 157);
+
 
     // Custom cell renderer to change the background color of the selected item
     class CustomListCellRenderer extends DefaultListCellRenderer {
@@ -40,7 +46,7 @@ public class CourseListPage extends JPanel {
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             if (isSelected) {
-                c.setBackground(new Color(255, 219, 87));
+                c.setBackground(mustard);
             } else {
                 c.setBackground(list.getBackground());
             }
@@ -67,9 +73,9 @@ public class CourseListPage extends JPanel {
         setPreferredSize(new Dimension(452, 457));
         setLayout(null);
 
-        setBackground(new Color(17, 41, 107));
+        setBackground(royaBlue);
         coursesLabel.setFont(new Font("", Font.BOLD, 20));
-        coursesLabel.setForeground(new Color(255, 219, 87));
+        coursesLabel.setForeground(mustard);
 
         // Modify the term buttons' appearance
         buttonDesign(addButton);
@@ -78,7 +84,7 @@ public class CourseListPage extends JPanel {
 
         //set component bounds (only needed by Absolute Positioning)
         listOfCourses.setBounds(25, 60, 400, 330);
-        listOfCourses.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+        listOfCourses.setBorder(BorderFactory.createLineBorder(mustard, 2));
 
         coursesLabel.setBounds(28, 14, 130, 35);
         searchBar.setBounds(245, 18, 180, 25);
@@ -163,7 +169,7 @@ public class CourseListPage extends JPanel {
                 if ("Search".equals(searchBar.getText())) {
                     searchBar.setText("");
                 }
-                searchBar.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
+                searchBar.setBorder(BorderFactory.createLineBorder(mustard, 2));
             }
 
             @Override
@@ -223,10 +229,10 @@ public class CourseListPage extends JPanel {
         button.setFont(new Font("Roboto", Font.BOLD, 14));
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(255, 219, 87), 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
                 BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-        button.setBackground(new Color(237, 237, 237));
-        button.setForeground(new Color(0, 80, 157));
+        button.setBackground(flashWhite);
+        button.setForeground(polynesianBlue);
         button.addMouseListener(new MouseAdapter() {
 
             /**
@@ -240,10 +246,10 @@ public class CourseListPage extends JPanel {
                 super.mouseEntered(e);
                 button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(new Color(255, 219, 87), 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(new Color(255, 219, 87)); // Set a new color when mouse hovers over the button
-                button.setForeground(new Color(237, 237, 237));
+                button.setBackground(mustard); // Set a new color when mouse hovers over the button
+                button.setForeground(flashWhite);
             } // end of mouseEntered method
 
             /**
@@ -257,12 +263,12 @@ public class CourseListPage extends JPanel {
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(new Color(255, 219, 87), 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(new Color(237, 237, 237)); // Set back the original color when the mouse leaves the button
-                button.setForeground(new Color(0, 80, 157));
+                button.setBackground(flashWhite); // Set back the original color when the mouse leaves the button
+                button.setForeground(polynesianBlue);
             } // end of mouseExited method
         });
     } // end of buttonDesign method
 
-}
+} // end of CourseListPage class
