@@ -1,18 +1,3 @@
-/**
- * Group MixAndMatch
- * Class Code and Course Number: 9342 - CS 211
- * Schedule: TF 9:00 - 10:30 AM
- * <p>
- *     COLOMA, Stephen M.- 2232847@slu.edu.ph
- *     GUZMAN, Sanchie Earl M.- 2232886@slu.edu.ph
- *     NONATO, Marius Glenn M.- 2232731@slu.edu.ph
- *     RAMOS, Jerwin Kyle R.- 2232862@slu.edu.ph
- *     RAGUDOS, Hannah T.- 2233361@slu.edu.ph
- *     ROQUE, Rey Daniel L. - 2233357@slu.edu.ph
- *     SANTOS, Lourdene Eira C.- 2233120@slu.edu.ph
- * </p>
- */
-
 package Project2;
 
 import Project2.GUI.CourseListPage;
@@ -25,14 +10,13 @@ import javax.swing.*;
 
 public class GoogleClassroomApp extends JFrame {
     private DoublyLinkedList<Course<Term<Topic>>> courseList = new DoublyLinkedList<>();
-
     public static void main(String[] args) {
         GoogleClassroomApp program = new GoogleClassroomApp();
         program.run();
     }
 
     private void run() {
-        //initial population of Courses, Terms, and Topics
+        //initial population of Courses, Terms and Topics
         courseList = initialPopulation();
         this.setContentPane(new CourseListPage(courseList));
         this.setTitle("Enrolled Courses List");
@@ -48,10 +32,12 @@ public class GoogleClassroomApp extends JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
-
     private DoublyLinkedList<Course<Term<Topic>>> initialPopulation() {
+        DoublyLinkedList<Course<Term<Topic>>> courseList = new DoublyLinkedList<>();
+
         // Create and populate Course 1: FOUNDATIONS OF SERVICE
         Course<Term<Topic>> course1 = new Course<>("FOUNDATIONS OF SERVICE", "7022 - NSTP-CWTS 1");
+
         Term<Topic> prelims1 = new Term<>("Prelims");
         Term<Topic> midterms1 = new Term<>("Midterms");
         Term<Topic> finals1 = new Term<>("Finals");
@@ -97,8 +83,9 @@ public class GoogleClassroomApp extends JFrame {
         course1.insert(finals1);
         courseList.insert(course1);
 
-        // Create and populate Course 2: PHYSICAL ACTIVITY TOWARDS HEALTH AND FITNESS (OUTDOOR AND ADVENTURE ACTIVITIES)
-        Course<Term<Topic>> course2 = new Course<>("PHYSICAL ACTIVITY TOWARDS HEALTH AND FITNESS (OUTDOOR AND ADVENTURE ACTIVITIES)", "7897 - FIT OA");
+        // Create and populate Course 2: PHYSICAL ACTIVITY TOWARDS HEALTH AND FITNESS
+        Course<Term<Topic>> course2 = new Course<>("PHYSICAL ACTIVITY TOWARDS HEALTH & FITNESS", "7897 - FIT OA");
+
         Term<Topic> prelims2 = new Term<>("Prelims");
         Term<Topic> midterms2 = new Term<>("Midterms");
         Term<Topic> finals2 = new Term<>("Finals");
@@ -145,174 +132,163 @@ public class GoogleClassroomApp extends JFrame {
         courseList.insert(course2);
 
         // Create and populate Course 3: DATA STRUCTURES
-        Course<Term<Topic>> course3 = new Course<>("DATA STRUCTURES", "9342A - CS 211");
+        Course<Term<Topic>> course3 = new Course<>("DATA STRUCTURES", "9342 - CS 211");
+
         Term<Topic> prelims3 = new Term<>("Prelims");
         Term<Topic> midterms3 = new Term<>("Midterms");
         Term<Topic> finals3 = new Term<>("Finals");
 
         // Populate Prelims for course3
-        prelims3.insert(new Topic("Introduction to Data Structures",
-                "Overview of different types of data structures and their significance"));
-        prelims3.insert(new Topic("Arrays and Strings",
-                "Study of linear data structures and their implementations"));
-        prelims3.insert(new Topic("Linked Lists",
-                "Introduction to singly and doubly linked lists"));
-        prelims3.insert(new Topic("Stacks and Queues",
-                "Understanding of LIFO and FIFO data structures and their applications"));
-        prelims3.insert(new Topic("Recursion",
-                "Concept of recursion, its applications, and related problems"));
+        prelims3.insert(new Topic("Abstract Data Types", "Explaining ADT"));
+        prelims3.insert(new Topic("Algorithm Complexity", "Technical Paper"));
+        prelims3.insert(new Topic("Big Oh Notation", "Big Oh Identification"));
+        prelims3.insert(new Topic("The List Data Structure and ADT",
+                "Project on Implementation of List ADT"));
+        prelims3.insert(new Topic("Singly, Doubly, and Circular Linked List",
+                "Describing LinkedList Implementation"));
 
         // Populate Midterms for course3
-        midterms3.insert(new Topic("Trees",
-                "Introduction to binary trees, BSTs, AVL trees, and their operations"));
-        midterms3.insert(new Topic("Heaps",
-                "Study of heap data structure and priority queue"));
-        midterms3.insert(new Topic("Graphs",
-                "Introduction to graph data structures, representations, and traversal methods"));
-        midterms3.insert(new Topic("Hashing",
-                "Understanding of hashing, hash functions, and collision resolution techniques"));
-        midterms3.insert(new Topic("Dynamic Programming",
-                "Introduction to dynamic programming, its applications, and problem-solving"));
+        midterms3.insert(new Topic("The Stack and Queue Data Structures",
+                "Two-Stack Queue Implementation"));
+        midterms3.insert(new Topic("The Stack and Queue ADT",
+                "Building a Stack and Queue Data Structure from Scratch"));
+        midterms3.insert(new Topic("Applications of the Queue",
+                "Exploring Practical Applications of Queues"));
+        midterms3.insert(new Topic("The Tree Data Structures",
+                "Implementing and Traversing Tree Structures"));
+        midterms3.insert(new Topic("Huffman Coding - Application of the Tree Data Structure",
+                "Implementing Huffman Coding for Data Compression"));
 
         // Populate Finals for course3
-        finals3.insert(new Topic("Search Algorithms",
-                "Study of linear search, binary search, and other related algorithms"));
-        finals3.insert(new Topic("Sort Algorithms",
-                "Introduction to bubble sort, insertion sort, quicksort, and others"));
-        finals3.insert(new Topic("Advanced Data Structures",
-                "Study of trie, disjoint set, and other advanced data structures"));
-        finals3.insert(new Topic("Space and Time Complexity",
-                "Analysis of algorithms, Big O notation, and performance optimization"));
-        finals3.insert(new Topic("Real-world Applications",
-                "Applications of data structures in real-world scenarios and problem-solving"));
+        finals3.insert(new Topic("The Graph Data Structure",
+                "Graph Basics: Implementation and Algorithms"));
+        finals3.insert(new Topic("Graph Representation", "Implementing Graph Representation"));
+        finals3.insert(new Topic("Graph Search/Traversal", "Graph Search and Traversal Challenge"));
+        finals3.insert(new Topic("Hash Function and Table", "Hash Function and Table Implementation "));
+        finals3.insert(new Topic("Collision Handling", "Handling Collisions in Hash Tables"));
 
         course3.insert(prelims3);
         course3.insert(midterms3);
         course3.insert(finals3);
         courseList.insert(course3);
 
-        // Create and populate Course 4: DATA STRUCTURES LAB
-        Course<Term<Topic>> course4 = new Course<>("DATA STRUCTURES (LAB)", "9342B - CS 211L");
+        // Create and populate Course 4: OPERATING SYSTEMS
+        Course<Term<Topic>> course4 = new Course<>("OPERATING SYSTEMS", "9343A - CS 212");
+
         Term<Topic> prelims4 = new Term<>("Prelims");
         Term<Topic> midterms4 = new Term<>("Midterms");
         Term<Topic> finals4 = new Term<>("Finals");
 
         // Populate Prelims for course4
-        prelims4.insert(new Topic("Introduction to Lab Environment", "Setting up the lab environment and tools"));
-        prelims4.insert(new Topic("Hands-on Linked Lists", "Implementing singly and doubly linked lists"));
-        prelims4.insert(new Topic("Stacks and Queues Lab", "Implementing and testing stack and queue data structures"));
-        prelims4.insert(new Topic("Recursion Lab", "Solving problems using recursion and debugging"));
-        prelims4.insert(new Topic("Complexity Analysis", "Practical tasks to understand and analyze algorithm complexity"));
+        prelims4.insert(new Topic("Introduction to Operating Systems", "Read Chapter 1 and summarize key concepts."));
+        prelims4.insert(new Topic("Process Management", "Implement a basic process scheduling algorithm in C."));
+        prelims4.insert(new Topic("Memory Management", "Compare and contrast paging and segmentation in OS memory management."));
+        prelims4.insert(new Topic("File Systems and Storage Management", "Create a file system structure diagram for a given scenario."));
+        prelims4.insert(new Topic("I/O Systems and Device Management", "Write a program to demonstrate I/O operations in Java."));
 
         // Populate Midterms for course4
-        midterms4.insert(new Topic("Trees Lab", "Implementing binary trees and AVL trees"));
-        midterms4.insert(new Topic("Heaps Lab Session", "Implementing and testing heap operations"));
-        midterms4.insert(new Topic("Graphs Lab", "Implementing graph data structures and traversal algorithms"));
-        midterms4.insert(new Topic("Hashing Lab", "Implementing hash tables and resolving collisions"));
-        midterms4.insert(new Topic("Dynamic Programming Lab", "Solving problems using dynamic programming techniques"));
+        midterms4.insert(new Topic("Process Synchronization", "Implement the producer-consumer problem using semaphores in C++."));
+        midterms4.insert(new Topic("CPU Scheduling and Multiprogramming", "Analyze the performance of various CPU scheduling algorithms through simulation."));
+        midterms4.insert(new Topic("Virtual Memory Management", "Explain the concept of demand paging and its advantages."));
+        midterms4.insert(new Topic("File System Implementation", "Design and document the structure of a simple file system."));
+        midterms4.insert(new Topic("I/O Systems Optimization", "Optimize file read and write operations in a given program."));
 
         // Populate Finals for course4
-        finals4.insert(new Topic("Search Algorithms Lab", "Implementing and testing various search algorithms"));
-        finals4.insert(new Topic("Sort Algorithms Lab", "Implementing and comparing various sorting algorithms"));
-        finals4.insert(new Topic("Advanced Structures Lab", "Hands-on tasks with tries, disjoint sets, and more"));
-        finals4.insert(new Topic("Real-world Data Structures", "Applying data structures to solve real-world problems"));
-        finals4.insert(new Topic("Final Lab Project", "A cumulative project encompassing topics from the entire term"));
+        finals4.insert(new Topic("Process and Thread Management", "Discuss the differences between processes and threads in terms of management and overhead."));
+        finals4.insert(new Topic("Memory Protection and Security", "Present a case study on a real-world OS security breach and propose countermeasures."));
+        finals4.insert(new Topic("Security and Authentication", "Design a secure authentication system for a cloud-based application."));
+        finals4.insert(new Topic("Virtualization and Cloud Computing", "Explain the benefits and challenges of virtualization in cloud computing."));
 
         course4.insert(prelims4);
         course4.insert(midterms4);
         course4.insert(finals4);
         courseList.insert(course4);
 
-        // Create and populate Course 5: SCIENCE, TECHNOLOGY, AND SOCIETY
-        Course<Term<Topic>> course5 = new Course<>("SCIENCE, TECHNOLOGY, AND SOCIETY", "9345 - GSTS");
+        // Create and populate Course 5: HUMAN COMPUTER INTERACTION
+        Course<Term<Topic>> course5 = new Course<>("HUMAN COMPUTER INTERACTION", "9344 - CS 213");
+
         Term<Topic> prelims5 = new Term<>("Prelims");
         Term<Topic> midterms5 = new Term<>("Midterms");
         Term<Topic> finals5 = new Term<>("Finals");
 
         // Populate Prelims for course5
-        prelims5.insert(new Topic("STS Introduction", "Understanding the interplay between science, technology, and society"));
-        prelims5.insert(new Topic("Historical Overview", "Exploring the evolution of science and technology"));
-        prelims5.insert(new Topic("Technological Revolutions", "The impact of various technological revolutions on society"));
-        prelims5.insert(new Topic("Ethics in Technology", "Understanding the ethical implications of modern technologies"));
-        prelims5.insert(new Topic("Science and Policy", "The role of science in shaping public policies"));
+        prelims5.insert(new Topic("Introduction to Human Computer Interaction", "Discuss the evolution of Human-Computer Interaction (HCI) " + "and its impact on modern design practices"));
+        prelims5.insert(new Topic("Design of Everyday Things", "Examine key principles of user-centered design and their real-world applications"));
+        prelims5.insert(new Topic("Errors", "Explore common usability errors in interface design and propose strategies " + "for error prevention and recovery"));
+        prelims5.insert(new Topic("Interface Design Principles", "Discuss foundational principles of interface design, providing practical examples " + "from user interfaces in use today"));
+        prelims5.insert(new Topic("Usability Evaluation", "Perform a usability evaluation for a software application, identify usability issues, " + "and suggest actionable improvements"));
 
         // Populate Midterms for course5
-        midterms5.insert(new Topic("Environmental Technology", "The role of technology in environmental conservation"));
-        midterms5.insert(new Topic("Health and Technology", "Modern healthcare technologies and their societal impacts"));
-        midterms5.insert(new Topic("Information Age", "Exploring the societal effects of the information revolution"));
-        midterms5.insert(new Topic("Science, Tech, and War", "The application and implications of tech in warfare"));
-        midterms5.insert(new Topic("Space Exploration", "The societal and technological aspects of exploring space"));
+        midterms5.insert(new Topic("Introduction to Information Architecture", "Define information architecture and illustrate its role in designing intuitive websites"));
+        midterms5.insert(new Topic("Interaction Design", "Prototype creation for a mobile app"));
+        midterms5.insert(new Topic("User Interface Prototyping", "Develop both low-fidelity and high-fidelity prototypes for a web application"));
+        midterms5.insert(new Topic("Mobile and Responsive Design", "Analyze the complexities of designing"));
+        midterms5.insert(new Topic("Information Visualization", "Visualize a dataset using appropriate techniques and interpret"));
 
         // Populate Finals for course5
-        finals5.insert(new Topic("Artificial Intelligence", "Exploring the societal implications of AI"));
-        finals5.insert(new Topic("Genetic Engineering", "The science, ethics, and societal aspects of genetic engineering"));
-        finals5.insert(new Topic("Future of Transportation", "Emerging transportation technologies and their potential impacts"));
-        finals5.insert(new Topic("Energy Solutions", "Future technologies for sustainable energy"));
-        finals5.insert(new Topic("STS Project Presentation", "Students present a project on a relevant STS topic"));
+        finals5.insert(new Topic("Accessibility and Inclusive Design", "Evaluate the accessibility of a websites or applications and propose enhancements"));
+        finals5.insert(new Topic("User Experience (UX) Design", "Conduct user research to identify user needs and preferences for a chosen product"));
+        finals5.insert(new Topic("Ethical Considerations in HCI", "Delve into ethical dilemmas tied to user data privacy in digital products " + "and provide ethical guidelines for responsible design"));
+        finals5.insert(new Topic("Future Trends in HCI", "Research emerging technologies and analyze their potential impacts on the field"));
+        finals5.insert(new Topic("Cognitive Psychology in UX Design", "Apply cognitive psychology principles to assess the user experience"));
 
         course5.insert(prelims5);
         course5.insert(midterms5);
         course5.insert(finals5);
         courseList.insert(course5);
 
-        // Create and populate Course 6: READING VISUAL ART
-        Course<Term<Topic>> course6 = new Course<>("READING VISUAL ART", "9346 - GRVA");
+        // ... [previous courses' code]
+
+// Create and populate Course 6: SCIENCE, TECHNOLOGY, AND SOCIETY
+        Course<Term<Topic>> course6 = new Course<>("SCIENCE, TECHNOLOGY, AND SOCIETY", "9345 - GSTS");
+
         Term<Topic> prelims6 = new Term<>("Prelims");
         Term<Topic> midterms6 = new Term<>("Midterms");
         Term<Topic> finals6 = new Term<>("Finals");
 
-        // Populate Prelims for course6
-        prelims6.insert(new Topic("Visual Arts Overview", "Introduction to various forms of visual arts"));
-        prelims6.insert(new Topic("Art and History", "Understanding art in various historical contexts"));
-        prelims6.insert(new Topic("Art Techniques", "Exploring different techniques used in creating art"));
-        prelims6.insert(new Topic("Modern Art", "Understanding the evolution and characteristics of modern art"));
-        prelims6.insert(new Topic("Art Criticism", "Techniques and methodologies for critiquing art"));
+// Populate Prelims for course6
+        prelims6.insert(new Topic("General Concepts and STS Historical Developments", "Present key historical developments in the field of STS."));
+        prelims6.insert(new Topic("Intellectual Revolutions that Defined Society", "Write an essay on how intellectual revolutions have shaped society."));
+        prelims6.insert(new Topic("Science and Technology and Nation Building", "Analyze the role of science and technology in the process of nation-building."));
+        prelims6.insert(new Topic("The Human Person Flourishing in Science and Technology", "Discuss the ethical considerations of technological advancements"));
 
-        // Populate Midterms for course6
-        midterms6.insert(new Topic("Photography as Art", "Exploring photography as a form of visual art"));
-        midterms6.insert(new Topic("Digital Art", "Understanding the tools and techniques for creating digital art"));
-        midterms6.insert(new Topic("Public Art", "Exploring the role and impact of art in public spaces"));
-        midterms6.insert(new Topic("Art and Politics", "How art has been used as a tool for political expression"));
-        midterms6.insert(new Topic("Art Movements", "Exploring various art movements and their characteristics"));
+// Populate Midterms for course6
+        midterms6.insert(new Topic("STS and Human Condition: The Good Life", "Explore the concept of 'the good life' in the context of STS"));
+        midterms6.insert(new Topic("When Technology and Humanity Cross", "Examine ethical dilemmas that arise when technology and humanity intersect."));
+        midterms6.insert(new Topic("The Information Age", "Research and present a case study on the impact of the information age on society."));
 
-        // Populate Finals for course6
-        finals6.insert(new Topic("Art and Technology", "The impact of technology on the creation and consumption of art"));
-        finals6.insert(new Topic("Interactive Art", "Exploring art that requires viewer interaction"));
-        finals6.insert(new Topic("Art Installations", "Understanding the design and impact of art installations"));
-        finals6.insert(new Topic("Art and Society", "Exploring the role of art in shaping and reflecting societal values"));
-        finals6.insert(new Topic("Portfolio Presentation", "Students present a portfolio of their art critiques"));
+// Populate Finals for course6
+        finals6.insert(new Topic("Biodiversity and Health Society", "Investigate the relationship between biodiversity and public health and propose solutions."));
+        finals6.insert(new Topic("The Nanotechnology World", "Summarize recent advancements in nanotechnology and their potential applications."));
+        finals6.insert(new Topic("Genetic Engineering", "Discuss the ethical and societal implications of genetic engineering " + "and gene editing technologies."));
 
         course6.insert(prelims6);
         course6.insert(midterms6);
         course6.insert(finals6);
         courseList.insert(course6);
 
-        // Create and populate Course 7: PHYSICAL ACTIVITY TOWARDS HEALTH AND FITNESS (OUTDOOR AND ADVENTURE ACTIVITIES)
-        Course<Term<Topic>> course7 = new Course<>("PHYSICAL ACTIVITY TOWARDS HEALTH AND FITNESS (OUTDOOR AND ADVENTURE ACTIVITIES)", "7897 - FIT OA");
+// Create and populate Course 7: READING VISUAL ART
+        Course<Term<Topic>> course7 = new Course<>("READING VISUAL ART", "9346 - GRVA");
+
         Term<Topic> prelims7 = new Term<>("Prelims");
         Term<Topic> midterms7 = new Term<>("Midterms");
         Term<Topic> finals7 = new Term<>("Finals");
 
-        // Populate Prelims for course7
-        prelims7.insert(new Topic("Introduction to Physical Activity", "Understanding the importance of physical activity for health"));
-        prelims7.insert(new Topic("Basic Outdoor Safety", "Safety protocols and preparations for outdoor activities"));
-        prelims7.insert(new Topic("Hiking Basics", "Introduction to hiking and its health benefits"));
-        prelims7.insert(new Topic("Camping Essentials", "Skills and knowledge needed for camping"));
-        prelims7.insert(new Topic("Water Activities", "Exploring activities like kayaking and swimming"));
+// Populate Prelims for course7
+        prelims7.insert(new Topic("Introduction to Visual Arts", "Discuss the fundamental elements and principles of visual arts."));
+        prelims7.insert(new Topic("Historical Evolution of Visual Arts", "Trace the transformation of visual arts from ancient to modern times."));
+        prelims7.insert(new Topic("Visual Arts and Cultural Identity", "Examine how visual arts represent and shape cultural identities across different societies."));
+        prelims7.insert(new Topic("Art Criticism and Interpretation", "Learn the techniques of critiquing and interpreting various forms of visual arts."));
 
-        // Populate Midterms for course7
-        midterms7.insert(new Topic("Mountain Climbing Basics", "Introduction to mountain climbing and its health implications"));
-        midterms7.insert(new Topic("Survival Skills", "Learning basic wilderness survival techniques"));
-        midterms7.insert(new Topic("Conservation Ethics", "The importance of nature conservation during outdoor activities"));
-        midterms7.insert(new Topic("Group Activities", "Engaging in group-based outdoor activities"));
-        midterms7.insert(new Topic("Benefits of Outdoor Activities", "Physical and mental health benefits of engaging in outdoor activities"));
+// Populate Midterms for course7
+        midterms7.insert(new Topic("Techniques in Visual Arts", "Explore different techniques and mediums used in visual arts, from traditional to digital."));
+        midterms7.insert(new Topic("Visual Arts in Digital Age", "Investigate the impact of digital technology on the evolution and consumption of visual arts."));
+        midterms7.insert(new Topic("Art Movements and Their Influence", "Study various art movements and their influence on contemporary visual arts."));
 
-        // Populate Finals for course7
-        finals7.insert(new Topic("Adventure Sports Introduction", "Exploring adventure sports like paragliding and rafting"));
-        finals7.insert(new Topic("Equipment Knowledge", "Understanding various outdoor equipment and their maintenance"));
-        finals7.insert(new Topic("Ethical Outdoor Activities", "Engaging in outdoor activities responsibly"));
-        finals7.insert(new Topic("Planning Outdoor Activities", "Steps to plan and execute a safe outdoor adventure"));
-        finals7.insert(new Topic("Reflection and Experience Sharing", "Sharing experiences and lessons learned from outdoor activities"));
+// Populate Finals for course7
+        finals7.insert(new Topic("Public Art and Society", "Analyze the role of public art in society and its influence on public spaces and community engagement."));
+        finals7.insert(new Topic("Careers in Visual Arts", "Discover various career paths in the field of visual arts and what they entail."));
+        finals7.insert(new Topic("Art and Activism", "Discuss how visual arts have been used as a tool for social and political activism throughout history."));
 
         course7.insert(prelims7);
         course7.insert(midterms7);
@@ -321,37 +297,38 @@ public class GoogleClassroomApp extends JFrame {
 
         // Create and populate Course 8: CATHOLIC FOUNDATION OF MISSION
         Course<Term<Topic>> course8 = new Course<>("CATHOLIC FOUNDATION OF MISSION", "9347 - CFE 103");
+
         Term<Topic> prelims8 = new Term<>("Prelims");
         Term<Topic> midterms8 = new Term<>("Midterms");
         Term<Topic> finals8 = new Term<>("Finals");
 
         // Populate Prelims for course8
-        prelims8.insert(new Topic("Introduction to Catholic Mission", "Understanding the essence of the Catholic mission"));
-        prelims8.insert(new Topic("Historical Overview of Missions", "Tracing the history of Catholic missions"));
-        prelims8.insert(new Topic("Biblical Foundations", "Exploring Biblical teachings on missions"));
-        prelims8.insert(new Topic("Role of Laity in Missions", "The responsibilities of laypersons in the Church's mission"));
-        prelims8.insert(new Topic("Mission and Social Justice", "How missions promote justice and societal well-being"));
+        prelims8.insert(new Topic("Introduction to Catholic Mission", "Discuss the essence and importance of the Catholic mission in the context of faith."));
+        prelims8.insert(new Topic("Historical Foundations of Catholic Mission", "Explore the history and evolution of the Catholic Church's mission efforts."));
+        prelims8.insert(new Topic("Biblical Foundations of Mission", "Examine Biblical texts that emphasize the importance of mission in Catholicism."));
+        prelims8.insert(new Topic("Role of Laity in Mission", "Understand the role and responsibilities of the laity in the mission of the Church."));
+        prelims8.insert(new Topic("Mission and Social Justice", "Discuss the Church's stance on social justice and its correlation with the Catholic mission"));
 
         // Populate Midterms for course8
-        midterms8.insert(new Topic("Notable Missionaries", "Learning about significant figures in Catholic missionary work"));
-        midterms8.insert(new Topic("Modern Challenges in Missions", "Understanding contemporary issues faced in missions"));
-        midterms8.insert(new Topic("Ecclesiology and Mission", "The role of Church teachings in guiding missions"));
-        midterms8.insert(new Topic("Evangelization Techniques", "Methods and approaches for spreading the Gospel"));
-        midterms8.insert(new Topic("Missionary Spirituality", "The spiritual foundation of mission work"));
+        midterms8.insert(new Topic("Missionary Saints and Martyrs", "Study the lives of saints and martyrs who played pivotal roles in mission work"));
+        midterms8.insert(new Topic("Contemporary Challenges in Mission", "Understand the modern-day challenges faced by missionaries and the Church's mission efforts"));
+        midterms8.insert(new Topic("Ecclesiology and Mission", "Explore the Church's teachings and structure in relation to its mission"));
+        midterms8.insert(new Topic("Evangelization and Dialogue", "Learn about the principles of evangelization and the importance of dialogue in mission work"));
+        midterms8.insert(new Topic("Missionary Spirituality", "Deepen the understanding of the spirituality that underpins missionary work"));
 
         // Populate Finals for course8
-        finals8.insert(new Topic("Interfaith Dialogue", "Engaging in respectful dialogue with members of other religions"));
-        finals8.insert(new Topic("Missionary Training", "The process of preparing individuals for mission work"));
-        finals8.insert(new Topic("Ethics in Missions", "Navigating the ethical challenges in missionary activities"));
-        finals8.insert(new Topic("Future of Missions", "Contemplating the evolving nature of missionary work in the modern world"));
-        finals8.insert(new Topic("Personal Mission Reflection", "Reflecting on one's personal mission and calling within the Church"));
+        finals8.insert(new Topic("Mission and Interfaith Relations", "Discuss the Church's stance on interfaith relations and its implications for mission work"));
+        finals8.insert(new Topic("Missionary Training and Formation", "Understand the process and importance of training and forming individuals for mission"));
+        finals8.insert(new Topic("Ethics of Mission Work", "Delve into the ethical considerations and responsibilities associated with mission work"));
+        finals8.insert(new Topic("Future of Catholic Mission", "Reflect on the potential future challenges and opportunities for the Church's mission efforts"));
+        finals8.insert(new Topic("Reflection and Personal Mission", "Reflect on personal experiences and understand one's role in the broader Catholic mission"));
 
         course8.insert(prelims8);
         course8.insert(midterms8);
         course8.insert(finals8);
         courseList.insert(course8);
 
-        // Return the populated course list
+        // Return the course list
         return courseList;
     }
 } // end of GoogleClassroomApp class
