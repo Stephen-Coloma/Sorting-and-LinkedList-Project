@@ -31,7 +31,7 @@ public class AddCoursePage extends JFrame {
     private JTextField courseNameField, courseCodeField;
     private DefaultListModel<Course<Term<Topic>>> courseListModel;
     private DoublyLinkedList<Course<Term<Topic>>> courseList;
-    private JButton okButton, cancelButton;
+    private RoundButton okButton, cancelButton;
     JPanel addCoursePanel, buttonPanel;
 
     // Color theme from CourseListPage
@@ -52,11 +52,10 @@ public class AddCoursePage extends JFrame {
         // Initialize GUI components
         courseNameField = new JTextField(20);
         courseCodeField = new JTextField(4);
-        okButton = new JButton("Ok");
-        cancelButton = new JButton("Cancel");
+        okButton = new RoundButton ("Ok");
+        cancelButton = new RoundButton ("Cancel");
         courseNameField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
         courseCodeField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
-
 
         // Apply the color theme and styles
         setBackground(mustard);

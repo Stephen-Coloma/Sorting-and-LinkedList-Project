@@ -28,7 +28,7 @@ public class EditCoursePage extends JFrame {
 
     // Declare GUI components
     private JTextField courseNameField, courseIdField;
-    private JButton updateButton;
+    private RoundButton updateButton;
     private JPanel editCoursePanel, buttonPanel;
 
     // Color theme from CourseListPage
@@ -48,8 +48,8 @@ public class EditCoursePage extends JFrame {
         courseNameField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
         courseIdField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
 
-        updateButton = new JButton("Update");
-        buttonDesign(updateButton);
+        updateButton = new RoundButton("Update");
+        buttonDesign((RoundButton) updateButton);
 
         updateButton.addActionListener(e -> {
             try {
@@ -92,7 +92,7 @@ public class EditCoursePage extends JFrame {
         setVisible(true);
     }
 
-    private void buttonDesign(JButton button) {
+    private void buttonDesign(RoundButton button) {
         button.setFont(new Font("Roboto", Font.BOLD, 14));
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createCompoundBorder(
