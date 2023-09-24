@@ -35,6 +35,20 @@ public class CourseListPage extends JPanel {
     private JList<Course<Term<Topic>>> listOfCourses;
     private JButton addButton, deleteButton, editButton;
 
+    // Custom cell renderer to change the background color of the selected item
+    class CustomListCellRenderer extends DefaultListCellRenderer {
+        @Override
+        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            if (isSelected) {
+                c.setBackground(new Color(255, 219, 87)); // Change the background color of the selected item
+            } else {
+                c.setBackground(list.getBackground());
+            }
+            return c;
+        }
+    }
+
     public CourseListPage(DoublyLinkedList<Course<Term<Topic>>> courseList) {
         //changing courseList type to what is compatible to JList
         DefaultListModel<Course<Term<Topic>>> courseListModel = new DefaultListModel<>();
@@ -43,8 +57,8 @@ public class CourseListPage extends JPanel {
         }
 
         //construct components
-        coursesLabel = new JLabel("ENROLLED COURSES");
-        searchBar = new JTextField( "Search",5);
+        coursesLabel = new JLabel("COURSES");
+        searchBar = new JTextField( "Search...",4);
         listOfCourses = new JList(courseListModel);
         addButton = new JButton("Add");
         deleteButton = new JButton("Delete");
@@ -54,15 +68,37 @@ public class CourseListPage extends JPanel {
         setPreferredSize(new Dimension(452, 457));
         setLayout(null);
 
+        setBackground(new Color(17, 41, 107));
+        coursesLabel.setFont(new Font("", Font.BOLD, 20));
+        coursesLabel.setForeground(Color.WHITE);
+
+
+        Color buttonBgColor = new Color(237, 237, 237);
+
+        addButton.setBackground(buttonBgColor);
+        addButton.setFont(new Font("Roboto", Font.BOLD, 14));
+        addButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
+        addButton.setForeground(Color.BLACK); // Set font color to white
+
+        deleteButton.setBackground(buttonBgColor);
+        deleteButton.setFont(new Font("Roboto", Font.BOLD, 14));
+        deleteButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
+        deleteButton.setForeground(Color.BLACK); // Set font color to white
+
+        editButton.setBackground(buttonBgColor);
+        editButton.setFont(new Font("Roboto", Font.BOLD, 14));
+        editButton.setBorder(BorderFactory.createLineBorder(new Color(0, 53, 102), 2));
+        editButton.setForeground(Color.BLACK);
 
         //set component bounds (only needed by Absolute Positioning)
         coursesLabel.setBounds(30, 15, 130, 35);
         searchBar.setBounds(245, 20, 180, 25);
         listOfCourses.setBounds(25, 60, 400, 330);
-
+        
         addButton.setBounds(75, 405, 90, 35);
         editButton.setBounds(180, 405, 90, 35);
         deleteButton.setBounds(285, 405, 90, 35);
+
 
         //add components
         add(coursesLabel);
@@ -85,6 +121,8 @@ public class CourseListPage extends JPanel {
                 }
             }
         });
+
+        listOfCourses.setCellRenderer(new CustomListCellRenderer());
 
         //add button implementation
         addButton.addActionListener(e -> {
