@@ -71,67 +71,37 @@ public class CourseListPage extends JPanel {
         coursesLabel.setForeground(new Color(255, 219, 87));
 
         Color buttonBgColor = new Color(237, 237, 237);
+        Color buttonHoverColor = new Color(255, 219, 87);
 
-        // Modify the buttons' appearance when pressed
-        addButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        addButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
-        addButton.setBackground(buttonBgColor); 
-        addButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                addButton.setBackground(new Color(255, 219, 87));
-            }
+        // Modify the term buttons' appearance
 
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                addButton.setBackground(buttonBgColor);
-            }
+        JButton[] termButtonsArray = {addButton, editButton, deleteButton};
+        for (JButton btn : termButtonsArray) {
+            btn.setFont(new Font("Roboto", Font.BOLD, 14));
+            btn.setBorder(BorderFactory.createLineBorder(buttonHoverColor, 2));
+            btn.setBackground(buttonBgColor);
+            btn.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    btn.setBackground(buttonHoverColor);
+                }
 
-            @Override
-            public void mouseExited(MouseEvent e) {
-                addButton.setBackground(buttonBgColor);
-            }
-        });
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    btn.setBackground(buttonBgColor);
+                }
 
-        editButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        editButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
-        editButton.setBackground(buttonBgColor);
-        editButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                editButton.setBackground(new Color(255, 219, 87));
-            }
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    btn.setBackground(buttonBgColor);
+                }
 
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                editButton.setBackground(buttonBgColor);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                editButton.setBackground(buttonBgColor);
-            }
-        });
-
-        deleteButton.setFont(new Font("Roboto", Font.BOLD, 14));
-        deleteButton.setBorder(BorderFactory.createLineBorder(new Color(255, 219, 87), 2));
-        deleteButton.setBackground(buttonBgColor); 
-        deleteButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                deleteButton.setBackground(new Color(255, 219, 87));
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                deleteButton.setBackground(buttonBgColor);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                deleteButton.setBackground(buttonBgColor);
-            }
-        });
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    btn.setBackground(buttonHoverColor);
+                }
+            });
+        }
 
         //set component bounds (only needed by Absolute Positioning)
         listOfCourses.setBounds(25, 60, 400, 330);
