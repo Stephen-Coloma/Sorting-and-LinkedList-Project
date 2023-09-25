@@ -225,11 +225,6 @@ public class CourseListPage extends JPanel {
         JFrame frame = new JFrame(selectedCourse.getCourseName());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Add the icon to the JFrame
-        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
-        ImageIcon icon = new ImageIcon(iconPath);
-        frame.setIconImage(icon.getImage());
-
         frame.getContentPane().add(new TermListPage(selectedCourse));
         frame.pack();
         frame.setLocationRelativeTo(null);

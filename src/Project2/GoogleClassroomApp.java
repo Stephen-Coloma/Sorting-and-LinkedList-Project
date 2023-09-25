@@ -144,24 +144,24 @@ public class GoogleClassroomApp extends JFrame {
         Term<Topic> finals3 = new Term<>("Finals");
 
         // Populate Prelims for course3
-        prelims3.insert(new Topic("Abstract Data Types", "Explaining ADT"));
-        prelims3.insert(new Topic("Algorithm Complexity", "Technical Paper"));
-        prelims3.insert(new Topic("Big Oh Notation", "Big Oh Identification"));
-        prelims3.insert(new Topic("The List Data Structure and ADT",
-                "Project on Implementation of List ADT"));
+        prelims3.insert(new Topic("Abstract Data Types", "Explaining ADT through Interfaces in Java"));
+        prelims3.insert(new Topic("Algorithm Complexity", "Technical Paper on Bubble, Selection and Insertion Sort"));
+        prelims3.insert(new Topic("Big Oh Notation", "Types of Big Oh and Identification and computation. "));
+        prelims3.insert(new Topic("The List ADT",
+                "Individual Project on Implementation of List ADT. "));
         prelims3.insert(new Topic("Singly, Doubly, and Circular Linked List",
-                "Describing LinkedList Implementation"));
+                "Describing LinkedList Implementation through individual projects"));
 
         // Populate Midterms for course3
-        midterms3.insert(new Topic("The Stack and Queue Data Structures",
-                "Two-Stack Queue Implementation"));
-        midterms3.insert(new Topic("The Stack and Queue ADT",
+        midterms3.insert(new Topic("Stack & Queue Data Structures",
+                "Creating a Two-Stack Queue Implementation"));
+        midterms3.insert(new Topic("Stack and Queue ADT",
                 "Building a Stack and Queue Data Structure from Scratch"));
         midterms3.insert(new Topic("Applications of the Queue",
                 "Exploring Practical Applications of Queues"));
         midterms3.insert(new Topic("The Tree Data Structures",
                 "Implementing and Traversing Tree Structures"));
-        midterms3.insert(new Topic("Huffman Coding - Application of the Tree Data Structure",
+        midterms3.insert(new Topic("Huffman Coding",
                 "Implementing Huffman Coding for Data Compression"));
 
         // Populate Finals for course3

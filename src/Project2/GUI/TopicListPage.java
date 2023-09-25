@@ -57,7 +57,7 @@ public class TopicListPage extends JPanel {
 
     public TopicListPage(Term<Topic> term) {
         // Construct components
-        topicsLabel = new JLabel("<html>TOPICS FOR " + term.getTermName().toUpperCase() + "</html>");
+        topicsLabel = new JLabel("TOPICS FOR " + term.getTermName().toUpperCase());
         topicsList = new JList<>(new DefaultListModel<>());
         selectedTerm = term;
 
@@ -93,7 +93,7 @@ public class TopicListPage extends JPanel {
         topicsList.setBorder(BorderFactory.createLineBorder(mustard, 2));
 
         // Add components
-        topicsLabel.setBounds (30, 15, 130, 35);
+        topicsLabel.setBounds (30, 15, 200, 35);
         searchBar.setBounds (245, 20, 180, 25);
         scrollPane.setBounds (25, 60, 400, 330);
 
@@ -221,11 +221,6 @@ public class TopicListPage extends JPanel {
     private void openModulesTasksPage(Topic topic) {
         JFrame frame = new JFrame("Modules and Tasks");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-        // Add the icon to the JFrame
-        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
-        ImageIcon icon = new ImageIcon(iconPath);
-        frame.setIconImage(icon.getImage());
 
         frame.getContentPane().add(new ModuleTaskPage(topic));
         frame.pack();

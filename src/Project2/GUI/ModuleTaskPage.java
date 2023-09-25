@@ -35,8 +35,8 @@ public class ModuleTaskPage extends JPanel {
         panel.setBackground(mustard);
 
         // Construct components
-        moduleName = new JLabel("<html> Module: " + topic.getModule() + "</html>");
-        taskName = new JLabel("<html> Task: " + topic.getTask() + "</html>");
+        moduleName = new JLabel("Module: " + topic.getModule());
+        taskName = new JLabel("<html> Task: " + topic.getTask() +"</html>");
 
         // Modify the label appearance
         Font labelFont = new Font("Roboto", Font.BOLD, 15);
@@ -51,14 +51,14 @@ public class ModuleTaskPage extends JPanel {
 
         // Set bounds for the labels dynamically based on their preferred size
         int labelWidth = Math.max(moduleNameSize.width, taskNameSize.width);
-        int labelHeight = moduleNameSize.height + taskNameSize.height + 10;
+        int labelHeight = moduleNameSize.height + taskNameSize.height + 50;
 
         moduleName.setBounds(20, 20, labelWidth, moduleNameSize.height);
-        taskName.setBounds(20, 30 + moduleNameSize.height, labelWidth, taskNameSize.height);
+        taskName.setBounds(20, 30 + moduleNameSize.height, labelWidth, taskNameSize.height + 20);
 
         // Calculate the preferred size of the panel
-        int panelWidth = labelWidth + 40;
-        int panelHeight = labelHeight + 40;
+        int panelWidth = labelWidth +10;
+        int panelHeight = labelHeight + 20;
 
         // Set the preferred size of the ModuleTaskPage
         setPreferredSize(new Dimension(panelWidth, panelHeight));

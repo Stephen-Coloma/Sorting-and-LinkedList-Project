@@ -44,9 +44,9 @@ public class TermListPage extends JPanel {
 
     public TermListPage(Course<Term<Topic>> course) {
 
-        prelimButton = new RoundButton("Prelim");
-        midtermButton = new RoundButton("Midterm");
-        finalButton = new RoundButton("Final");
+        prelimButton = new RoundButton("");
+        midtermButton = new RoundButton("");
+        finalButton = new RoundButton("");
 
         // list of button
         DoublyLinkedList<RoundButton> buttonsToPopulate = new DoublyLinkedList<>();
@@ -134,11 +134,6 @@ public class TermListPage extends JPanel {
         JFrame frame = new JFrame(term.getTermName());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Add the icon to the JFrame
-        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
-        ImageIcon icon = new ImageIcon(iconPath);
-        frame.setIconImage(icon.getImage());
-
         frame.getContentPane().add(new TopicListPage(term));
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -164,7 +159,7 @@ public class TermListPage extends JPanel {
                         BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
                 button.setBackground(mustard); // Set a new color when mouse hovers over the button
-                button.setForeground(flashWhite);
+                button.setForeground(royalBlue);
             } // end of mouseEntered method
 
             @Override
