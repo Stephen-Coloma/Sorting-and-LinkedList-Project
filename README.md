@@ -52,28 +52,28 @@ This section provides information about our second project, which utilizes linke
 ### Sample Run
 
 1. On course list page
-![Alt Text](assets/README/CourseListPage.png)
+![Alt Text](src/Project2/assets/README/CourseListPage.png)
 
 2. Adding course in course list
-![Alt Text](assets/README/AddCourseInList.png)
+![Alt Text](src/Project2/assets/README/AddCourseInList.png)
 
 3. Editing course in course list
-![Alt Text](assets/README/EditCourseInList.png)
+![Alt Text](src/Project2/assets/README/EditCourseInList.png)
 
 4. On term list page
-![Alt Text](assets/README/TermListPage.png)
+![Alt Text](src/Project2/assets/README/TermListPage.png)
 
 5. On topic list page with selected term
-![Alt Text](assets/README/SelectedTermAndTopicListPage.png)
+![Alt Text](src/Project2/assets/README/SelectedTermAndTopicListPage.png)
 
 6. Adding topic in topic list
-![Alt Text](assets/README/AddTopicInList.png)
+![Alt Text](src/Project2/assets/README/AddTopicInList.png)
 
 7. Editing topic in topic list
-![Alt Text](assets/README/EditTopicInList.png)
+![Alt Text](src/Project2/assets/README/EditTopicInList.png)
 
 8. On module and task page
-![Alt Text](assets/README/ModuleAndTaskPage.png)
+![Alt Text](src/Project2/assets/README/ModuleAndTaskPage.png)
 
 ---
 
