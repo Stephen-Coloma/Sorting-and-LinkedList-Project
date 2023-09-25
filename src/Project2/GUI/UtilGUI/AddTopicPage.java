@@ -134,7 +134,7 @@ public class AddTopicPage extends JFrame {
         button.setFont(new Font("Roboto", Font.BOLD, 14));
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(royalBlue, 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createLineBorder(royalBlue, 2, false),
                 BorderFactory.createEmptyBorder(8, 18, 8, 18)));
         button.setBackground(polynesianBlue);
         button.setForeground(mustard);
@@ -145,7 +145,7 @@ public class AddTopicPage extends JFrame {
                 super.mouseEntered(e);
                 button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(royalBlue, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(royalBlue, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
                 button.setBackground(royalBlue); // Set a new color when mouse hovers over the button
                 button.setForeground(flashWhite);
@@ -155,9 +155,9 @@ public class AddTopicPage extends JFrame {
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(royalBlue, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(royalBlue, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(polynesianBlue); // Set back the original color when the mouse leaves the button
+                button.setBackground(polynesianBlue);
                 button.setForeground(mustard);
             } // end of mouseExited method
         });

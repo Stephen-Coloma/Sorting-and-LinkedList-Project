@@ -174,7 +174,7 @@ public class TopicListPage extends JPanel {
             public void focusGained(FocusEvent e) {
                 if ("Search...".equals(searchBar.getText())) {
                     searchBar.setText("");
-                    searchBar.setForeground(Color.BLACK); // Set text color to black when focused
+                    searchBar.setForeground(Color.BLACK);
                 }
                 searchBar.setBorder(BorderFactory.createLineBorder(mustard, 2));
             }
@@ -183,7 +183,7 @@ public class TopicListPage extends JPanel {
             public void focusLost(FocusEvent e) {
                 if (searchBar.getText().isEmpty()) {
                     searchBar.setText("Search...");
-                    searchBar.setForeground(Color.GRAY); // Set text color to gray when not focused
+                    searchBar.setForeground(Color.GRAY);
                 }
             }
         });
@@ -247,7 +247,7 @@ public class TopicListPage extends JPanel {
         button.setFont(new Font("Roboto", Font.BOLD, 14));
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                BorderFactory.createLineBorder(mustard, 2, false),
                 BorderFactory.createEmptyBorder(8, 18, 8, 18)));
         button.setBackground(flashWhite);
         button.setForeground(polynesianBlue);
@@ -258,19 +258,19 @@ public class TopicListPage extends JPanel {
                 super.mouseEntered(e);
                 button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(mustard, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
                 button.setBackground(mustard); // Set a new color when mouse hovers over the button
-                button.setForeground(flashWhite);
+                button.setForeground(polynesianBlue);
             } // end of mouseEntered method
 
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(mustard, 2, false), // Set border color, thickness, and roundness
+                        BorderFactory.createLineBorder(mustard, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(flashWhite); // Set back the original color when the mouse leaves the button
+                button.setBackground(flashWhite);
                 button.setForeground(polynesianBlue);
             } // end of mouseExited method
         });

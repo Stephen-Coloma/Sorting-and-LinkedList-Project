@@ -158,8 +158,8 @@ public class AddCoursePage extends JFrame {
                 button.setBorder(BorderFactory.createCompoundBorder(
                         BorderFactory.createLineBorder(polynesianBlue, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(flashWhite); // Revert the background to white
-                button.setForeground(polynesianBlue); // Revert the foreground to blue
+                button.setBackground(flashWhite);
+                button.setForeground(polynesianBlue);
             }
         });
     }
