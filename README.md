@@ -1,11 +1,12 @@
-### CS211_9342_MixAndMatch
+# CS211_9342_MixAndMatch
 
-# Prelim Group Project
-A group programming project for the course CS 211 - DATA STRUCTURES (AY 2023-2024).
-Prelims.
+## Prelim Group Project
 
-## Authors and Acknowledgment
-** Group Mix and Match**
+A group programming project for the course CS 211 - DATA STRUCTURES (AY 2023-2024). Prelims.
+
+### Authors and Acknowledgment
+
+**Group Mix and Match**
 1. **COLOMA**, Stephen M.
 2. **GUZMAN**, Sanchie Earl M.
 3. **NONATO**, Marius Glenn M.
@@ -14,113 +15,191 @@ Prelims.
 6. **ROQUE**, Rey Daniel L.
 7. **SANTOS**, Lourdene Eira C.
 
-# Group Project: Comparative Analysis of Sorting Algorithms
-This project aims to perform a comparative analysis of three sorting algorithms: Bubble Sort, Insertion Sort,
-and Selection Sort. The analysis will focus on the efficiency of these algorithms in terms of the number
-of statements executed during sorting. The algorithms will be tested with varying data sizes and scenarios,
-including best-case, worst-case, and average-case scenarios.
+---
 
-## Sorting Util Classes
+## Group Project 1: Comparative Analysis of Sorting Algorithms
 
-### Project1.BubbleSort.java
-The `Project1.BubbleSort` class contains the implementation of the Bubble Sort algorithm. This classic sorting algorithm
-repeatedly steps through the list to be sorted, compares adjacent elements, and swaps them if they are in
-the wrong order. The process is repeated until no more swaps are needed, indicating that the list is sorted.
+This project aims to perform a comparative analysis of three sorting algorithms: Bubble Sort, Insertion Sort, and Selection Sort.
 
-### Project1.InsertionSort.java
+### Sorting Util Classes
 
-The `Project1.InsertionSort` class holds the implementation of the Insertion Sort algorithm. This algorithm builds the final
-sorted array one item at a time by repeatedly taking an element from the unsorted part of the list and inserting
-it into its correct position within the sorted part of the list.
+- **Project1.BubbleSort.java**: Contains the implementation of the Bubble Sort algorithm.
 
-### Project1.SelectionSort.java
+- **Project1.InsertionSort.java**: Holds the implementation of the Insertion Sort algorithm.
 
-In the `Project1.SelectionSort` class, you'll find the implementation of the Selection Sort algorithm. This algorithm divides
-the input list into two parts: the sublist of items already sorted and the sublist that needs to be sorted.
-The algorithm repeatedly selects the smallest (or largest, depending on the order) element from the unsorted
-sublist and moves it to the end of the sorted sublist.
+- **Project1.SelectionSort.java**: Features the implementation of the Selection Sort algorithm.
 
+### Technical Report, Data Files, and More
 
-## Getting Started
+For a report of our findings, methodology, and results, refer to our detailed [MixAndMatchPrelimGroupProjectOnAlgorithmAnalysis](https://docs.google.com/document/d/1gKtJAHLXlthI0EKCrLfHiYVjrzdE2HUzpNh-_AHTRSQ/edit).
 
-To use our sorting algorithm analysis, follow these steps:
+Data files for various sizes and scenarios can be found in the `Project1.dataset` directory.
 
-1. Clone the project repository using the following command:
-   ```
-   git clone <repository-link>
-   ```
+---
 
-2. Navigate to the appropriate directory where the sorting algorithm classes are located.
+## Group Project 2: Linked List-based Implementation
 
-3. Compile the Java programs for each sorting algorithm:
-   ```
-   javac Project1.BubbleSort.java
-   javac Project1.InsertionSort.java
-   javac Project1.SelectionSort.java
-   ```
+This section provides information about our second project, which utilizes linked lists for its implementation.
 
-4. Run the Java programs for each sorting algorithm with different data sizes and scenarios:
-   ```
-   java Project1.BubbleSort
-   java Project1.InsertionSort
-   java Project1.SelectionSort
-   ```
+### GUI and Utility Classes
 
-5. Observe the output, which will display the number of statements executed during sorting for each algorithm and scenario.
+- **Project2.GUI**: Describes the primary GUI components of our application.
+
+- **Project2.UtilGUI**: Contains utility GUI classes that support the main GUI.
+
+- **Project2.LinkedListImplementation**: Provides the core linked list functionality for our system.
+
+### Sample Run
+
+1. On course list page
+
+![Alt Text](src/Project2/assets/README/CourseListPage.png)
 
 
-## Technical Report, Data Files, and More
+2. Adding course in course list
 
-For a comprehensive understanding of our project's findings, methodology, results, and analysis,
-please refer to our detailed [MixAndMAtchPrelimGroupProjectOnAlgorithmAnalysis](https://docs.google.com/document/d/1gKtJAHLXlthI0EKCrLfHiYVjrzdE2HUzpNh-_AHTRSQ/edit).
+![Alt Text](src/Project2/assets/README/AddCourseInList.png)
 
-Additionally, we provide data files for different data sizes and scenarios in the `Project1.dataset` directory.
-These files serve as inputs for the sorting programs.
+
+3. Editing course in course list
+
+![Alt Text](src/Project2/assets/README/EditCourseInList.png)
+
+
+4. On term list page
+
+![Alt Text](src/Project2/assets/README/TermListPage.png)
+
+
+5. On topic list page with selected term
+
+![Alt Text](src/Project2/assets/README/SelectedTermAndTopicListPage.png)
+
+
+6. Adding topic in topic list
+
+![Alt Text](src/Project2/assets/README/AddTopicInList.png)
+
+
+7. Editing topic in topic list
+
+![Alt Text](src/Project2/assets/README/EditTopicInList.png)
+
+
+8. On module and task page
+
+![Alt Text](src/Project2/assets/README/ModuleAndTaskPage.png)
+
+---
 
 ## Troubleshooting
-If you have any questions or need further assistance related to the project, please don't hesitate to contact our project team:
 
-- **Stephen M. COLOMA**
-- **Sanchie Earl M. GUZMAN**
-- **Marius Glenn M. NONATO**
-- **Hannah T. RAGUDOS**
-- **Jerwin Kyle R. RAMOS**
-- **Rey Daniel L. ROQUE**
-- **Lourdene Eira C. SANTOS**
+For any questions or further assistance regarding the projects, reach out to our project team:
 
-Feel free to explore and learn from our comparative analysis of sorting algorithms
+- Stephen M. COLOMA
+- Sanchie Earl M. GUZMAN
+- Marius Glenn M. NONATO
+- Hannah T. RAGUDOS
+- Jerwin Kyle R. RAMOS
+- Rey Daniel L. ROQUE
+- Lourdene Eira C. SANTOS
+
+---
 
 ## General Instructions
-To work with the source code, please follow these steps:
 
-1. Open your terminal and clone the project using this command:
-   ```
-   git clone <paste-the-project-link>
-   ```
+For instructions on working with the source code:
 
-2. In the terminal, create a feature branch for your work using:
-   ```
-   git checkout -b <Branch-Name>
-   ```
+1. Clone the project.
+2. Create a feature branch.
+3. Edit the source code.
+4. Commit changes.
+5. Push the feature branch.
+6. Create a merge request.
 
-3. Now, you can start making edits to the source code.
+**Note:** Avoid merging changes directly into the main branch. Always use the feature branch and merge request method.
 
-4. Once you're done editing, it's time to commit your changes. 
+---
 
-5. Push your feature branch to the remote repository with this command:
-   ```
-   git push origin <Branch-Name>
-   ```
+## Directory Structure
 
-6. Next, navigate to the GitLab website and create a merge request by clicking the "Create Merge Request" button.
+```
+CS211_9342_MixAndMatch
+│
+├── .idea
+│   ├── (IDE-related configuration files)
+│
+├── out
+│   ├── (Compiled output files)
+│
+├── src
+│   │
+│   ├── Project1
+│   │   ├── dataset
+│   │   │   ├── FiftyThousand
+│   │   │   │   ├── 50K-AverageCase.csv
+│   │   │   │   ├── 50K-BestCase.csv
+│   │   │   │   └── 50K-WorstCase.csv
+│   │   │   │
+│   │   │   ├── FiveHundredThousand
+│   │   │   │   ├── 500K-AverageCase.csv
+│   │   │   │   ├── 500K-BestCase.csv
+│   │   │   │   └── 500K-WorstCase.csv
+│   │   │   │
+│   │   │   ├── OneMillion
+│   │   │   │   ├── 1M-AverageCase.csv
+│   │   │   │   ├── 1M-BestCase.csv
+│   │   │   │   └── 1M-WorstCase.csv
+│   │   │   │
+│   │   │   ├── TenThousand
+│   │   │   │   ├── 10K-AverageCase.csv
+│   │   │   │   ├── 10K-BestCase.csv
+│   │   │   │   └── 10K-WorstCase.csv
+│   │   │   │
+│   │   │   └── TwoHundredThousand
+│   │   │       ├── 200K-AverageCase.csv
+│   │   │       ├── 200K-BestCase.csv
+│   │   │       └── 200K-WorstCase.csv
+│   │   │
+│   │   ├── util
+│   │   │   ├── CSVReader
+│   │   │   ├── DatasetGenerator
+│   │   │   └── FilePathReader
+│   │   │
+│   │   ├── BubbleSort
+│   │   ├── InsertionSort
+│   │   └── SelectionSort
+│   │
+│   ├── Project2
+│   │   ├── GUI
+│   │   │   ├── CourseListPage
+│   │   │   ├── ModulesTasksPage
+│   │   │   ├── TermListPage
+│   │   │   ├── TopicListPage
+│   │   │   └── UtilGUI
+│   │   │       ├── AddCoursePage
+│   │   │       ├── AddTopicPage
+│   │   │       ├── EditCoursePage
+│   │   │       ├── EditTopicPage
+│   │   │       └── RoundButton
+│   │   │
+│   │   ├── LinkedListImplementation
+│   │   │   ├── DoublyLinkedList
+│   │   │   ├── LinkedListInterface
+│   │   │   └── Node
+│   │   │
+│   │   ├── ReferenceClasses
+│   │   │   ├── Course
+│   │   │   ├── Term
+│   │   │   └── Topic
+│   │   │
+│   │   └── GoogleClassroomApp
+│   │
+├── .gitignore
+│
+├── CS211_9342_MixAndMatch.iml
+│
+├── README.md
 
-7. In the merge request, select "Stephen Coloma" as the assignee.
 
-8. Complete the merge request creation process.
-
-9. I'll be responsible for merging your changes into the main branch of the source code.
-
-**Important Note:** Please remember not to directly merge your changes into the main branch.
-Use the feature branch and the merge request process for maintaining the codebase.
-Feel free to ask if you have any questions or need further assistance.
-
+Explore and learn from our comparative analysis and linked list implementation.
