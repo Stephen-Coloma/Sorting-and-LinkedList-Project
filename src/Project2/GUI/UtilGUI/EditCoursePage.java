@@ -32,7 +32,7 @@ public class EditCoursePage extends JFrame {
 
     // Color theme from CourseListPage
     static Color mustard = new Color(255, 219, 87);
-    static Color royaBlue = new Color(17, 41, 107);
+    static Color royalBlue = new Color(17, 41, 107);
     static Color flashWhite = new Color(237, 237, 237);
     static Color polynesianBlue = new Color(0, 80, 157);
 
@@ -47,7 +47,19 @@ public class EditCoursePage extends JFrame {
         courseNameField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
         courseIdField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
 
+        // Modify the text field appearance
+        int textFieldHeight = 40; // Adjust the height as needed
+        courseNameField.setPreferredSize(new Dimension(200, textFieldHeight));
+        courseNameField.setBorder(BorderFactory.createLineBorder(royalBlue, 2));
+        courseIdField.setPreferredSize(new Dimension(200, textFieldHeight));
+        courseIdField.setBorder(BorderFactory.createLineBorder(royalBlue, 2));
         updateButton = new RoundButton("Update");
+        //Modify the label appearance
+        Font labelFont = new Font("Roboto", Font.BOLD, 18); // Replace "Roboto" with your desired font
+        courseNameField.setForeground(royalBlue);
+        courseIdField.setForeground(royalBlue);
+        courseNameField.setFont(labelFont);
+        courseIdField.setFont(labelFont);
         buttonDesign((RoundButton) updateButton);
 
         updateButton.addActionListener(e -> {
@@ -81,7 +93,7 @@ public class EditCoursePage extends JFrame {
         buttonPanel = new JPanel(new GridLayout(1, 1, 5, 5));
         buttonPanel.setBackground(mustard);
         buttonPanel.add(updateButton);
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 10, 100));
 
         add(editCoursePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
@@ -91,7 +103,7 @@ public class EditCoursePage extends JFrame {
         this.setIconImage(icon.getImage());
 
         // Frame properties
-        setSize(400, 190);
+        setSize(470, 300);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -100,10 +112,10 @@ public class EditCoursePage extends JFrame {
         button.setFont(new Font("Roboto", Font.BOLD, 14));
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                BorderFactory.createLineBorder(royalBlue, 2, false),
                 BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-        button.setBackground(flashWhite);
-        button.setForeground(polynesianBlue);
+        button.setBackground(polynesianBlue);
+        button.setForeground(mustard);
         button.setPreferredSize(new Dimension(100, button.getPreferredSize().height)); // set width to 100 and keep the original height
 
         button.addMouseListener(new MouseAdapter() {
@@ -111,19 +123,19 @@ public class EditCoursePage extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                        BorderFactory.createLineBorder(royalBlue, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(polynesianBlue);
+                button.setBackground(royalBlue);
                 button.setForeground(flashWhite);
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                        BorderFactory.createLineBorder(royalBlue, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(flashWhite);
-                button.setForeground(polynesianBlue);
+                button.setBackground(polynesianBlue);
+                button.setForeground(mustard);
             }
         });
     }
