@@ -29,11 +29,12 @@ public class AddCoursePage extends JFrame {
     private DefaultListModel<Course<Term<Topic>>> courseListModel;
     private DoublyLinkedList<Course<Term<Topic>>> courseList;
     private RoundButton okButton, cancelButton;
-    JPanel addCoursePanel, buttonPanel;
+    private JPanel addCoursePanel, buttonPanel;
+    private JLabel courseIdLabel, courseNameLabel;
 
     // Color theme from CourseListPage
     static Color mustard = new Color(255, 219, 87);
-    static Color royaBlue = new Color(17, 41, 107);
+    static Color royalBlue = new Color(17, 41, 107);
     static Color flashWhite = new Color(237, 237, 237);
     static Color polynesianBlue = new Color(0, 80, 157);
     public AddCoursePage(DefaultListModel<Course<Term<Topic>>> courseListModel, DoublyLinkedList<Course<Term<Topic>>> courseList) {
@@ -46,6 +47,8 @@ public class AddCoursePage extends JFrame {
         this.courseList = courseList;
 
         // Initialize GUI components
+        courseIdLabel = new JLabel("Course ID:");
+        courseNameLabel = new JLabel("Course Name:");
         courseNameField = new JTextField(20);
         courseCodeField = new JTextField(4);
         okButton = new RoundButton ("Ok");
@@ -53,12 +56,52 @@ public class AddCoursePage extends JFrame {
         courseNameField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
         courseCodeField.setBorder(BorderFactory.createLineBorder(polynesianBlue));
 
+        // Modify the text field appearance
+        int textFieldHeight = 40; // Adjust the height as needed
+        courseNameField.setPreferredSize(new Dimension(200, textFieldHeight));
+        courseNameField.setBorder(BorderFactory.createLineBorder(royalBlue, 2));
+        courseCodeField.setPreferredSize(new Dimension(200, textFieldHeight));
+        courseCodeField.setBorder(BorderFactory.createLineBorder(royalBlue, 2));
+
+        //Modify the label appearance
+        Font labelFont = new Font("Roboto", Font.BOLD, 18); // Replace "Roboto" with your desired font
+        courseNameLabel.setForeground(royalBlue);
+        courseIdLabel.setForeground(royalBlue);
+        courseNameLabel.setFont(labelFont);
+        courseIdLabel.setFont(labelFont);
+
         // Apply the color theme and styles
         setBackground(mustard);
         buttonDesign(okButton);
         buttonDesign(cancelButton);
 
-        // Action listener for the cancel button
+        // Set up GUI layout with the color theme
+        addCoursePanel = new JPanel(new GridLayout(2, 2, 5, 10));
+        addCoursePanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        addCoursePanel.setBackground(mustard);
+        addCoursePanel.add(courseIdLabel);
+        addCoursePanel.add(courseCodeField);
+        addCoursePanel.add(courseNameLabel);
+        addCoursePanel.add(courseNameField);
+
+        buttonPanel = new JPanel(new GridLayout(1, 2, 30, 5));
+        buttonPanel.setBackground(mustard);
+        buttonPanel.add(okButton);
+        buttonPanel.add(cancelButton);
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
+
+        add(addCoursePanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.CENTER);
+
+        // Add the icon to the JFrame
+        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        this.setIconImage(icon.getImage());
+
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(470, 210);
+        setLocationRelativeTo(null);
+
         cancelButton.addActionListener(e -> {
             dispose();
         });
@@ -94,36 +137,6 @@ public class AddCoursePage extends JFrame {
             }
         });
 
-        // Set up GUI layout with the color theme
-        addCoursePanel = new JPanel(new GridLayout(4, 2, 5, 5));
-        addCoursePanel.setBackground(mustard);
-        addCoursePanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-
-        JLabel courseIdLabel = new JLabel("Course ID:");
-        addCoursePanel.add(courseIdLabel);
-        addCoursePanel.add(courseCodeField);
-
-        JLabel courseNameLabel = new JLabel("Course Name:");
-        addCoursePanel.add(courseNameLabel);
-        addCoursePanel.add(courseNameField);
-
-        buttonPanel = new JPanel(new GridLayout(1, 2, 5, 5));
-        buttonPanel.setBackground(mustard);
-        buttonPanel.add(okButton);
-        buttonPanel.add(cancelButton);
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
-
-        add(addCoursePanel, BorderLayout.NORTH);
-        add(buttonPanel, BorderLayout.CENTER);
-
-        // Add the icon to the JFrame
-        String iconPath = "src/Project2/GUI/Icons/COURSE ICON.png";
-        ImageIcon icon = new ImageIcon(iconPath);
-        this.setIconImage(icon.getImage());
-
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(400, 190);
-        setLocationRelativeTo(null);
     }
 
     private void buttonDesign(JButton button) {
@@ -131,10 +144,10 @@ public class AddCoursePage extends JFrame {
         button.setFont(new Font("Roboto", Font.BOLD, 14));
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                BorderFactory.createLineBorder(royalBlue, 2, false),
                 BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-        button.setBackground(flashWhite);
-        button.setForeground(polynesianBlue);
+        button.setBackground(polynesianBlue);
+        button.setForeground(mustard);
 
         button.addMouseListener(new MouseAdapter() {
             @Override
@@ -142,9 +155,9 @@ public class AddCoursePage extends JFrame {
                 super.mouseEntered(e);
                 button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                        BorderFactory.createLineBorder(royalBlue, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(polynesianBlue);
+                button.setBackground(royalBlue);
                 button.setForeground(flashWhite);
             }
 
@@ -152,10 +165,10 @@ public class AddCoursePage extends JFrame {
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 button.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(polynesianBlue, 2, false),
+                        BorderFactory.createLineBorder(royalBlue, 2, false),
                         BorderFactory.createEmptyBorder(8, 18, 8, 18)));
-                button.setBackground(flashWhite);
-                button.setForeground(polynesianBlue);
+                button.setBackground(polynesianBlue);
+                button.setForeground(mustard);
             }
         });
     }

@@ -115,6 +115,7 @@ public class AddTopicPage extends JFrame {
         buttonPanel.add(addButton);
         buttonPanel.add(cancelButton);
         buttonPanel.setBackground(mustard);
+
         add(addTopicPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
         // Add the icon to the JFrame

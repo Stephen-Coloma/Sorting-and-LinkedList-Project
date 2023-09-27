@@ -39,7 +39,6 @@ public class CourseListPage extends JPanel {
     static Color flashWhite = new Color(237, 237, 237);
     static Color polynesianBlue = new Color(0, 80, 157);
 
-
     // Custom cell renderer to change the background color of the selected item
     class CustomListCellRenderer extends DefaultListCellRenderer {
         @Override
